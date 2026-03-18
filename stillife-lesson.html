@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title lang-swap data-he="טבע דומם – שיעור ציור | חגית אבידן" data-en="Still Life – Art Lesson | Hagit Avidan">השראה מחפצי הבית – Still Life | חגית אבידן</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    /* ========================
+       RESET & BASE
+    ======================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #FDF8F0;
+      --warm-white: #FFFAF4;
+      --terracotta: #C17A5A;
+      --terracotta-light: #E8A882;
+      --sage:       #8BAF8B;
+      --sage-light: #B8D4B8;
+      --dusty-rose: #D4899A;
+      --dusty-rose-light: #EDB8C4;
+      --gold:       #D4A853;
+      --gold-light: #F0C878;
+      --text-dark:  #3D2B1F;
+      --text-mid:   #6B4C3B;
+      --text-light: #9E7A6A;
+      --shadow:     rgba(61,43,31,0.10);
+      --shadow-md:  rgba(61,43,31,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      direction: rtl;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ========================
+       SCROLL PROGRESS BAR
+    ======================== */
+    #progress-bar {
+      position: fixed; top: 0; right: 0; left: 0; height: 4px;
+      background: linear-gradient(to left, var(--terracotta), var(--gold), var(--dusty-rose));
+      width: 0%; z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    /* ========================
+       SCROLL TO TOP
+    ======================== */
+    #scroll-top {
+      position: fixed; bottom: 2rem; left: 2rem;
+      width: 48px; height: 48px;
+      background: var(--terracotta); color: #fff;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px var(--shadow-md);
+      opacity: 0; transition: opacity 0.3s, transform 0.3s;
+      z-index: 1000;
+    }
+    #scroll-top.visible { opacity: 1; }
+    #scroll-top:hover { transform: translateY(-3px); }
+
+    /* ========================
+       NAV
+    ======================== */
+    nav {
+      position: fixed; top: 4px; right: 0; left: 0;
+      background: rgba(253,248,240,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(193,122,90,0.15);
+      z-index: 900; padding: 0.7rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 800; font-size: 1.05rem;
+      color: var(--terracotta);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-mid);
+      font-size: 0.82rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ========================
+       SECTIONS GENERAL
+    ======================== */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--terracotta);
+      color: #fff; font-size: 0.75rem; font-weight: 700;
+      padding: 0.25rem 0.8rem; border-radius: 20px;
+      margin-bottom: 0.8rem; letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800; color: var(--text-dark);
+      margin-bottom: 0.5rem; line-height: 1.2;
+    }
+    .section-subtitle {
+      color: var(--text-light); font-size: 1.05rem;
+      margin-bottom: 2.5rem; max-width: 650px;
+    }
+    .divider {
+      width: 60px; height: 4px;
+      background: linear-gradient(to left, var(--terracotta), var(--gold));
+      border-radius: 2px; margin: 0.8rem 0 2rem;
+    }
+
+    /* ========================
+       HERO
+    ======================== */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #FFF5EE 0%, #FDF8F0 40%, #F5F0E8 100%);
+      display: flex; align-items: center;
+      padding-top: 6rem;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; top: -60px; left: -60px;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(212,168,83,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    #hero::after {
+      content: '';
+      position: absolute; bottom: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(193,122,90,0.10) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(193,122,90,0.10); color: var(--terracotta);
+      padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem;
+      font-weight: 600; margin-bottom: 1.2rem; border: 1px solid rgba(193,122,90,0.25);
+    }
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900; line-height: 1.15;
+      color: var(--text-dark); margin-bottom: 1rem;
+    }
+    .hero-title span { color: var(--terracotta); }
+    .hero-desc {
+      font-size: 1.1rem; color: var(--text-mid);
+      margin-bottom: 2rem; line-height: 1.8;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--terracotta); color: #fff;
+      padding: 0.85rem 2rem; border-radius: 40px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      box-shadow: 0 4px 18px rgba(193,122,90,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(193,122,90,0.45); }
+    .btn-secondary {
+      background: transparent; color: var(--terracotta);
+      padding: 0.85rem 2rem; border-radius: 40px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      border: 2px solid var(--terracotta);
+      transition: background 0.2s, color 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-secondary:hover { background: var(--terracotta); color: #fff; }
+
+    .hero-visual {
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-canvas {
+      width: 340px; height: 340px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px var(--shadow-md);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-size: 5rem; gap: 1rem; position: relative;
+      overflow: hidden;
+    }
+    .hero-canvas::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(212,168,83,0.06) 0%, rgba(193,122,90,0.06) 100%);
+    }
+    .hero-canvas-label {
+      font-size: 0.85rem; color: var(--text-light); font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .hero-stats {
+      display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-size: 1.5rem; font-weight: 800; color: var(--terracotta); }
+    .hero-stat span { font-size: 0.8rem; color: var(--text-light); }
+
+    /* ========================
+       WHAT IS STILL LIFE
+    ======================== */
+    #what {
+      background: var(--warm-white);
+    }
+    .what-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: start;
+    }
+    .what-text p {
+      color: var(--text-mid); margin-bottom: 1rem; font-size: 1rem; line-height: 1.8;
+    }
+    .timeline { margin-top: 2rem; }
+    .timeline-item {
+      display: flex; gap: 1.2rem; margin-bottom: 1.5rem;
+      animation: fadeInUp 0.6s ease both;
+    }
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--terracotta), var(--gold));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 800; font-size: 0.75rem;
+    }
+    .timeline-content h4 { font-weight: 700; color: var(--text-dark); margin-bottom: 0.2rem; }
+    .timeline-content p { color: var(--text-light); font-size: 0.9rem; }
+
+    .quote-box {
+      background: linear-gradient(135deg, rgba(193,122,90,0.08), rgba(212,168,83,0.08));
+      border-right: 4px solid var(--terracotta);
+      padding: 1.5rem 1.8rem; border-radius: 12px;
+      margin-top: 1.5rem;
+    }
+    .quote-box p { font-style: italic; color: var(--text-mid); font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .quote-box cite { font-size: 0.85rem; color: var(--terracotta); font-weight: 600; }
+
+    /* ========================
+       ARTISTS SLIDER
+    ======================== */
+    #artists {
+      background: var(--cream);
+    }
+    .artists-slider { display:flex; flex-direction:row; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding-bottom:12px; } .artists-slider::-webkit-scrollbar{height:6px;} .artists-slider::-webkit-scrollbar-thumb{background:var(--terracotta);border-radius:3px;}
+    .artists-track {
+      display: flex; gap: 1.5rem;
+      transition: transform 0.4s ease;
+    }
+    .artist-card { min-width:280px; max-width:320px; scroll-snap-align:start; flex-shrink:0;
+      background: #fff; border-radius: 20px;
+      overflow: visible;
+      text-align: center;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .artist-card-img {
+      width: 100%; height: 170px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .artist-card:hover .artist-card-img { transform: scale(1.05); }
+    .artist-card-body {
+      padding: 1.2rem 1.5rem 1.5rem;
+      min-height: 140px;
+    }
+    .artist-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px var(--shadow-md); }
+    .artist-name { font-size: 1.15rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .artist-years { font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.8rem; }
+    .artist-quote {
+      font-style: italic; font-size: 0.88rem;
+      color: var(--text-mid); line-height: 1.6;
+      border-top: 1px solid rgba(193,122,90,0.15); padding-top: 0.8rem; margin-top: 0.8rem;
+      overflow: visible; word-wrap: break-word;
+    }
+    .slider-nav { display: flex; gap: 0.8rem; margin-top: 1.5rem; justify-content: center; }
+    .slider-btn {
+      width: 40px; height: 40px;
+      background: var(--terracotta); color: #fff; border: none;
+      border-radius: 50%; cursor: pointer; font-size: 1rem;
+      transition: transform 0.2s, background 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .slider-btn:hover { transform: scale(1.1); background: var(--text-dark); }
+
+    /* ========================
+       OBJECTS GALLERY
+    ======================== */
+    #gallery {
+      background: var(--warm-white);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+    .gallery-item {
+      background: #fff; border-radius: 16px;
+      padding: 1.5rem 1rem 1rem; text-align: center;
+      box-shadow: 0 2px 12px var(--shadow);
+      cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .gallery-item::after {
+      content: 'לחץ לפרטים';
+      position: absolute; inset: 0;
+      background: rgba(193,122,90,0.88);
+      color: #fff; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; opacity: 0;
+      transition: opacity 0.3s; border-radius: 16px;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 10px 30px var(--shadow-md); }
+    .gallery-emoji { font-size: 3rem; margin-bottom: 0.6rem; display: block; }
+    .gallery-name { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .gallery-sub { font-size: 0.8rem; color: var(--text-light); }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+      z-index: 2000; display: none;
+      align-items: center; justify-content: center; padding: 1.5rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #fff; border-radius: 24px;
+      padding: 2.5rem; max-width: 500px; width: 100%;
+      position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .modal-close {
+      position: absolute; top: 1rem; left: 1rem;
+      background: none; border: none; font-size: 1.5rem;
+      cursor: pointer; color: var(--text-light);
+    }
+    .modal-emoji { font-size: 4rem; margin-bottom: 0.8rem; display: block; }
+    .modal-title { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; }
+    .modal-body { color: var(--text-mid); line-height: 1.8; margin-bottom: 1.2rem; }
+    .modal-tips { list-style: none; }
+    .modal-tips li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      padding: 0.5rem 0; border-bottom: 1px solid rgba(193,122,90,0.1);
+      font-size: 0.92rem; color: var(--text-dark);
+    }
+    .modal-tips li:last-child { border-bottom: none; }
+    .modal-tips li::before { content: '🖌️'; flex-shrink: 0; }
+
+    /* ========================
+       VIDEO SECTION
+    ======================== */
+    #videos {
+      background: var(--cream);
+    }
+
+    /* Channel Banner */
+    .channel-banner {
+      background: linear-gradient(135deg, rgba(193,122,90,0.12), rgba(212,168,83,0.12));
+      border: 1px solid rgba(193,122,90,0.25);
+      border-radius: 16px;
+      padding: 1.2rem 1.8rem;
+      margin-bottom: 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .channel-banner-text {
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .channel-banner-text .channel-icon {
+      width: 48px; height: 48px;
+      background: var(--terracotta);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1.3rem; flex-shrink: 0;
+    }
+    .channel-banner-text .channel-info strong {
+      display: block; font-size: 1rem; font-weight: 700;
+      color: var(--text-dark); margin-bottom: 0.15rem;
+    }
+    .channel-banner-text .channel-info span {
+      font-size: 0.82rem; color: var(--text-light);
+    }
+    .channel-banner-link {
+      background: var(--terracotta); color: #fff;
+      padding: 0.6rem 1.4rem; border-radius: 30px;
+      text-decoration: none; font-weight: 700; font-size: 0.88rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .channel-banner-link:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(193,122,90,0.4); }
+
+    .videos-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    .video-card {
+      background: #fff; border-radius: 20px;
+      overflow: hidden; box-shadow: 0 4px 20px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .video-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px var(--shadow-md); }
+    .video-wrapper {
+      position: relative; padding-bottom: 56.25%;
+      height: 0; overflow: hidden;
+    }
+    .video-wrapper iframe {
+      position: absolute; top: 0; right: 0;
+      width: 100%; height: 100%; border: none;
+    }
+    .video-info { padding: 1.5rem; }
+    .video-badge {
+      display: inline-block;
+      background: rgba(193,122,90,0.12); color: var(--terracotta);
+      padding: 0.25rem 0.7rem; border-radius: 12px;
+      font-size: 0.73rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+    }
+    .video-title {
+      font-size: 1.1rem; font-weight: 800; color: var(--text-dark);
+      margin-bottom: 0.5rem; line-height: 1.3;
+    }
+    .video-desc {
+      font-size: 0.88rem; color: var(--text-light); line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .video-tips { list-style: none; }
+    .video-tips li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.85rem; color: var(--text-mid);
+      padding: 0.4rem 0; border-bottom: 1px solid rgba(193,122,90,0.08);
+    }
+    .video-tips li:last-child { border-bottom: none; }
+    .video-tips li .tip-icon { color: var(--terracotta); flex-shrink: 0; }
+    .video-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--terracotta); text-decoration: none;
+      font-size: 0.82rem; font-weight: 600;
+      margin-top: 0.8rem; transition: gap 0.2s;
+    }
+    .video-link:hover { gap: 0.7rem; }
+
+    /* ========================
+       QUOTES CAROUSEL
+    ======================== */
+    #quotes {
+      background: linear-gradient(135deg, #FFF0E8, #FDF8F0, #F8F4EE);
+    }
+    .quotes-carousel { position: relative; overflow: hidden; }
+    .quotes-track {
+      display: flex; transition: transform 0.5s ease;
+    }
+    .quote-card {
+      min-width: 100%; padding: 3rem 2rem; text-align: center;
+    }
+    .quote-mark {
+      font-size: 5rem; color: rgba(193,122,90,0.2);
+      line-height: 0.5; margin-bottom: 1.5rem; display: block;
+      font-family: Georgia, serif;
+    }
+    .quote-text {
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
+      font-weight: 600; color: var(--text-dark);
+      line-height: 1.5; max-width: 700px; margin: 0 auto 1.5rem;
+      font-style: italic;
+    }
+    .quote-author {
+      font-size: 0.95rem; color: var(--terracotta); font-weight: 700;
+    }
+    .carousel-dots {
+      display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.5rem;
+    }
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(193,122,90,0.25); cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .dot.active { background: var(--terracotta); transform: scale(1.3); }
+
+    /* ========================
+       PRACTICAL EXERCISE
+    ======================== */
+    #exercise {
+      background: var(--warm-white);
+    }
+    .exercise-container {
+      background: #fff; border-radius: 24px;
+      padding: 2.5rem; box-shadow: 0 4px 24px var(--shadow);
+      max-width: 900px; margin: 0 auto;
+    }
+    .exercise-steps {
+      display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;
+    }
+    .step-tab {
+      flex: 1; min-width: 140px;
+      padding: 0.8rem 0.5rem; text-align: center;
+      border-radius: 12px; background: var(--cream);
+      cursor: pointer; transition: all 0.3s; border: 2px solid transparent;
+    }
+    .step-tab.active {
+      background: var(--terracotta); color: #fff; border-color: var(--terracotta);
+    }
+    .step-tab .step-num {
+      display: block; font-size: 1.4rem; font-weight: 900;
+      margin-bottom: 0.2rem;
+    }
+    .step-tab .step-name { font-size: 0.78rem; font-weight: 600; }
+
+    .step-panel { display: none; }
+    .step-panel.active { display: block; animation: fadeIn 0.4s ease; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .step-content h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.8rem; color: var(--text-dark); }
+    .step-content p { color: var(--text-mid); margin-bottom: 1rem; line-height: 1.8; }
+
+    /* Object Picker */
+    .object-picker h4 { font-weight: 700; margin-bottom: 0.8rem; color: var(--text-dark); font-size: 0.95rem; }
+    .object-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 0.6rem; margin-bottom: 1.5rem;
+    }
+    .object-btn {
+      padding: 0.8rem 0.4rem; text-align: center;
+      border: 2px solid rgba(193,122,90,0.2); border-radius: 12px;
+      cursor: pointer; background: var(--cream);
+      transition: all 0.2s; font-size: 0.8rem; color: var(--text-dark);
+    }
+    .object-btn:hover, .object-btn.selected {
+      border-color: var(--terracotta);
+      background: rgba(193,122,90,0.08);
+    }
+    .object-btn .ob-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.3rem; }
+
+    /* Technique Picker */
+    .technique-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 0.6rem; margin-bottom: 1.5rem;
+    }
+    .tech-btn {
+      padding: 0.7rem; text-align: center;
+      border: 2px solid rgba(139,175,139,0.25); border-radius: 12px;
+      cursor: pointer; background: #fff;
+      transition: all 0.2s; font-size: 0.82rem; color: var(--text-dark);
+    }
+    .tech-btn:hover, .tech-btn.selected {
+      border-color: var(--sage); background: rgba(139,175,139,0.10);
+    }
+    .tech-btn .tech-icon { font-size: 1.6rem; display: block; margin-bottom: 0.3rem; }
+
+    .teacher-tip {
+      background: linear-gradient(135deg, rgba(212,168,83,0.10), rgba(193,122,90,0.10));
+      border-right: 4px solid var(--gold);
+      border-radius: 12px; padding: 1.2rem 1.5rem;
+      margin-top: 1rem;
+    }
+    .teacher-tip .tip-label {
+      font-size: 0.75rem; font-weight: 700; color: var(--gold);
+      text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .teacher-tip p { font-size: 0.92rem; color: var(--text-mid); margin: 0; }
+
+    /* Timer */
+    .timer-section { text-align: center; }
+    .timer-display {
+      position: relative; width: 200px; height: 200px;
+      margin: 1.5rem auto;
+    }
+    .timer-circle { transform: rotate(-90deg); }
+    .timer-bg { fill: none; stroke: rgba(193,122,90,0.12); stroke-width: 10; }
+    .timer-progress {
+      fill: none; stroke: var(--terracotta); stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 502;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 1s linear, stroke 0.5s;
+    }
+    .timer-text {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .timer-time {
+      font-size: 2.5rem; font-weight: 900;
+      color: var(--text-dark); line-height: 1;
+    }
+    .timer-phase {
+      font-size: 0.78rem; color: var(--text-light);
+      margin-top: 0.3rem; max-width: 100px; line-height: 1.3;
+    }
+    .timer-btns { display: flex; gap: 0.8rem; justify-content: center; margin-top: 1rem; }
+    .timer-btn {
+      padding: 0.7rem 1.8rem; border-radius: 30px; border: none;
+      cursor: pointer; font-weight: 700; font-size: 0.9rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .timer-start { background: var(--terracotta); color: #fff; }
+    .timer-pause { background: var(--gold); color: #fff; }
+    .timer-reset { background: var(--cream); color: var(--text-mid); border: 2px solid rgba(193,122,90,0.2); }
+    .timer-btn:hover { transform: scale(1.05); }
+    .phase-indicators {
+      display: flex; gap: 0.8rem; justify-content: center;
+      margin-top: 1.5rem; flex-wrap: wrap;
+    }
+    .phase-pill {
+      padding: 0.4rem 0.9rem; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 600;
+      background: var(--cream); color: var(--text-light);
+      transition: all 0.3s;
+    }
+    .phase-pill.active {
+      color: #fff; transform: scale(1.05);
+    }
+    .phase-pill[data-phase="0"].active { background: var(--sage); }
+    .phase-pill[data-phase="1"].active { background: var(--gold); }
+    .phase-pill[data-phase="2"].active { background: var(--terracotta); }
+    .phase-pill[data-phase="3"].active { background: var(--dusty-rose); }
+
+    /* ========================
+       HOMEWORK
+    ======================== */
+    #homework {
+      background: var(--cream);
+    }
+    .homework-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;
+    }
+    .hw-card {
+      background: #fff; border-radius: 20px;
+      padding: 2rem; box-shadow: 0 2px 16px var(--shadow);
+    }
+    .hw-number {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, var(--terracotta), var(--gold));
+      color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .hw-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-dark); }
+    .hw-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+
+    .takeaways {
+      background: linear-gradient(135deg, rgba(193,122,90,0.08), rgba(212,168,83,0.08));
+      border-radius: 20px; padding: 2.5rem;
+    }
+    .takeaways h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-dark); text-align: center; }
+    .takeaways-list { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .takeaway {
+      background: #fff; border-radius: 16px; padding: 1.5rem;
+      text-align: center; flex: 1; min-width: 200px;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+    .takeaway-icon { font-size: 2rem; display: block; margin-bottom: 0.6rem; }
+    .takeaway p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* ========================
+       FOOTER
+    ======================== */
+    footer {
+      background: var(--text-dark); color: rgba(255,255,255,0.8);
+      padding: 3rem 1.5rem; text-align: center;
+    }
+    footer .footer-logo { font-size: 1.5rem; font-weight: 900; color: var(--gold); margin-bottom: 0.5rem; }
+    footer p { font-size: 0.9rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ========================
+       ANIMATIONS
+    ======================== */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ========================
+       RESPONSIVE
+    ======================== */
+    @media (max-width: 768px) {
+      nav { padding: 0.6rem 1rem; }
+      .nav-links { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .what-grid { grid-template-columns: 1fr; }
+      .videos-grid { grid-template-columns: 1fr; }
+      .homework-grid { grid-template-columns: 1fr; }
+      .channel-banner { flex-direction: column; align-items: flex-start; }
+      section { padding: 3.5rem 1rem; }
+    }
+  
+  /* ── LANGUAGE TOGGLE ── */
+  #lang-btn {
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    z-index: 9999;
+    background: var(--warm-blue, #4A6FA5);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(74,111,165,0.35);
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.5px;
+  }
+  #lang-btn:hover { background: #3a5a8a; transform: scale(1.05); }
+
+    /* ── LTR OVERRIDE FOR ENGLISH ── */
+    html[dir="ltr"] body {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] nav,
+    html[dir="ltr"] .nav-logo,
+    html[dir="ltr"] .nav-links,
+    html[dir="ltr"] .nav-brand {
+      direction: ltr;
+    }
+    html[dir="ltr"] .nav-links {
+      margin-left: auto;
+      margin-right: 0;
+    }
+    html[dir="ltr"] .hero-content,
+    html[dir="ltr"] .hero-stats,
+    html[dir="ltr"] .hero-grid,
+    html[dir="ltr"] .hero-btns {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .section-title,
+    html[dir="ltr"] .section-subtitle,
+    html[dir="ltr"] .section-tag {
+      text-align: left;
+    }
+    html[dir="ltr"] .what-grid,
+    html[dir="ltr"] .what-text,
+    html[dir="ltr"] .cards-grid,
+    html[dir="ltr"] .card {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .artist-body,
+    html[dir="ltr"] .artist-name,
+    html[dir="ltr"] .artist-dates,
+    html[dir="ltr"] .artist-quote,
+    html[dir="ltr"] .artist-desc {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .exercise-container,
+    html[dir="ltr"] .step-content,
+    html[dir="ltr"] .teacher-tip,
+    html[dir="ltr"] .tip-box {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .homework-grid,
+    html[dir="ltr"] .hw-card,
+    html[dir="ltr"] .takeaways,
+    html[dir="ltr"] .takeaway {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .quote-box,
+    html[dir="ltr"] .quote-card,
+    html[dir="ltr"] .quote-text,
+    html[dir="ltr"] .quote-author,
+    html[dir="ltr"] .video-info,
+    html[dir="ltr"] .video-title,
+    html[dir="ltr"] .video-desc,
+    html[dir="ltr"] .video-tips {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .channel-banner,
+    html[dir="ltr"] .channel-info,
+    html[dir="ltr"] .channel-banner-text {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] footer {
+      direction: ltr;
+      text-align: center;
+    }
+    html[dir="ltr"] .footer-logo {
+      text-align: center;
+    }
+    html[dir="ltr"] p,
+    html[dir="ltr"] li,
+    html[dir="ltr"] h1,
+    html[dir="ltr"] h2,
+    html[dir="ltr"] h3,
+    html[dir="ltr"] span,
+    html[dir="ltr"] div {
+      direction: ltr;
+    }
+    html[dir="ltr"] .modal-box {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .exercise-steps {
+      direction: ltr;
+    }
+    html[dir="ltr"] .phase-indicators,
+    html[dir="ltr"] .phases-row {
+      direction: ltr;
+    }
+    html[dir="ltr"] .channel-banner-link,
+    html[dir="ltr"] .video-link {
+      direction: ltr;
+    }
+    /* Cards & grids */
+    html[dir="ltr"] .hw-grid,
+    html[dir="ltr"] .videos-grid,
+    html[dir="ltr"] .gallery-grid {
+      direction: ltr;
+    }
+    /* Intro cards in cities */
+    html[dir="ltr"] .card-title,
+    html[dir="ltr"] .card-text {
+      direction: ltr;
+      text-align: left;
+    }
+
+    /* ── FOOTER CENTER ── */
+    footer {
+      text-align: center !important;
+    }
+    footer .footer-logo {
+      text-align: center !important;
+    }
+    footer p {
+      text-align: center !important;
+    }
+    footer a {
+      display: inline;
+    }
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Scroll Top -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html" style="color:inherit;text-decoration:none;">🏠</a>
+    <span style="margin:0 8px;opacity:0.4;">|</span>
+    <span>🎨</span> <span data-he="Still Life – חגית אבידן" data-en="Still Life – Hagit Avidan">Still Life – חגית אבידן</span>
+  </div>
+  <div class="nav-links">
+    <a href="#what"><span data-he="מה זה Still Life?" data-en="What is Still Life?">מה זה Still Life?</span></a>
+    <a href="#artists"><span data-he="אמנים" data-en="Artists">אמנים</span></a>
+    <a href="#gallery"><span data-he="גלריה" data-en="Gallery">גלריה</span></a>
+    <a href="#videos"><span data-he="וידאו" data-en="Videos">וידאו</span></a>
+    <a href="#exercise"><span data-he="תרגיל" data-en="Exercise">תרגיל</span></a>
+    <a href="#homework"><span data-he="שיעורי בית" data-en="Homework">שיעורי בית</span></a>
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank">📷</a>
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank">👥</a>
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank">📺</a>
+    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener"><span data-he="📚 קורס קסם הרישום" data-en="📚 Drawing Magic Course">📚 קורס קסם הרישום</span></a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content fade-in">
+        <div class="hero-label">
+          <i class="fas fa-paint-brush"></i>
+          <span data-he="שיעור ציור אינטראקטיבי" data-en="Interactive Art Lesson">שיעור ציור אינטראקטיבי</span>
+        </div>
+        <h1 class="hero-title">
+          <span data-he="השראה מ" data-en="Inspiration from ">השראה מ</span><span data-he="חפצי הבית" data-en="Household Objects">חפצי הבית</span><br/>Still Life
+        </h1>
+        <p class="hero-desc">
+          <span data-he="כוס קפה, פרחים בצנצנת, ספרים על שולחן – העולם שסביבך מלא בנושאי ציור מרתקים שמחכים שתגלה אותם." data-en="A coffee cup, flowers in a jar, books on a table – the world around you is full of fascinating painting subjects waiting to be discovered.">כוס קפה, פרחים בצנצנת, ספרים על שולחן – העולם שסביבך מלא בנושאי ציור מרתקים שמחכים שתגלה אותם.</span>
+        </p>
+        <div class="hero-btns">
+          <a href="#exercise" class="btn-primary">
+            <i class="fas fa-paint-brush"></i> <span data-he="לתרגיל המעשי" data-en="Go to Exercise">לתרגיל המעשי</span>
+          </a>
+          <a href="#videos" class="btn-secondary">
+            <i class="fas fa-play"></i> <span data-he="לסרטוני הדגמה" data-en="Watch Demos">לסרטוני הדגמה</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>8</strong>
+            <span data-he="חפצים לתרגול" data-en="Practice Objects">חפצים לתרגול</span>
+          </div>
+          <div class="hero-stat">
+            <strong>40</strong>
+            <span data-he="דקות תרגיל" data-en="Practice Minutes">דקות תרגיל</span>
+          </div>
+          <div class="hero-stat">
+            <strong>4</strong>
+            <span data-he="שלבי ציור" data-en="Painting Phases">שלבי ציור</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual fade-in">
+        <div class="hero-canvas">
+          <span>🍋 ☕ 🌷</span>
+          <span>📚 🪴 🫙</span>
+          <span class="hero-canvas-label">STILL LIFE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT IS STILL LIFE ===== -->
+<section id="what">
+  <div class="container">
+    <div class="what-grid">
+      <div class="what-text fade-in">
+        <span class="section-tag"><span data-he="מבוא" data-en="Introduction">מבוא</span></span>
+        <h2 class="section-title"><span data-he="מה זה Still Life?" data-en="What is Still Life?">מה זה Still Life?</span></h2>
+        <div class="divider"></div>
+        <p>
+          <span data-he-html='<strong>Still Life</strong> (טבע דומם) הוא ז&#39;אנר ציורי שמתמקד בחפצים דוממים – פירות, פרחים, כלי בית, כלי מטבח. זהו הבסיס המושלם ללמידת ציור כי הנושא &quot;לא זז&quot;.' data-en-html='<strong>Still Life</strong> is a painting genre focused on inanimate objects – fruits, flowers, household items, kitchen utensils. It is the perfect foundation for learning to paint because the subject &quot;doesn&#39;t move&quot;.'><strong>Still Life</strong> (טבע דומם) הוא ז'אנר ציורי שמתמקד בחפצים דוממים – פירות, פרחים, כלי בית, כלי מטבח. זהו הבסיס המושלם ללמידת ציור כי הנושא "לא זז".</span>
+        </p>
+        <p>
+          <span data-he="מה שמיוחד בטבע דומם הוא שכל חפץ פשוט – כוס קפה, עציץ, לימון – יכול להפוך ליצירת אמנות כשרואים אותו בעיניים של אמן." data-en="What makes still life special is that any simple object – a coffee cup, a plant, a lemon – can become a work of art when seen through an artist's eyes.">מה שמיוחד בטבע דומם הוא שכל חפץ פשוט – כוס קפה, עציץ, לימון – יכול להפוך ליצירת אמנות כשרואים אותו בעיניים של אמן.</span>
+        </p>
+        <div class="quote-box">
+          <p><span data-he='"לצייר חפץ פשוט זה לראות אותו בפעם הראשונה"' data-en='"To paint a simple object is to see it for the first time"'>"לצייר חפץ פשוט זה לראות אותו בפעם הראשונה"</span></p>
+          <cite>– <span data-he="פול סזאן" data-en="Paul Cézanne">פול סזאן</span></cite>
+        </div>
+        <div class="quote-box" style="margin-top:1rem; border-color: var(--sage);">
+          <p><span data-he='"כאשר תלמדו לראות על ידי ציור מה שמולכם – תוכלו ליישם את השיעורים האלה על כל נושא"' data-en='"When you learn to see by painting what is in front of you – you can apply these lessons to any subject"'>"כאשר תלמדו לראות על ידי ציור מה שמולכם – תוכלו ליישם את השיעורים האלה על כל נושא"</span></p>
+          <cite>– <span data-he="מצוטט מסרטון Still Life בשמן" data-en="Quoted from the Still Life in Oil video">מצוטט מסרטון Still Life בשמן</span></cite>
+        </div>
+      </div>
+      <div class="fade-in">
+        <h3 style="font-weight:800; margin-bottom:1.5rem; color:var(--text-dark);"><span data-he="למה לצייר טבע דומם?" data-en="Why Paint Still Life?">למה לצייר טבע דומם?</span></h3>
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div style="background:#fff; border-radius:16px; padding:1.2rem 1.5rem; box-shadow:0 2px 12px rgba(0,0,0,0.07); border-right:4px solid var(--terracotta);">
+            <div style="font-size:1.5rem; margin-bottom:0.4rem;"><span data-he="🏠 נגיש לכולם" data-en="🏠 Accessible to Everyone">🏠 נגיש לכולם</span></div>
+            <p style="color:var(--text-mid); font-size:0.95rem; line-height:1.6; margin:0;"><span data-he="אין צורך לצאת מהבית או להזמין דוגמן – פשוט השתמש במה שיש על השולחן או אדן החלון." data-en="No need to leave home or hire a model – just use what's on the table or windowsill.">אין צורך לצאת מהבית או להזמין דוגמן – פשוט השתמש במה שיש על השולחן או אדן החלון.</span></p>
+          </div>
+          <div style="background:#fff; border-radius:16px; padding:1.2rem 1.5rem; box-shadow:0 2px 12px rgba(0,0,0,0.07); border-right:4px solid var(--gold);">
+            <div style="font-size:1.5rem; margin-bottom:0.4rem;"><span data-he="👁️ מלמד תצפית אמיתית" data-en="👁️ Teaches Real Observation">👁️ מלמד תצפית אמיתית</span></div>
+            <p style="color:var(--text-mid); font-size:0.95rem; line-height:1.6; margin:0;"><span data-he='מחנך את העין לראות צל, אור, צורה ומרקם. "צייר את הקו כפי שהוא נראה – לא כפי שאתה חושב שאתה רואה."' data-en='Trains the eye to see shadow, light, shape and texture. "Draw the line as it appears – not as you think you see it."'> מחנך את העין לראות צל, אור, צורה ומרקם. "צייר את הקו כפי שהוא נראה – לא כפי שאתה חושב שאתה רואה."</span></p>
+            <p style="color:var(--terracotta); font-size:0.8rem; margin:0.4rem 0 0; font-weight:700;">– <span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span></p>
+          </div>
+          <div style="background:#fff; border-radius:16px; padding:1.2rem 1.5rem; box-shadow:0 2px 12px rgba(0,0,0,0.07); border-right:4px solid var(--sage);">
+            <div style="font-size:1.5rem; margin-bottom:0.4rem;"><span data-he="📖 יכול לספר סיפור" data-en="📖 Can Tell a Story">📖 יכול לספר סיפור</span></div>
+            <p style="color:var(--text-mid); font-size:0.95rem; line-height:1.6; margin:0;"><span data-he="כל חפץ נושא זיכרון, רגש ומשמעות. סידור הסצנה הוא כמו כתיבת שיר." data-en="Every object carries memory, emotion and meaning. Composing the scene is like writing a poem.">כל חפץ נושא זיכרון, רגש ומשמעות. סידור הסצנה הוא כמו כתיבת שיר.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTISTS ===== -->
+<section id="artists">
+  <div class="container">
+    <span class="section-tag"><span data-he="השראה" data-en="Inspiration">השראה</span></span>
+    <h2 class="section-title"><span data-he="🎨 אמנים שאהבו חפצי בית" data-en="🎨 Artists Who Loved Household Objects">🎨 אמנים שאהבו חפצי בית</span></h2>
+    <div class="divider"></div>
+    <p class="section-subtitle"><span data-he="גדולי האמנים מצאו יקום שלם בתוך חפצים פשוטים" data-en="Great artists found a whole universe inside simple objects">גדולי האמנים מצאו יקום שלם בתוך חפצים פשוטים</span></p>
+    <div class="artists-slider" id="artistsSlider">
+      <div class="artist-card">
+        <div class="artist-header" style="background:linear-gradient(135deg,#8B4513,#D4956A);">
+          <img class="artist-card-img"
+               src="https://images.metmuseum.org/CRDImages/ep/web-large/DT47.jpg"
+               alt="Cézanne – Still life with apples"
+               loading="lazy"
+               onerror="this.style.display='none'">
+          <div class="artist-name"><span data-he="פול סזאן" data-en="Paul Cézanne">פול סזאן</span></div>
+          <div class="artist-years"><span data-he="1839–1906 | צרפת" data-en="1839–1906 | France">1839–1906 | צרפת</span></div>
+        </div>
+        <div class="artist-body">
+          <div class="artist-quote"><span data-he='"אני רוצה לתת לטבע ביטוי אנושי."' data-en='"I want to give nature a human expression."'>"אני רוצה לתת לטבע ביטוי אנושי."</span></div>
+          <p class="artist-desc"><span data-he="צייר תפוחים ובקבוקים כדי לחקור צורה, נפח ויחסי צבע. ייסד את הציור המודרני." data-en="Painted apples and bottles to explore shape, volume and color relationships. Founded modern painting.">צייר תפוחים ובקבוקים כדי לחקור צורה, נפח ויחסי צבע. ייסד את הציור המודרני.</span></p>
+        </div>
+      </div>
+      <div class="artist-card">
+        <div class="artist-header" style="background:linear-gradient(135deg,#4a4a5a,#7a7a9a);">
+          <img class="artist-card-img"
+               src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Large_still_life_with_eleven_objects_by_Giorgio_Morandi.jpg"
+               alt="Morandi – Still life with eleven objects"
+               loading="lazy"
+               onerror="this.style.display='none'">
+          <div class="artist-name"><span data-he="ג'ורג'יו מורנדי" data-en="Giorgio Morandi">ג'ורג'יו מורנדי</span></div>
+          <div class="artist-years"><span data-he="1890–1964 | איטליה" data-en="1890–1964 | Italy">1890–1964 | איטליה</span></div>
+        </div>
+        <div class="artist-body">
+          <div class="artist-quote"><span data-he='"אין דבר מופשט יותר מהמציאות."' data-en='"There is nothing more abstract than reality."'>"אין דבר מופשט יותר מהמציאות."</span></div>
+          <p class="artist-desc"><span data-he="צייר את אותם הבקבוקים 40 שנה – הוכיח שהתצפית חשובה יותר מהנושא." data-en="Painted the same bottles for 40 years – proving that observation matters more than the subject.">צייר את אותם הבקבוקים 40 שנה – הוכיח שהתצפית חשובה יותר מהנושא.</span></p>
+        </div>
+      </div>
+      <div class="artist-card">
+        <div class="artist-header" style="background:linear-gradient(135deg,#1a3a5c,#4a8ab5);">
+          <img class="artist-card-img"
+               src="https://images.metmuseum.org/CRDImages/ep/web-large/DT1947.jpg"
+               alt="Van Gogh – Shoes"
+               loading="lazy"
+               onerror="this.style.display='none'">
+          <div class="artist-name"><span data-he="וינסנט ואן גוך" data-en="Vincent van Gogh">וינסנט ואן גוך</span></div>
+          <div class="artist-years"><span data-he="1853–1890 | הולנד" data-en="1853–1890 | Netherlands">1853–1890 | הולנד</span></div>
+        </div>
+        <div class="artist-body">
+          <div class="artist-quote"><span data-he='"אני חולם את ציורי ואחר כך מצייר את חלומי."' data-en='"I dream my painting and then paint my dream."'>"אני חולם את ציורי ואחר כך מצייר את חלומי."</span></div>
+          <p class="artist-desc"><span data-he="צייר נעלי עבודה, כיסאות ושולחנות שסיפרו את סיפור חייו." data-en="Painted work boots, chairs and tables that told the story of his life.">צייר נעלי עבודה, כיסאות ושולחנות שסיפרו את סיפור חייו.</span></p>
+        </div>
+      </div>
+      <div class="artist-card">
+        <div class="artist-header" style="background:linear-gradient(135deg,#2d5a2d,#5a9a5a);">
+          <img class="artist-card-img"
+               src="https://img.youtube.com/vi/Jwe-_JwKTjY/mqdefault.jpg"
+               alt="חגית אבידן"
+               loading="lazy"
+               onerror="this.style.display='none'">
+          <div class="artist-name"><span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span></div>
+          <div class="artist-years"><span data-he="ישראל | 7 Diamonds" data-en="Israel | 7 Diamonds">ישראל | 7 Diamonds</span></div>
+        </div>
+        <div class="artist-body">
+          <div class="artist-quote"><span data-he='"לפני שאתה מצייר – צפה. לפני שאתה מוסיף – הבן."' data-en='"Before you paint – observe. Before you add – understand."'>"לפני שאתה מצייר – צפה. לפני שאתה מוסיף – הבן."</span></div>
+          <p class="artist-desc"><span data-he="מורה לציור ואמנית ישראלית. הגישה שלה: לפני שמציירים – מתבוננים לפחות 5 דקות." data-en="Israeli painting teacher and artist. Her approach: before painting – observe for at least 5 minutes.">מורה לציור ואמנית ישראלית. הגישה שלה: לפני שמציירים – מתבוננים לפחות 5 דקות.</span></p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:1.5rem;">
+      <button class="slider-btn" onclick="document.getElementById('artistsSlider').scrollBy({left:-320,behavior:'smooth'})">&#8249;</button>
+      <button class="slider-btn" onclick="document.getElementById('artistsSlider').scrollBy({left:320,behavior:'smooth'})">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <div class="container">
+    <span class="section-tag fade-in"><span data-he="מה לצייר" data-en="What to Draw">מה לצייר</span></span>
+    <h2 class="section-title fade-in"><span data-he="חפצי בית לצייר" data-en="Household Objects to Draw">חפצי בית לצייר</span></h2>
+    <div class="divider fade-in"></div>
+    <p class="section-subtitle fade-in"><span data-he="לחצו על חפץ לקבל טיפים ייחודיים לציור שלו" data-en="Click on an object to get unique drawing tips">לחצו על חפץ לקבל טיפים ייחודיים לציור שלו</span></p>
+
+    <div class="gallery-grid fade-in" id="galleryGrid">
+      <!-- items injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal-overlay" id="galleryModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <span class="modal-emoji" id="modalEmoji"></span>
+    <h2 class="modal-title" id="modalTitle"></h2>
+    <p class="modal-body" id="modalBody"></p>
+    <ul class="modal-tips" id="modalTips"></ul>
+  </div>
+</div>
+
+<!-- ===== VIDEOS ===== -->
+<section id="videos">
+  <div class="container">
+    <span class="section-tag fade-in"><span data-he="הדגמה חיה" data-en="Live Demo">הדגמה חיה</span></span>
+    <h2 class="section-title fade-in"><span data-he="סרטוני הדגמה" data-en="Demo Videos">סרטוני הדגמה</span></h2>
+    <div class="divider fade-in"></div>
+
+    <!-- Channel Banner -->
+    <div class="channel-banner fade-in">
+      <div class="channel-banner-text">
+        <div class="channel-icon">
+          <i class="fas fa-video"></i>
+        </div>
+        <div class="channel-info">
+          <strong><span data-he="🎬 הסרטונים הם מהערוץ של המרצה שלנו – חגית אבידן | 7 Diamonds" data-en="🎬 Videos from our instructor's channel – Hagit Avidan | 7 Diamonds">🎬 הסרטונים הם מהערוץ של המרצה שלנו – חגית אבידן | 7 Diamonds</span></strong>
+          <span><span data-he="ציור, רישום והכשרת אמנים – ישראל" data-en="Painting, drawing and artist training – Israel">ציור, רישום והכשרת אמנים – ישראל</span></span>
+        </div>
+      </div>
+      <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener" class="channel-banner-link">
+        <span data-he="לערוץ המלא ביוטיוב ←" data-en="Full YouTube Channel →">לערוץ המלא ביוטיוב ←</span>
+      </a>
+    </div>
+
+    <div class="videos-grid fade-in">
+
+      <!-- Video 1 – Hagit: Flowers with a Pen -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/Jwe-_JwKTjY"
+            title="Drawing Flowers with Pen – Line &amp; Tone | Hagit Avidan"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-info">
+          <span class="video-badge"><span data-he="🖊️ קו וכתם" data-en="🖊️ Line & Tone">🖊️ קו וכתם</span></span>
+          <h3 class="video-title"><span data-he="רישום פרחים בעט – קו וכתם" data-en="Drawing Flowers with Pen – Line & Tone">רישום פרחים בעט – קו וכתם</span></h3>
+          <p class="video-desc">
+            <span data-he-html='חגית אבידן מדגימה כיצד לרשום פרחים בכוס באמצעות עט – תוך דגש על קו, כתם, התבוננות ושינוי תפיסה. חלק מקורס <strong>&quot;קסם הרישום&quot;</strong>.' data-en-html='Hagit Avidan demonstrates how to draw flowers in a cup using a pen – emphasizing line, tone, observation and perception shift. Part of the <strong>&quot;Drawing Magic&quot;</strong> course.'>חגית אבידן מדגימה כיצד לרשום פרחים בכוס באמצעות עט – תוך דגש על קו, כתם, התבוננות ושינוי תפיסה. חלק מקורס <strong>"קסם הרישום"</strong>.</span>
+          </p>
+          <ul class="video-tips">
+            <li>
+              <span class="tip-icon"><i class="fas fa-eye"></i></span>
+              <span data-he='"רשמו בדיוק את הקו כפי שהוא מופיע – לא את מה שאתם חושבים שאתם רואים"' data-en='"Draw exactly the line as it appears – not what you think you see"'>"רשמו בדיוק את הקו כפי שהוא מופיע – לא את מה שאתם חושבים שאתם רואים"</span>
+            </li>
+            <li>
+              <span class="tip-icon"><i class="fas fa-layer-group"></i></span>
+              <span data-he='"התחילו מהצורה הכללית ואחר כך רדו לפרטים"' data-en='"Start with the overall shape and then move to details"'>"התחילו מהצורה הכללית ואחר כך רדו לפרטים"</span>
+            </li>
+            <li>
+              <span class="tip-icon"><i class="fas fa-circle-notch"></i></span>
+              <span data-he='"השתמשו בחזרתיות בכתם ליצירת עומק ומרקם"' data-en='"Use repetition in tone to create depth and texture"'>"השתמשו בחזרתיות בכתם ליצירת עומק ומרקם"</span>
+            </li>
+          </ul>
+          <a href="https://www.facebook.com/hagit.avidan/" target="_blank" target="_blank" rel="noopener" class="video-link">
+            <i class="fas fa-graduation-cap"></i> <span data-he='לקורס "קסם הרישום"' data-en='"Drawing Magic" Course'>לקורס "קסם הרישום"</span> <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Video 2 – Hagit: CtGWRKHmoXk -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/CtGWRKHmoXk"
+            title="Painting Demo – Hagit Avidan | 7 Diamonds"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-info">
+          <span class="video-badge"><span data-he="🎨 הדגמה" data-en="🎨 Demo">🎨 הדגמה</span></span>
+          <h3 class="video-title"><span data-he="הדגמת ציור – חגית אבידן | 7 Diamonds" data-en="Painting Demo – Hagit Avidan | 7 Diamonds">הדגמת ציור – חגית אבידן | 7 Diamonds</span></h3>
+          <p class="video-desc">
+            <span data-he="עוד הדגמה מהערוץ של חגית אבידן – 7 Diamonds. צפו בתהליך הציור המלא ולמדו מתוך ראייה ישירה." data-en="Another demo from Hagit Avidan's channel – 7 Diamonds. Watch the full painting process and learn through direct observation.">עוד הדגמה מהערוץ של חגית אבידן – 7 Diamonds. צפו בתהליך הציור המלא ולמדו מתוך ראייה ישירה.</span>
+          </p>
+          <ul class="video-tips">
+            <li>
+              <span class="tip-icon"><i class="fas fa-search"></i></span>
+              <span data-he="שימו לב לכיצד המרצה מתבוננת בנושא לפני שהיא מתחילה לצייר" data-en="Notice how the instructor observes the subject before she starts painting">שימו לב לכיצד המרצה מתבוננת בנושא לפני שהיא מתחילה לצייר</span>
+            </li>
+            <li>
+              <span class="tip-icon"><i class="fas fa-sliders-h"></i></span>
+              <span data-he="הבחינו בבחירות הצבע ובדרך בניית הרכב" data-en="Notice the color choices and the way the composition is built">הבחינו בבחירות הצבע ובדרך בניית הרכב</span>
+            </li>
+            <li>
+              <span class="tip-icon"><i class="fas fa-hand-paper"></i></span>
+              <span data-he="שימו לב לתנועת הידיים ולסוגי המכחולים" data-en="Notice the hand movements and types of brushes">שימו לב לתנועת הידיים ולסוגי המכחולים</span>
+            </li>
+          </ul>
+          <div style="display:flex; gap:0.8rem; flex-wrap:wrap; margin-top:0.8rem; align-items:center;">
+            <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener" class="video-link">
+              <i class="fab fa-youtube"></i> <span data-he="לערוץ יוטיוב" data-en="YouTube Channel">לערוץ יוטיוב</span> <i class="fas fa-arrow-left"></i>
+            </a>
+            <a href="https://www.facebook.com/hagit.avidan/" target="_blank" target="_blank" rel="noopener" class="video-link">
+              <i class="fas fa-graduation-cap"></i> <span data-he="לקורס המלא" data-en="Full Course">לקורס המלא</span> <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUOTES ===== -->
+<section id="quotes">
+  <div class="container">
+    <span class="section-tag fade-in"><span data-he="השראה" data-en="Inspiration">השראה</span></span>
+    <h2 class="section-title fade-in"><span data-he="ציטוטים מעוררי השראה" data-en="Inspiring Quotes">ציטוטים מעוררי השראה</span></h2>
+    <div class="divider fade-in"></div>
+
+    <div class="quotes-carousel fade-in">
+      <div class="quotes-track" id="quotesTrack">
+        <div class="quote-card">
+          <span class="quote-mark">"</span>
+          <p class="quote-text"><span data-he="לצייר חפץ פשוט זה לראות אותו בפעם הראשונה" data-en="To paint a simple object is to see it for the first time">לצייר חפץ פשוט זה לראות אותו בפעם הראשונה</span></p>
+          <span class="quote-author">– <span data-he="פול סזאן" data-en="Paul Cézanne">פול סזאן</span></span>
+        </div>
+        <div class="quote-card">
+          <span class="quote-mark">"</span>
+          <p class="quote-text"><span data-he="רשמו בדיוק את הקו כפי שהוא מופיע – לא את מה שאתם חושבים שאתם רואים" data-en="Draw exactly the line as it appears – not what you think you see">רשמו בדיוק את הקו כפי שהוא מופיע – לא את מה שאתם חושבים שאתם רואים</span></p>
+          <span class="quote-author">– <span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span></span>
+        </div>
+        <div class="quote-card">
+          <span class="quote-mark">"</span>
+          <p class="quote-text"><span data-he="אני לא יודע מה יש לי לומר בציורי – אבל אני יודע שהם מדברים" data-en="I don't know what I have to say in my paintings – but I know they speak">אני לא יודע מה יש לי לומר בציורי – אבל אני יודע שהם מדברים</span></p>
+          <span class="quote-author">– <span data-he="ג'ורג'יו מורנדי" data-en="Giorgio Morandi">ג'ורג'יו מורנדי</span></span>
+        </div>
+        <div class="quote-card">
+          <span class="quote-mark">"</span>
+          <p class="quote-text"><span data-he="תרגול יומיומי – אפילו 5 דקות – שווה יותר מאשר שיעור ארוך פעם בשבוע" data-en="Daily practice – even 5 minutes – is worth more than one long lesson per week">תרגול יומיומי – אפילו 5 דקות – שווה יותר מאשר שיעור ארוך פעם בשבוע</span></p>
+          <span class="quote-author">– <span data-he="עיקרון ציור מוכר" data-en="Known painting principle">עיקרון ציור מוכר</span></span>
+        </div>
+        <div class="quote-card">
+          <span class="quote-mark">"</span>
+          <p class="quote-text"><span data-he="כשתלמדו לראות על ידי ציור מה שמולכם – תוכלו ליישם את השיעורים על כל נושא" data-en="When you learn to see by painting what's in front of you – you can apply the lessons to any subject">כשתלמדו לראות על ידי ציור מה שמולכם – תוכלו ליישם את השיעורים על כל נושא</span></p>
+          <span class="quote-author">– <span data-he="עיקרון ציור מהטבע" data-en="Principle of painting from life">עיקרון ציור מהטבע</span></span>
+        </div>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXERCISE ===== -->
+<section id="exercise">
+  <div class="container">
+    <span class="section-tag fade-in"><span data-he="תרגיל מעשי" data-en="Hands-on Exercise">תרגיל מעשי</span></span>
+    <h2 class="section-title fade-in"><span data-he="🖌️ עכשיו – הזמן לצייר!" data-en="🖌️ Now – Time to Paint!">🖌️ עכשיו – הזמן לצייר!</span></h2>
+    <div class="divider fade-in"></div>
+
+    <div class="exercise-container fade-in">
+
+      <!-- Step Tabs -->
+      <div class="exercise-steps">
+        <div class="step-tab active" onclick="showStep(0)">
+          <span class="step-num">1</span>
+          <span class="step-name"><span data-he="בחר חפץ" data-en="Choose Object">בחר חפץ</span></span>
+        </div>
+        <div class="step-tab" onclick="showStep(1)">
+          <span class="step-num">2</span>
+          <span class="step-name"><span data-he="בחר טכניקה" data-en="Choose Technique">בחר טכניקה</span></span>
+        </div>
+        <div class="step-tab" onclick="showStep(2)">
+          <span class="step-num">3</span>
+          <span class="step-name"><span data-he="הכנה" data-en="Preparation">הכנה</span></span>
+        </div>
+        <div class="step-tab" onclick="showStep(3)">
+          <span class="step-num">4</span>
+          <span class="step-name"><span data-he="⏱️ צייר!" data-en="⏱️ Paint!">⏱️ צייר!</span></span>
+        </div>
+      </div>
+
+      <!-- Step 1: Choose Object -->
+      <div class="step-panel active" id="step0">
+        <div class="step-content">
+          <h3><span data-he="בחר את החפץ שתצייר" data-en="Choose the Object to Draw">בחר את החפץ שתצייר</span></h3>
+          <p><span data-he="בחר חפץ אחד שנמצא לידך כעת, או בחר מהרשימה. כל חפץ יקבל טיפ אישי ממני." data-en="Choose one object near you now, or select from the list. Each object comes with a personal tip.">בחר חפץ אחד שנמצא לידך כעת, או בחר מהרשימה. כל חפץ יקבל טיפ אישי ממני.</span></p>
+        </div>
+        <div class="object-picker">
+          <div class="object-grid" id="objectGrid">
+            <!-- filled by JS -->
+          </div>
+          <div class="teacher-tip" id="objectTip" style="display:none;">
+            <div class="tip-label"><span data-he="💡 טיפ המרצה" data-en="💡 Instructor Tip">💡 טיפ המרצה</span></div>
+            <p id="objectTipText"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Choose Technique -->
+      <div class="step-panel" id="step1">
+        <div class="step-content">
+          <h3><span data-he="בחר את הטכניקה שלך" data-en="Choose Your Technique">בחר את הטכניקה שלך</span></h3>
+          <p><span data-he="בחר בהתאם לכלים שיש לך ולסגנון שאתה רוצה לתרגל." data-en="Choose according to the tools you have and the style you want to practice.">בחר בהתאם לכלים שיש לך ולסגנון שאתה רוצה לתרגל.</span></p>
+        </div>
+        <div class="technique-grid" id="techGrid">
+          <!-- filled by JS -->
+        </div>
+        <div class="teacher-tip" id="techTip" style="display:none;">
+          <div class="tip-label"><span data-he="🖌️ טיפ לטכניקה" data-en="🖌️ Technique Tip">🖌️ טיפ לטכניקה</span></div>
+          <p id="techTipText"></p>
+        </div>
+      </div>
+
+      <!-- Step 3: Preparation -->
+      <div class="step-panel" id="step2">
+        <div class="step-content">
+          <h3><span data-he="לפני שמתחילים – 5 דקות התבוננות" data-en="Before We Begin – 5 Minutes of Observation">לפני שמתחילים – 5 דקות התבוננות</span></h3>
+          <p><span data-he="הנח את החפץ לפניך. אל תצייר עדיין. פשוט תסתכל." data-en="Place the object in front of you. Don't draw yet. Just look.">הנח את החפץ לפניך. אל תצייר עדיין. פשוט תסתכל.</span></p>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="teacher-tip">
+            <div class="tip-label"><span data-he="👁️ שאל את עצמך" data-en="👁️ Ask Yourself">👁️ שאל את עצמך</span></div>
+            <p><span data-he="מהן הצורות הכלליות? מאין מגיע האור? איפה הצלל הכהה ביותר?" data-en="What are the overall shapes? Where does the light come from? Where is the darkest shadow?">מהן הצורות הכלליות? מאין מגיע האור? איפה הצלל הכהה ביותר?</span></p>
+          </div>
+          <div class="teacher-tip" style="border-color:var(--sage);">
+            <div class="tip-label"><span data-he="✋ הכן את הסביבה" data-en="✋ Prepare Your Environment">✋ הכן את הסביבה</span></div>
+            <p><span data-he='דף, כלי כתיבה, תאורה טובה, ישיבה נוחה מולו. מרחק 50–80 ס"מ מהנושא.' data-en="Paper, drawing tools, good lighting, comfortable seating. Distance 50–80 cm from the subject.">דף, כלי כתיבה, תאורה טובה, ישיבה נוחה מולו. מרחק 50–80 ס"מ מהנושא.</span></p>
+          </div>
+          <div class="teacher-tip" style="border-color:var(--dusty-rose);">
+            <div class="tip-label"><span data-he="🧠 זכור" data-en="🧠 Remember">🧠 זכור</span></div>
+            <p><span data-he="זה תרגיל, לא יצירת מסטרפיס. כל קו שתצייר מחזק את ידיך ועיניך." data-en="This is practice, not a masterpiece. Every line you draw strengthens your hands and eyes.">זה תרגיל, לא יצירת מסטרפיס. כל קו שתצייר מחזק את ידיך ועיניך.</span></p>
+          </div>
+          <div class="teacher-tip" style="border-color:var(--sage-light);">
+            <div class="tip-label"><span data-he="🎵 אווירה" data-en="🎵 Atmosphere">🎵 אווירה</span></div>
+            <p><span data-he="השמע מוזיקה שקטה – מוזיקה קלאסית, ג'אז, או אמביינט. זה פותח את היצירתיות." data-en="Play quiet music – classical, jazz, or ambient. It opens up creativity.">השמע מוזיקה שקטה – מוזיקה קלאסית, ג'אז, או אמביינט. זה פותח את היצירתיות.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Timer -->
+      <div class="step-panel" id="step3">
+        <div class="step-content">
+          <h3><span data-he="⏱️ 40 דקות ציור – 4 שלבים" data-en="⏱️ 40 Minutes of Drawing – 4 Phases">⏱️ 40 דקות ציור – 4 שלבים</span></h3>
+          <p><span data-he="הטיימר ינחה אותך דרך 4 שלבים לציור מוצלח." data-en="The timer will guide you through 4 phases to a successful drawing.">הטיימר ינחה אותך דרך 4 שלבים לציור מוצלח.</span></p>
+        </div>
+        <div class="timer-section">
+          <div class="timer-display">
+            <svg class="timer-circle" width="200" height="200" viewBox="0 0 180 180">
+              <circle class="timer-bg" cx="90" cy="90" r="80"/>
+              <circle class="timer-progress" cx="90" cy="90" r="80" id="timerArc"/>
+            </svg>
+            <div class="timer-text">
+              <div class="timer-time" id="timerDisplay">40:00</div>
+              <div class="timer-phase" id="timerPhaseLabel"><span data-he="לחץ התחל" data-en="Press Start">לחץ התחל</span></div>
+            </div>
+          </div>
+          <div class="timer-btns">
+            <button class="timer-btn timer-start" onclick="timerStart()">
+              <i class="fas fa-play"></i> <span data-he="התחל" data-en="Start">התחל</span>
+            </button>
+            <button class="timer-btn timer-pause" onclick="timerPause()">
+              <i class="fas fa-pause"></i> <span data-he="השהה" data-en="Pause">השהה</span>
+            </button>
+            <button class="timer-btn timer-reset" onclick="timerReset()">
+              <i class="fas fa-redo"></i> <span data-he="אפס" data-en="Reset">אפס</span>
+            </button>
+          </div>
+          <div class="phase-indicators">
+            <div class="phase-pill" data-phase="0"><span data-he="👁️ צפה (5 דק')" data-en="👁️ Observe (5 min)">👁️ צפה (5 דק')</span></div>
+            <div class="phase-pill" data-phase="1"><span data-he="✏️ מתאר (10 דק')" data-en="✏️ Outline (10 min)">✏️ מתאר (10 דק')</span></div>
+            <div class="phase-pill" data-phase="2"><span data-he="🌑 צל ואור (15 דק')" data-en="🌑 Shadow & Light (15 min)">🌑 צל ואור (15 דק')</span></div>
+            <div class="phase-pill" data-phase="3"><span data-he="🌸 פרטים (10 דק')" data-en="🌸 Details (10 min)">🌸 פרטים (10 דק')</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOMEWORK ===== -->
+<section id="homework">
+  <div class="container">
+    <span class="section-tag fade-in"><span data-he="המשך" data-en="Continue">המשך</span></span>
+    <h2 class="section-title fade-in"><span data-he="🏠 שיעורי בית" data-en="🏠 Homework">🏠 שיעורי בית</span></h2>
+    <div class="divider fade-in"></div>
+
+    <div class="homework-grid fade-in">
+      <div class="hw-card">
+        <div class="hw-icon">⏰</div>
+        <h3><span data-he="היום בערב – לצלם 3 חפצים" data-en="Tonight – Photograph 3 Objects">היום בערב – לצלם 3 חפצים</span></h3>
+        <p><span data-he="בחר 3 חפצים מהבית וצלם אותם בתאורות שונות – בוקר, ערב, תאורת נר. שים לב איך האור משנה לגמרי את מראה החפץ." data-en="Choose 3 objects from home and photograph them in different lighting – morning, evening, candlelight. Notice how light completely changes the object's appearance.">בחר 3 חפצים מהבית וצלם אותם בתאורות שונות – בוקר, ערב, תאורת נר. שים לב איך האור משנה לגמרי את מראה החפץ.</span></p>
+      </div>
+      <div class="hw-card">
+        <div class="hw-icon">📅</div>
+        <h3><span data-he="השבוע – 5 ציורים ב-5 ימים" data-en="This Week – 5 Drawings in 5 Days">השבוע – 5 ציורים ב-5 ימים</span></h3>
+        <p><span data-he="צייר את אחד מהחפצים כל יום – כל פעם בגישה שונה: ריאליסטי, מופשט, שחור-לבן, צבעוני, עם תנועה. תגלה כמה עמוק חפץ אחד יכול ללכת." data-en="Draw one of the objects every day – each time with a different approach: realistic, abstract, black-white, colorful, with movement. Discover how deep one object can go.">צייר את אחד מהחפצים כל יום – כל פעם בגישה שונה: ריאליסטי, מופשט, שחור-לבן, צבעוני, עם תנועה. תגלה כמה עמוק חפץ אחד יכול ללכת.</span></p>
+      </div>
+      <div class="hw-card">
+        <div class="hw-icon">🎓</div>
+        <h3><span data-he="לשיעור הבא – הביא את 5 הציורים" data-en="Next Lesson – Bring Your 5 Drawings">לשיעור הבא – הביא את 5 הציורים</span></h3>
+        <p><span data-he="נפרוש את כולם ונדון: מה השתנה בין ציור לציור? מה גילית על החפץ? האם גילית משהו חדש על עצמך?" data-en="We'll spread them all out and discuss: what changed between drawings? What did you discover about the object? Did you learn something new about yourself?">נפרוש את כולם ונדון: מה השתנה בין ציור לציור? מה גילית על החפץ? האם גילית משהו חדש על עצמך?</span></p>
+      </div>
+    </div>
+
+    <div class="takeaways fade-in">
+      <h3><span data-he="3 תובנות לקחת הביתה" data-en="3 Insights to Take Home">3 תובנות לקחת הביתה</span></h3>
+      <div class="takeaways-list">
+        <div class="takeaway">
+          <span class="takeaway-icon">🔍</span>
+          <p><strong><span data-he="ההשראה לא מגיעה" data-en="Inspiration doesn't come">ההשראה לא מגיעה</span></strong> – <span data-he="אתה הולך לקראתה. פתח עיניים וחפש בסביבה הקרובה." data-en="you go toward it. Open your eyes and look around you.">אתה הולך לקראתה. פתח עיניים וחפש בסביבה הקרובה.</span></p>
+        </div>
+        <div class="takeaway">
+          <span class="takeaway-icon">🎯</span>
+          <p><strong><span data-he="כל חפץ הוא עולם" data-en="Every object is a world">כל חפץ הוא עולם</span></strong> – <span data-he="ככל שתסתכל יותר, תראה יותר פרטים, צורות ואור." data-en="the more you look, the more details, shapes and light you will see.">ככל שתסתכל יותר, תראה יותר פרטים, צורות ואור.</span></p>
+        </div>
+        <div class="takeaway">
+          <span class="takeaway-icon">📈</span>
+          <p><strong><span data-he="הציור הטוב ביותר שלך" data-en="Your best painting">הציור הטוב ביותר שלך</span></strong> <span data-he="הוא הבא. כל תרגיל מחזק את היד ואת העין." data-en="is the next one. Every practice session strengthens your hand and eye.">הוא הבא. כל תרגיל מחזק את היד ואת העין.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-logo"><span data-he="🎨 Still Life | חגית אבידן" data-en="🎨 Still Life | Hagit Avidan">🎨 Still Life | חגית אבידן</span></div>
+  <p style="margin-bottom:0.8rem;"><span data-he="שיעור אינטראקטיבי – השראה מחפצי הבית" data-en="Interactive Lesson – Inspired by Household Objects">שיעור אינטראקטיבי – השראה מחפצי הבית</span></p>
+  <p style="margin-bottom:0.6rem;">
+    <a href="index.html"><span data-he="🏠 לדף הבית" data-en="🏠 Home">🏠 לדף הבית</span></a>
+    &nbsp;|&nbsp;
+    <a href="cities-lesson.html"><span data-he="🏙️ שיעור ערים ומקומות" data-en="🏙️ Cities & Places Lesson">🏙️ שיעור ערים ומקומות</span></a>
+  </p>
+  <p>
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener"><span data-he="📺 יוטיוב" data-en="📺 YouTube">📺 יוטיוב</span></a>
+    &nbsp;|&nbsp;
+    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener"><span data-he="📚 קורס קסם הרישום" data-en="📚 Drawing Magic Course">📚 קורס קסם הרישום</span></a>
+    &nbsp;|&nbsp;
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank" rel="noopener"><span data-he="📷 אינסטגרם" data-en="📷 Instagram">📷 אינסטגרם</span></a>
+    &nbsp;|&nbsp;
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank" rel="noopener"><span data-he="👥 פייסבוק" data-en="👥 Facebook">👥 פייסבוק</span></a>
+  </p>
+</footer>
+
+<!-- ========================
+     JAVASCRIPT
+======================== -->
+<script>
+  /* ── DATA ── */
+  const _lang = () => localStorage.getItem('siteLang') || 'he';
+  const objectsData = [
+    { emoji: '☕', he: 'כוס קפה', en: 'Coffee Cup', subHe: 'מטבח', subEn: 'Kitchen',
+      tipHe: 'שימי לב לשקיפות בזכוכית ולעגול המושלם של שפת הכוס. האור שחודר דרך נוזל כהה – מרתק!',
+      tipEn: 'Notice the transparency of the glass and the perfect rim circle. Light through dark liquid is fascinating!' },
+    { emoji: '🌷', he: 'פרחים בכוס', en: 'Flowers in a Cup', subHe: 'פנים הבית', subEn: 'Indoors',
+      tipHe: 'כמו בסרטון של חגית – התחיל מהצורה הכללית, ואז צייר את הקו כפי שהוא מופיע, לא כפי שאתה חושב.',
+      tipEn: "Like in Hagit's video – start with the overall shape, then draw the line as it appears, not as you think." },
+    { emoji: '🍋', he: 'לימון', en: 'Lemon', subHe: 'מטבח', subEn: 'Kitchen',
+      tipHe: 'המרקם של הלימון נפלא! עשה סימונים קטנים לכל הבליטות הקטנות על הקליפה.',
+      tipEn: 'The lemon texture is wonderful! Make small marks for every tiny bump on the peel.' },
+    { emoji: '📚', he: 'ספרים', en: 'Books', subHe: 'שולחן', subEn: 'Table',
+      tipHe: 'שדרה ישרה מול פינות אחוריות מעוגלות. כל ספר שכבה אחרת – שים לב לצל בין הספרים.',
+      tipEn: 'Straight spine vs. rounded back corners. Each book is a layer – notice the shadow between them.' },
+    { emoji: '🪴', he: 'עציץ', en: 'Plant Pot', subHe: 'בית', subEn: 'Home',
+      tipHe: 'האתגר הגדול – עלים שחוצים אחד את השני. ציור עלה אחד בכל פעם, מהקדמי לאחורי.',
+      tipEn: 'The big challenge – overlapping leaves. Draw one leaf at a time, from front to back.' },
+    { emoji: '🫙', he: 'צנצנת זכוכית', en: 'Glass Jar', subHe: 'מטבח', subEn: 'Kitchen',
+      tipHe: 'זכוכית = שתי אמפות של אור: אחת בהירה ואחת כהה. ציירי את ההשתקפות בתוך הצנצנת.',
+      tipEn: 'Glass = two zones of light: one bright, one dark. Draw the reflection inside the jar.' },
+    { emoji: '🕯️', he: 'נר דולק', en: 'Light Candle', subHe: 'בית', subEn: 'Home',
+      tipHe: 'האור עצמו הוא הנושא! צייר את המרחב הזוהר סביב הנר לפני שאתה מצייר אותו.',
+      tipEn: 'The light itself is the subject! Draw the glowing space around the candle before painting it.' },
+    { emoji: '🥚', he: 'ביצה', en: 'Egg', subHe: 'מטבח', subEn: 'Kitchen',
+      tipHe: 'הצורה הפשוטה ביותר, האתגר הגדול ביותר. שים לב לאיזה גוון צהבהב יש בצד המואר.',
+      tipEn: 'The simplest shape, the greatest challenge. Notice the yellowish tint on the lit side.' },
+  ];
+  const objects = objectsData.map(o => ({
+    emoji: o.emoji,
+    name: _lang()==='en' ? o.en : o.he,
+    sub:  _lang()==='en' ? o.subEn : o.subHe,
+    tip:  _lang()==='en' ? o.tipEn : o.tipHe
+  }));
+  const OBJECTS_SENTINEL = true; // bilingual objects
+
+  const techniquesData = [
+    { icon: '✏️', he: 'עיפרון', en: 'Pencil',
+      tipHe: 'התחל ב-HB לקווי מתאר, ועבור ל-2B/4B לצלל.',
+      tipEn: 'Start with HB for outlines, switch to 2B/4B for shading.' },
+    { icon: '🖊️', he: 'עט/גלוגרף', en: 'Pen / Ballpoint',
+      tipHe: 'אין מחיקות! התחל מהקווים הראשיים ובן פירוט עם קווים נוספים.',
+      tipEn: 'No erasing! Start with the main lines and build detail with additional lines.' },
+    { icon: '💧', he: 'צבעי מים', en: 'Watercolors',
+      tipHe: 'תחיל בשכבה בהירה. מים לצבע – לא להיפך!',
+      tipEn: 'Start with a light wash. Water into paint – not the other way!' },
+    { icon: '🎨', he: 'אקריליק', en: 'Acrylic',
+      tipHe: 'צבע כהה לאחור, בהיר לפנים. אל תפחד לשים פסים ועובי.',
+      tipEn: "Dark colors in back, light in front. Don't be afraid to use bold strokes." },
+  ];
+  const techniques = techniquesData.map(t => ({
+    icon: t.icon,
+    name: _lang()==='en' ? t.en : t.he,
+    tip:  _lang()==='en' ? t.tipEn : t.tipHe
+  }));
+
+  /* ── BUILD GALLERY ── */
+  const galleryGrid = document.getElementById('galleryGrid');
+  objects.forEach((obj, i) => {
+    const div = document.createElement('div');
+    div.className = 'gallery-item';
+    div.innerHTML = `<span class="gallery-emoji">${obj.emoji}</span>
+      <div class="gallery-name">${obj.name}</div>
+      <div class="gallery-sub">${obj.sub}</div>`;
+    div.onclick = () => openModal(i);
+    galleryGrid.appendChild(div);
+  });
+
+  /* ── MODAL ── */
+  function openModal(i) {
+    const obj = objects[i];
+    document.getElementById('modalEmoji').textContent = obj.emoji;
+    document.getElementById('modalTitle').textContent = obj.name;
+    document.getElementById('modalBody').textContent = obj.tip;
+    const _isEn = _lang()==='en';
+    document.getElementById('modalTips').innerHTML = _isEn ? `
+      <li>Place the object on a light background</li>
+      <li>Draw from life, not from a photo</li>
+      <li>Outline first, shading second</li>` : `
+      <li>הצב את החפץ על רקע בהיר</li>
+      <li>צייר מהחיים, לא מתמונה</li>
+      <li>קווי מתאר ראשית, צל אחר כך</li>`;
+    document.getElementById('galleryModal').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('galleryModal').classList.remove('open');
+  }
+  document.getElementById('galleryModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  /* ── BUILD EXERCISE OBJECTS ── */
+  const objectGrid = document.getElementById('objectGrid');
+  objects.forEach((obj, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'object-btn';
+    btn.innerHTML = `<span class="ob-emoji">${obj.emoji}</span>${obj.name}`;
+    btn.onclick = () => selectObject(btn, obj.tip);
+    objectGrid.appendChild(btn);
+  });
+  function selectObject(btn, tip) {
+    document.querySelectorAll('.object-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    document.getElementById('objectTip').style.display = 'block';
+    document.getElementById('objectTipText').textContent = tip;
+  }
+
+  /* ── BUILD TECHNIQUES ── */
+  const techGrid = document.getElementById('techGrid');
+  techniques.forEach((t) => {
+    const btn = document.createElement('button');
+    btn.className = 'tech-btn';
+    btn.innerHTML = `<span class="tech-icon">${t.icon}</span>${t.name}`;
+    btn.onclick = () => selectTech(btn, t.tip);
+    techGrid.appendChild(btn);
+  });
+  function selectTech(btn, tip) {
+    document.querySelectorAll('.tech-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    document.getElementById('techTip').style.display = 'block';
+    document.getElementById('techTipText').textContent = tip;
+  }
+
+  /* ── STEP TABS ── */
+  function showStep(n) {
+    document.querySelectorAll('.step-tab').forEach((t, i) => t.classList.toggle('active', i === n));
+    document.querySelectorAll('.step-panel').forEach((p, i) => p.classList.toggle('active', i === n));
+  }
+
+  /* ── TIMER ── */
+  const PHASES_DATA = [
+    { labelHe: '👁️ התבוננות',  labelEn: '👁️ Observation',    dur:  5*60, color: '#8BAF8B' },
+    { labelHe: '✏️ קווי מתאר', labelEn: '✏️ Outline',         dur: 10*60, color: '#D4A853' },
+    { labelHe: '🌑 צל ואור',   labelEn: '🌑 Shadow & Light',   dur: 15*60, color: '#C17A5A' },
+    { labelHe: '🌸 פרטים',     labelEn: '🌸 Details',          dur: 10*60, color: '#D4899A' },
+  ];
+  const PHASES = PHASES_DATA.map(p => ({
+    label: _lang()==='en' ? p.labelEn : p.labelHe,
+    dur: p.dur, color: p.color
+  }));
+  const TOTAL = PHASES.reduce((s, p) => s + p.dur, 0); // 40 min
+  let timerSec = TOTAL, timerRunning = false, timerInterval = null;
+  const arc = document.getElementById('timerArc');
+  const CIRCUMFERENCE = 2 * Math.PI * 80; // ~502.65
+
+  function getPhase(elapsed) {
+    let acc = 0;
+    for (let i = 0; i < PHASES.length; i++) {
+      acc += PHASES[i].dur;
+      if (elapsed < acc) return i;
+    }
+    return PHASES.length - 1;
+  }
+
+  function renderTimer() {
+    const elapsed = TOTAL - timerSec;
+    const frac = elapsed / TOTAL;
+    const offset = CIRCUMFERENCE * (1 - frac);
+    arc.style.strokeDashoffset = offset;
+
+    const ph = getPhase(elapsed);
+    arc.style.stroke = PHASES[ph].color;
+
+    const m = String(Math.floor(timerSec / 60)).padStart(2, '0');
+    const s = String(timerSec % 60).padStart(2, '0');
+    document.getElementById('timerDisplay').textContent = `${m}:${s}`;
+    document.getElementById('timerPhaseLabel').textContent = timerSec > 0 ? PHASES[ph].label : (_lang()==='en' ? '✅ Done!' : '✅ סיימת!');
+
+    document.querySelectorAll('.phase-pill').forEach(p => {
+      p.classList.toggle('active', parseInt(p.dataset.phase) === ph && timerSec > 0);
+    });
+  }
+
+  function timerStart() {
+    if (timerRunning || timerSec <= 0) return;
+    timerRunning = true;
+    timerInterval = setInterval(() => {
+      if (timerSec > 0) { timerSec--; renderTimer(); }
+      else { clearInterval(timerInterval); timerRunning = false; }
+    }, 1000);
+  }
+  function timerPause() {
+    timerRunning = false;
+    clearInterval(timerInterval);
+  }
+  function timerReset() {
+    timerPause();
+    timerSec = TOTAL;
+    renderTimer();
+  }
+  renderTimer();
+
+  /* ── ARTISTS SLIDER ── */
+  let artistPos = 0;
+  function slideArtists(dir) {
+    const track = document.getElementById('artistsTrack');
+    const cards = track.querySelectorAll('.artist-card');
+    const max = cards.length - 1;
+    artistPos = Math.max(0, Math.min(max, artistPos + dir));
+    const w = cards[0].offsetWidth + 24;
+    track.style.transform = `translateX(${artistPos * w}px)`;
+  }
+
+  /* ── QUOTES CAROUSEL ── */
+  let quoteIdx = 0;
+  const quotesTrack = document.getElementById('quotesTrack');
+  const totalQuotes = quotesTrack.children.length;
+  const dotsContainer = document.getElementById('carouselDots');
+  for (let i = 0; i < totalQuotes; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goQuote(i);
+    dotsContainer.appendChild(d);
+  }
+  function goQuote(i) {
+    quoteIdx = i;
+    const dir = document.documentElement.getAttribute('dir') || 'rtl';
+    const sign = dir === 'ltr' ? -1 : 1;
+    quotesTrack.style.transform = `translateX(${sign * i * 100}%)`;
+    document.querySelectorAll('.dot').forEach((d, j) => d.classList.toggle('active', j === i));
+  }
+  setInterval(() => goQuote((quoteIdx + 1) % totalQuotes), 5000);
+
+  /* ── SCROLL PROGRESS ── */
+  window.addEventListener('scroll', () => {
+    const el = document.documentElement;
+    const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+    const st = document.getElementById('scroll-top');
+    st.classList.toggle('visible', el.scrollTop > 400);
+  });
+
+  /* ── FADE IN OBSERVER ── */
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+<script>
+// ── BILINGUAL TOGGLE ──
+(function() {
+  var currentLang = localStorage.getItem('siteLang') || 'he';
+
+  function rebuildGallery() {
+    var lang = localStorage.getItem('siteLang') || 'he';
+    var isEn = lang === 'en';
+    // Rebuild gallery grid
+    var gg = document.getElementById('galleryGrid');
+    if (gg) {
+      gg.innerHTML = '';
+      objectsData.forEach(function(o, i) {
+        var div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.innerHTML = '<span class="gallery-emoji">' + o.emoji + '</span>' +
+          '<div class="gallery-name">' + (isEn ? o.en : o.he) + '</div>' +
+          '<div class="gallery-sub">' + (isEn ? o.subEn : o.subHe) + '</div>';
+        div.onclick = (function(idx){ return function(){ openModal(idx); }; })(i);
+        gg.appendChild(div);
+      });
+    }
+    // Rebuild object picker
+    var og = document.getElementById('objectGrid');
+    if (og) {
+      og.innerHTML = '';
+      objectsData.forEach(function(o) {
+        var btn = document.createElement('button');
+        btn.className = 'object-btn';
+        btn.innerHTML = '<span class="ob-emoji">' + o.emoji + '</span>' + (isEn ? o.en : o.he);
+        var tip = isEn ? o.tipEn : o.tipHe;
+        btn.onclick = function(){ selectObject(btn, tip); };
+        og.appendChild(btn);
+      });
+    }
+    // Rebuild technique picker
+    var tg = document.getElementById('techGrid');
+    if (tg) {
+      tg.innerHTML = '';
+      techniquesData.forEach(function(t) {
+        var btn = document.createElement('button');
+        btn.className = 'tech-btn';
+        btn.innerHTML = '<span class="tech-icon">' + t.icon + '</span>' + (isEn ? t.en : t.he);
+        var tip = isEn ? t.tipEn : t.tipHe;
+        btn.onclick = function(){ selectTech(btn, tip); };
+        tg.appendChild(btn);
+      });
+    }
+    // Rebuild phase pills
+    var phasesData2 = [
+      { labelHe:'👁️ צפה (5 דקות)', labelEn:'👁️ Observe (5 min)', phase:0 },
+      { labelHe:'✏️ מתאר (10 דקות)', labelEn:'✏️ Outline (10 min)', phase:1 },
+      { labelHe:'🌑 צל ואור (15 דקות)', labelEn:'🌑 Shadow & Light (15 min)', phase:2 },
+      { labelHe:'🌸 פרטים (10 דקות)', labelEn:'🌸 Details (10 min)', phase:3 },
+    ];
+    document.querySelectorAll('.phase-pill').forEach(function(pill) {
+      var ph = parseInt(pill.getAttribute('data-phase'));
+      var pd = phasesData2.find(function(p){ return p.phase === ph; });
+      if (pd) pill.textContent = isEn ? pd.labelEn : pd.labelHe;
+    });
+  }
+
+  function applyLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('siteLang', lang);
+    document.querySelectorAll('[data-he]').forEach(function(el) {
+      el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-he');
+    });
+    document.querySelectorAll('[data-he-html]').forEach(function(el) {
+      el.innerHTML = lang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-he-html');
+    });
+    var btn = document.getElementById('lang-btn');
+    if (btn) btn.textContent = lang === 'en' ? '🇮🇱 עברית' : '🇬🇧 English';
+    document.documentElement.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'he');
+    // Re-render JS components
+    if (typeof objectsData !== 'undefined') rebuildGallery();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.createElement('button');
+    btn.id = 'lang-btn';
+    btn.textContent = currentLang === 'en' ? '🇮🇱 עברית' : '🇬🇧 English';
+    btn.onclick = function() { applyLang(currentLang === 'he' ? 'en' : 'he'); };
+    document.body.appendChild(btn);
+    applyLang(currentLang);
+  });
+  // Also apply on load for pages navigated with lang already set
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(function(){ applyLang(currentLang); }, 50);
+  }
+})();
+</script>
+</body>
+</html>

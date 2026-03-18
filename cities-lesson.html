@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><span data-he="ערים ומקומות כמקורות השראה" data-en="Cities & Places as Inspiration">ערים ומקומות כמקורות השראה</span> לציור | חגית אבידן</title>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="<span data-he="ערים ומקומות כמקורות השראה" data-en="Cities & Places as Inspiration">ערים ומקומות כמקורות השראה</span> | חגית אבידן | 7 Diamonds">
+<meta property="og:description" content="שיעור ציור אינטראקטיבי – לצייר את העיר, הרחוב, הנוף. כולל גלריה, תרגיל מעשי עם טיימר, ציטוטים ועוד.">
+<meta property="og:locale" content="he_IL">
+
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F4F2EE;
+    --white: #FFFFFF;
+    --warm-blue: #4A6FA5;
+    --warm-blue-light: #7A9FC5;
+    --terracotta: #C1754A;
+    --warm-gold: #D4956A;
+    --sage: #8BAF8B;
+    --slate: #6B7F9E;
+    --text-dark: #2A2E3A;
+    --text-mid: #52596B;
+    --text-light: #848DA0;
+    --border: #DDE0E8;
+    --shadow: rgba(74, 111, 165, 0.13);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Heebo', Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    direction: rtl;
+    line-height: 1.7;
+  }
+
+  /* PROGRESS BAR */
+  #progress-bar {
+    position: fixed;
+    top: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-blue), var(--warm-gold));
+    z-index: 1000;
+    transition: width 0.2s;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 4px; right: 0; left: 0;
+    background: rgba(244, 242, 238, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 30px;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-brand {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--warm-blue);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .nav-links a:hover {
+    background: var(--warm-blue);
+    color: white;
+    border-color: var(--warm-blue);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 90px 20px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--warm-blue);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-subtitle {
+    color: var(--text-mid);
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+  }
+
+  .divider {
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(90deg, var(--warm-blue), var(--warm-gold));
+    border-radius: 2px;
+    margin-bottom: 30px;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+    background: linear-gradient(160deg, #F4F2EE 0%, #E8EDF5 50%, #D8E0EE 100%);
+    position: relative;
+    overflow: hidden;
+    opacity: 1 !important;
+    transform: none !important;
+    max-width: 100%;
+  }
+
+  #hero::before {
+    content: "🏛️ 🗼 🌉 🏙️ 🏡 🌆 🏰 🛤️ 🌃";
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.06;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    letter-spacing: 30px;
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    background: var(--warm-blue);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .hero-title span { color: var(--warm-blue); }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-mid);
+    margin-bottom: 30px;
+  }
+
+  .hero-quote {
+    background: white;
+    border-right: 4px solid var(--warm-gold);
+    padding: 18px 25px;
+    border-radius: 12px;
+    max-width: 600px;
+    font-style: italic;
+    color: var(--text-mid);
+    font-size: 1.05rem;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 40px;
+  }
+
+  .hero-quote strong { color: var(--warm-blue); font-style: normal; }
+
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    background: var(--warm-blue);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: 'Heebo', sans-serif;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #3A5A8A;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74,111,165,0.4);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--warm-blue);
+    border: 2px solid var(--warm-blue);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: 'Heebo', sans-serif;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover { background: var(--warm-blue); color: white; }
+
+  /* INFO CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px var(--shadow);
+  }
+
+  .card-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+  .card-title { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+  .card-text { color: var(--text-mid); font-size: 0.95rem; }
+
+  /* ARTISTS SLIDER */
+  .slider-wrap { position: relative; }
+
+  .artists-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .artists-slider::-webkit-scrollbar { height: 6px; }
+  .artists-slider::-webkit-scrollbar-track { background: var(--border); border-radius: 3px; }
+  .artists-slider::-webkit-scrollbar-thumb { background: var(--warm-blue); border-radius: 3px; }
+
+  .artist-card {
+    min-width: 280px;
+    max-width: 300px;
+    scroll-snap-align: start;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .artist-card:hover { transform: translateY(-5px); }
+
+  .artist-header {
+    padding: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+  }
+
+  .artist-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .artist-card:hover .artist-header img { transform: scale(1.06); }
+
+  .artist-header-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px 16px 14px;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  }
+
+  .artist-emoji { display: none; }
+  .artist-name { font-size: 1.1rem; font-weight: 800; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+  .artist-dates { font-size: 0.8rem; color: rgba(255,255,255,0.9); margin-top: 2px; }
+
+  .artist-body { background: white; padding: 20px 25px; }
+
+  .artist-quote {
+    font-style: italic;
+    color: var(--warm-blue);
+    font-size: 0.95rem;
+    border-right: 3px solid var(--warm-gold);
+    padding-right: 12px;
+    margin-bottom: 12px;
+  }
+
+  .artist-desc { color: var(--text-mid); font-size: 0.9rem; line-height: 1.6; }
+
+  /* OBJECTS GRID – מקומות */
+  .objects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .object-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px var(--shadow);
+  }
+
+  .object-card:hover {
+    border-color: var(--warm-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px var(--shadow);
+  }
+
+  .object-emoji { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+  .object-name { font-weight: 700; color: var(--text-dark); font-size: 1rem; margin-bottom: 6px; }
+  .object-why { color: var(--text-mid); font-size: 0.82rem; line-height: 1.4; }
+
+  /* VIDEOS */
+  .channel-banner {
+    background: linear-gradient(135deg, var(--warm-blue), var(--slate));
+    color: white;
+    padding: 18px 25px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .channel-banner-text { font-weight: 700; font-size: 1.05rem; }
+  .channel-banner-sub { font-size: 0.85rem; opacity: 0.9; margin-top: 3px; }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+    gap: 30px;
+  }
+
+  @media (max-width: 520px) { .videos-grid { grid-template-columns: 1fr; } }
+
+  .video-wrapper {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  .video-embed {
+    position: relative;
+    padding-top: 56.25%;
+    background: #1a1a1a;
+  }
+
+  .video-embed iframe {
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .video-info { padding: 20px 25px; }
+  .video-title { font-weight: 700; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 8px; }
+  .video-desc { color: var(--text-mid); font-size: 0.9rem; margin-bottom: 15px; }
+
+  .video-tips {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 14px 18px;
+  }
+
+  .video-tips p { font-size: 0.85rem; color: var(--text-mid); padding: 4px 0; }
+  .video-tips p::before { content: "💡 "; }
+
+  /* QUOTES */
+  .quotes-carousel { position: relative; }
+
+  .quotes-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+  }
+
+  .quotes-track::-webkit-scrollbar { height: 6px; }
+  .quotes-track::-webkit-scrollbar-track { background: var(--border); border-radius: 3px; }
+  .quotes-track::-webkit-scrollbar-thumb { background: var(--warm-blue); border-radius: 3px; }
+
+  .quote-card {
+    min-width: 340px;
+    background: white;
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 0 4px 20px var(--shadow);
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    position: relative;
+    border: 1px solid var(--border);
+  }
+
+  .quote-mark {
+    font-size: 5rem;
+    color: var(--warm-blue);
+    opacity: 0.15;
+    position: absolute;
+    top: 10px; right: 20px;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .quote-text {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-author {
+    font-weight: 700;
+    color: var(--warm-blue);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* EXERCISE */
+  #exercise {
+    background: linear-gradient(160deg, #EEF2F8, #E8EDF5);
+    border-radius: 30px;
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0 8px 40px var(--shadow);
+  }
+
+  .exercise-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+  }
+
+  .step-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid var(--border);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .step-card:hover, .step-card.active {
+    border-color: var(--warm-blue);
+    background: var(--warm-blue);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(74,111,165,0.35);
+  }
+
+  .step-card:hover .step-title,
+  .step-card.active .step-title { color: white; }
+
+  .step-num {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--warm-blue);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .step-card:hover .step-num,
+  .step-card.active .step-num { color: rgba(255,255,255,0.9); }
+
+  .step-title {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+  }
+
+  .exercise-panel { display: none; }
+  .exercise-panel.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .place-picker {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .place-btn {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-dark);
+  }
+
+  .place-btn:hover, .place-btn.selected {
+    border-color: var(--warm-blue);
+    background: rgba(74,111,165,0.08);
+  }
+
+  .place-btn span { font-size: 1.8rem; display: block; margin-bottom: 5px; }
+
+  .tip-box {
+    background: white;
+    border-right: 4px solid var(--warm-gold);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 15px;
+    display: none;
+  }
+
+  .tip-box.show { display: block; animation: fadeIn 0.3s ease; }
+  .tip-label { font-size: 0.75rem; font-weight: 700; color: var(--warm-gold); text-transform: uppercase; margin-bottom: 6px; }
+  .tip-box p { font-size: 0.92rem; color: var(--text-mid); }
+
+  /* TECHNIQUE */
+  .technique-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .tech-btn {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+  }
+
+  .tech-btn:hover, .tech-btn.selected {
+    border-color: var(--sage);
+    background: rgba(139,175,139,0.10);
+  }
+
+  .tech-btn span { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+
+  /* TIMER */
+  .timer-wrap { text-align: center; padding: 20px 0; }
+
+  .timer-circle-wrap {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+  }
+
+  .timer-svg { transform: rotate(-90deg); }
+  .timer-bg { fill: none; stroke: rgba(74,111,165,0.15); stroke-width: 12; }
+  .timer-arc {
+    fill: none;
+    stroke: var(--warm-blue);
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear, stroke 0.5s;
+  }
+
+  .timer-inner {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+
+  .timer-time {
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    line-height: 1;
+  }
+
+  .timer-phase-label {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 4px;
+    max-width: 90px;
+    line-height: 1.3;
+  }
+
+  .timer-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .t-btn {
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: 'Heebo', sans-serif;
+    transition: transform 0.2s;
+  }
+
+  .t-btn:hover { transform: scale(1.05); }
+  .t-start { background: var(--warm-blue); color: white; }
+  .t-pause { background: var(--warm-gold); color: white; }
+  .t-reset { background: var(--cream); color: var(--text-mid); border: 2px solid var(--border); }
+
+  .phases-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .phase-tag {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: white;
+    color: var(--text-light);
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .phase-tag.active { color: white; border-color: transparent; }
+  .phase-tag[data-i="0"].active { background: var(--sage); }
+  .phase-tag[data-i="1"].active { background: var(--warm-gold); }
+  .phase-tag[data-i="2"].active { background: var(--warm-blue); }
+  .phase-tag[data-i="3"].active { background: var(--slate); }
+
+  /* HOMEWORK */
+  .hw-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .hw-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  .hw-num {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--warm-blue), var(--slate));
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; font-weight: 900;
+    margin-bottom: 15px;
+  }
+
+  .hw-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
+  .hw-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+
+  .takeaways {
+    background: linear-gradient(135deg, rgba(74,111,165,0.07), rgba(212,149,106,0.07));
+    border-radius: 20px;
+    padding: 40px;
+  }
+
+  .takeaways h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-align: center;
+    color: var(--text-dark);
+  }
+
+  .takeaways-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .takeaway {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .takeaway-icon { font-size: 2rem; display: block; margin-bottom: 8px; }
+  .takeaway p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+
+  /* MODAL */
+  .modal-bg {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-bg.open { display: flex; }
+
+  .modal-box {
+    background: white;
+    border-radius: 24px;
+    padding: 35px;
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: modalIn 0.3s ease;
+  }
+
+  @keyframes modalIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+
+  .modal-close {
+    position: absolute; top: 15px; left: 15px;
+    background: none; border: none;
+    font-size: 1.4rem; cursor: pointer;
+    color: var(--text-light);
+    line-height: 1;
+  }
+
+  .modal-emoji { font-size: 3.5rem; display: block; margin-bottom: 10px; }
+  .modal-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; color: var(--text-dark); }
+  .modal-body { color: var(--text-mid); line-height: 1.8; margin-bottom: 15px; font-size: 0.95rem; }
+
+  .modal-tips { list-style: none; }
+  .modal-tips li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-dark);
+  }
+  .modal-tips li:last-child { border-bottom: none; }
+  .modal-tips li::before { content: "🖌️ "; }
+
+  /* SCROLL TOP */
+  #scroll-top {
+    position: fixed; bottom: 30px; left: 30px;
+    width: 46px; height: 46px;
+    background: var(--warm-blue); color: white;
+    border: none; border-radius: 50%; cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 16px rgba(74,111,165,0.4);
+    opacity: 0; transition: opacity 0.3s, transform 0.3s;
+    z-index: 900;
+  }
+  #scroll-top.show { opacity: 1; }
+  #scroll-top:hover { transform: translateY(-3px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.75);
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  footer .footer-logo { font-size: 1.4rem; font-weight: 900; color: var(--warm-gold); margin-bottom: 6px; }
+  footer a { color: var(--warm-gold); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    section { padding: 80px 15px 50px; }
+    #exercise { padding: 40px 20px; border-radius: 20px; }
+    .quotes-track .quote-card { min-width: 280px; }
+  }
+
+  /* ── LANGUAGE TOGGLE ── */
+  #lang-btn {
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    z-index: 9999;
+    background: var(--warm-blue, #4A6FA5);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(74,111,165,0.35);
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.5px;
+  }
+  #lang-btn:hover { background: #3a5a8a; transform: scale(1.05); }
+
+    /* ── LTR OVERRIDE FOR ENGLISH ── */
+    html[dir="ltr"] body {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] nav,
+    html[dir="ltr"] .nav-logo,
+    html[dir="ltr"] .nav-links,
+    html[dir="ltr"] .nav-brand {
+      direction: ltr;
+    }
+    html[dir="ltr"] .nav-links {
+      margin-left: auto;
+      margin-right: 0;
+    }
+    html[dir="ltr"] .hero-content,
+    html[dir="ltr"] .hero-stats,
+    html[dir="ltr"] .hero-grid,
+    html[dir="ltr"] .hero-btns {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .section-title,
+    html[dir="ltr"] .section-subtitle,
+    html[dir="ltr"] .section-tag {
+      text-align: left;
+    }
+    html[dir="ltr"] .what-grid,
+    html[dir="ltr"] .what-text,
+    html[dir="ltr"] .cards-grid,
+    html[dir="ltr"] .card {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .artist-body,
+    html[dir="ltr"] .artist-name,
+    html[dir="ltr"] .artist-dates,
+    html[dir="ltr"] .artist-quote,
+    html[dir="ltr"] .artist-desc {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .exercise-container,
+    html[dir="ltr"] .step-content,
+    html[dir="ltr"] .teacher-tip,
+    html[dir="ltr"] .tip-box {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .homework-grid,
+    html[dir="ltr"] .hw-card,
+    html[dir="ltr"] .takeaways,
+    html[dir="ltr"] .takeaway {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .quote-box,
+    html[dir="ltr"] .quote-card,
+    html[dir="ltr"] .quote-text,
+    html[dir="ltr"] .quote-author,
+    html[dir="ltr"] .video-info,
+    html[dir="ltr"] .video-title,
+    html[dir="ltr"] .video-desc,
+    html[dir="ltr"] .video-tips {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .channel-banner,
+    html[dir="ltr"] .channel-info,
+    html[dir="ltr"] .channel-banner-text {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] footer {
+      direction: ltr;
+      text-align: center;
+    }
+    html[dir="ltr"] .footer-logo {
+      text-align: center;
+    }
+    html[dir="ltr"] p,
+    html[dir="ltr"] li,
+    html[dir="ltr"] h1,
+    html[dir="ltr"] h2,
+    html[dir="ltr"] h3,
+    html[dir="ltr"] span,
+    html[dir="ltr"] div {
+      direction: ltr;
+    }
+    html[dir="ltr"] .modal-box {
+      direction: ltr;
+      text-align: left;
+    }
+    html[dir="ltr"] .exercise-steps {
+      direction: ltr;
+    }
+    html[dir="ltr"] .phase-indicators,
+    html[dir="ltr"] .phases-row {
+      direction: ltr;
+    }
+    html[dir="ltr"] .channel-banner-link,
+    html[dir="ltr"] .video-link {
+      direction: ltr;
+    }
+    /* Cards & grids */
+    html[dir="ltr"] .hw-grid,
+    html[dir="ltr"] .videos-grid,
+    html[dir="ltr"] .gallery-grid {
+      direction: ltr;
+    }
+    /* Intro cards in cities */
+    html[dir="ltr"] .card-title,
+    html[dir="ltr"] .card-text {
+      direction: ltr;
+      text-align: left;
+    }
+
+    /* ── FOOTER CENTER ── */
+    footer {
+      text-align: center !important;
+    }
+    footer .footer-logo {
+      text-align: center !important;
+    }
+    footer p {
+      text-align: center !important;
+    }
+    footer a {
+      display: inline;
+    }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><a href="index.html" style="color:inherit;text-decoration:none;">🎨 <span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span></a> <span style="opacity:0.5;margin:0 6px;">|</span> <span data-he="🏙️ ערים ומקומות" data-en="🏙️ Cities & Places">🏙️ ערים ומקומות</span></div>
+  <div class="nav-links">
+    <a href="#intro"><span data-he="מבוא" data-en="Introduction">מבוא</span></a>
+    <a href="#artists"><span data-he="אמנים" data-en="Artists">אמנים</span></a>
+    <a href="#places"><span data-he="מקומות" data-en="Places">מקומות</span></a>
+    <a href="#videos"><span data-he="וידאו" data-en="Videos">וידאו</span></a>
+    <a href="#quotes"><span data-he="ציטוטים" data-en="Quotes">ציטוטים</span></a>
+    <a href="#exercise"><span data-he="תרגיל" data-en="Exercise">תרגיל</span></a>
+    <a href="#homework"><span data-he="שיעורי בית" data-en="Homework">שיעורי בית</span></a>
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank">📷</a>
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank">👥</a>
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank">📺</a>
+    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener"><span data-he="📚 קורס קסם הרישום" data-en="📚 Drawing Magic Course">📚 קורס קסם הרישום</span></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge"><span data-he="🏙️ שיעור ציור אינטראקטיבי | חגית אבידן | 7 Diamonds" data-en="🏙️ Interactive Art Lesson | Hagit Avidan | 7 Diamonds">🏙️ שיעור ציור אינטראקטיבי | חגית אבידן | 7 Diamonds</span></div>
+  <h1 class="hero-title"><span data-he="ערים ומקומות" data-en="Cities & Places">ערים ומקומות</span><br><span data-he="כמקורות " data-en="as Sources of ">כמקורות </span><span data-he="השראה לציור" data-en="Painting Inspiration">השראה לציור</span></h1>
+  <p class="hero-subtitle"><span data-he="כל פינת רחוב, כל חלון מואר" data-en="Every street corner, every lit window">כל פינת רחוב, כל חלון מואר</span><span data-he=", כל גשר ישן – עולם שלם מחכה למכחול שלך" data-en=", every old bridge – a whole world waiting for your brush">, כל גשר ישן – עולם שלם מחכה למכחול שלך</span></p>
+
+  <div class="hero-quote">
+    <strong><span data-he='"העיר היא הבד הגדול ביותר שנמסר לאמן"' data-en='"The city is the greatest canvas ever given to an artist"'>"העיר היא הבד הגדול ביותר שנמסר לאמן"</span></strong><br>
+    – <span data-he="השראה מ-Edward Hopper" data-en="Inspired by Edward Hopper">השראה מ-Edward Hopper</span>
+  </div>
+
+  <div class="hero-btns">
+    <a href="#exercise" class="btn-primary"><span data-he="🖌️ לתרגיל המעשי" data-en="🖌️ Go to Exercise">🖌️ לתרגיל המעשי</span></a>
+    <a href="#places" class="btn-secondary"><span data-he="🗺️ לגלריית המקומות" data-en="🗺️ Places Gallery">🗺️ לגלריית המקומות</span></a>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section id="intro">
+  <h2 class="section-title"><span data-he="🏛️ למה לצייר ערים ומקומות?" data-en="🏛️ Why Paint Cities & Places?">🏛️ למה לצייר ערים ומקומות?</span></h2>
+  <div class="divider"></div>
+  <p class="section-subtitle"><span data-he="ציור אדריכלות, נוף עירוני ומקומות מלמד אותנו פרספקטיבה, קומפוזיציה ואווירה" data-en="Drawing architecture, urban landscapes and places teaches us perspective, composition and atmosphere">ציור אדריכלות, נוף עירוני ומקומות מלמד אותנו פרספקטיבה, קומפוזיציה ואווירה</span></p>
+
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">📐</span>
+      <div class="card-title"><span data-he="פרספקטיבה וקווי עומק" data-en="Perspective & Depth Lines">פרספקטיבה וקווי עומק</span></div>
+      <p class="card-text"><span data-he="רחוב, גשר, או מדרגות – כל אלו מלמדים אותנו כיצד קווים מתכנסים לנקודת בריחה ויוצרים עומק דרמטי." data-en="A street, bridge, or stairs – all teach us how lines converge to a vanishing point and create dramatic depth.">רחוב, גשר, או מדרגות – כל אלו מלמדים אותנו כיצד קווים מתכנסים לנקודת בריחה ויוצרים עומק דרמטי.</span></p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌤️</span>
+      <div class="card-title"><span data-he="אור ואווירה" data-en="Light & Atmosphere">אור ואווירה</span></div>
+      <p class="card-text"><span data-he="אור בוקר על בניין אבן, אורות ערב בחלון, פנס ברחוב גשום – כל שעה ביממה יוצרת אווירה שונה לחלוטין." data-en="Morning light on a stone building, evening lights in a window, a lamp on a rainy street – every hour creates a completely different atmosphere.">אור בוקר על בניין אבן, אורות ערב בחלון, פנס ברחוב גשום – כל שעה ביממה יוצרת אווירה שונה לחלוטין.</span></p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏘️</span>
+      <div class="card-title"><span data-he="תרבות וזיכרון" data-en="Culture & Memory">תרבות וזיכרון</span></div>
+      <p class="card-text"><span data-he="מקומות נושאים סיפורים. שוק פרשת דרכים, כיכר עתיקה, שכונה ישנה – כל מקום הוא פרק בספר היסטוריה." data-en="Places carry stories. A crossroads market, an ancient square, an old neighborhood – every place is a chapter in a history book.">מקומות נושאים סיפורים. שוק פרשת דרכים, כיכר עתיקה, שכונה ישנה – כל מקום הוא פרק בספר היסטוריה.</span></p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎨</span>
+      <div class="card-title"><span data-he="פשוט ונגיש" data-en="Simple & Accessible">פשוט ונגיש</span></div>
+      <p class="card-text"><span data-he="אין צורך לטוס לפריז – הרחוב מחוץ לחלונך מלא בנושאי ציור. קיר ישן, עמוד חשמל, ספסל בפארק." data-en="No need to fly to Paris – the street outside your window is full of painting subjects. An old wall, a utility pole, a park bench.">אין צורך לטוס לפריז – הרחוב מחוץ לחלונך מלא בנושאי ציור. קיר ישן, עמוד חשמל, ספסל בפארק.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ARTISTS -->
+<section id="artists">
+  <h2 class="section-title"><span data-he="🎨 אמנים שאהבו לצייר ערים ומקומות" data-en="🎨 Artists Who Loved Painting Cities & Places">🎨 אמנים שאהבו לצייר ערים ומקומות</span></h2>
+  <div class="divider"></div>
+  <p class="section-subtitle"><span data-he="גללו ימינה לראות אמנים שמצאו את קולם דרך נוף עירוני ומקומות" data-en="Scroll right to discover artists who found their voice through urban landscapes">גללו ימינה לראות אמנים שמצאו את קולם דרך נוף עירוני ומקומות</span></p>
+
+  <div class="slider-wrap">
+    <div class="artists-slider" id="artistsSlider">
+
+      <div class="artist-card">
+        <div class="artist-header" style="background:linear-gradient(135deg, #2C3E6B, #4A6FA5);">
+          <img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP375450_cropped.jpg"
+               alt="Edward Hopper" loading="lazy" onerror="this.style.display='none'">
+          <div class="artist-header-overlay">
+            <div class="artist-name">Edward Hopper</div>
+            <div class="artist-dates"><span data-he='1882–1967 | ארה"ב' data-en="1882–1967 | USA">1882–1967 | ארה"ב</span></div>
+          </div>
+        </div>
+        <div class="artist-body">
+          <p class="artist-quote"><span data-he='"אני מצייר את הבדידות של האדם בתוך העיר הגדולה"' data-en='"I paint the loneliness of man within the great city"'>"אני מצייר את הבדידות של האדם בתוך העיר הגדולה"</span></p>
+          <p class="artist-desc"><span data-he='אדוארד הופר ידוע בציורי נוף אמריקני שמשדרים בדידות ושקט. "Nighthawks" – בית קפה לילי – הוא ציור מהמפורסמים בעולם. האור הדרמטי שלו בלילות העיר הפך לסמל.' data-en='Edward Hopper is known for American landscape paintings that convey loneliness and quiet. "Nighthawks" – a night café – is one of the most famous paintings in the world. His dramatic city night lighting became iconic.'>אדוארד הופר ידוע בציורי נוף אמריקני שמשדרים בדידות ושקט. "Nighthawks" – בית קפה לילי – הוא ציור מהמפורסמים בעולם. האור הדרמטי שלו בלילות העיר הפך לסמל.</span></p>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-header" style="background:linear-gradient(135deg, #6B3E2C, #A55A40);">
+          <img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-21959-001.jpg"
+               alt="Camille Pissarro" loading="lazy" onerror="this.style.display='none'">
+          <div class="artist-header-overlay">
+            <div class="artist-name">Camille Pissarro</div>
+            <div class="artist-dates"><span data-he="1830–1903 | פריז" data-en="1830–1903 | Paris">1830–1903 | פריז</span></div>
+          </div>
+        </div>
+        <div class="artist-body">
+          <p class="artist-quote"><span data-he='"פריז מתחדשת עם כל עונה – וכך גם ציוריי"' data-en='"Paris renews itself with every season – and so do my paintings"'>"פריז מתחדשת עם כל עונה – וכך גם ציוריי"</span></p>
+          <p class="artist-desc"><span data-he="פיסארו צייר את בולוואר מונמארטר בפריז מזוויות שונות ובעונות שונות. הוא הוכיח שאותו מקום בדיוק יכול להיות מאות ציורים שונים." data-en="Pissarro painted the Boulevard Montmartre in Paris from different angles and seasons. He proved that the exact same location can become hundreds of different paintings.">פיסארו צייר את בולוואר מונמארטר בפריז מזוויות שונות ובעונות שונות. הוא הוכיח שאותו מקום בדיוק יכול להיות מאות ציורים שונים.</span></p>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-header" style="background:linear-gradient(135deg, #2C5E3E, #4A8B6A);">
+          <img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-25466-001.jpg"
+               alt="Claude Monet" loading="lazy" onerror="this.style.display='none'">
+          <div class="artist-header-overlay">
+            <div class="artist-name">Claude Monet</div>
+            <div class="artist-dates"><span data-he="1840–1926 | צרפת" data-en="1840–1926 | France">1840–1926 | צרפת</span></div>
+          </div>
+        </div>
+        <div class="artist-body">
+          <p class="artist-quote"><span data-he='"לא המקום שאני מצייר – אלא האור ברגע הזה"' data-en='"It is not the place I paint – but the light at this moment"'>"לא המקום שאני מצייר – אלא האור ברגע הזה"</span></p>
+          <p class="artist-desc"><span data-he="מונה צייר את הקתדרלה של רואן יותר מ-30 פעמים – פעם אחת בכל שעה ביממה. הוא לימד אותנו שהאור הוא הנושא האמיתי, לא המבנה." data-en="Monet painted the Rouen Cathedral more than 30 times – once for every hour of the day. He taught us that light is the true subject, not the structure.">מונה צייר את הקתדרלה של רואן יותר מ-30 פעמים – פעם אחת בכל שעה ביממה. הוא לימד אותנו שהאור הוא הנושא האמיתי, לא המבנה.</span></p>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-header" style="background:linear-gradient(135deg, #3E2C6B, #6A4A9A);">
+          <img src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-14286-009.jpg"
+               alt="Lyonel Feininger" loading="lazy" onerror="this.style.display='none'">
+          <div class="artist-header-overlay">
+            <div class="artist-name">Lyonel Feininger</div>
+            <div class="artist-dates"><span data-he="1871–1956 | גרמניה" data-en="1871–1956 | Germany">1871–1956 | גרמניה</span></div>
+          </div>
+        </div>
+        <div class="artist-body">
+          <p class="artist-quote"><span data-he='"הארכיטקטורה היא מוזיקה קפואה – אני רק מנסה לנגן אותה שוב"' data-en='"Architecture is frozen music – I'm just trying to play it again"'>"הארכיטקטורה היא מוזיקה קפואה – אני רק מנסה לנגן אותה שוב"</span></p>
+          <p class="artist-desc"><span data-he="פייניגר פיצל ערים ומגדלים לצורות גיאומטריות מוארות אור. בית עכו, כנסייה גותית, ספינה בנמל – הכל הפך לסימפוניה של קווים וצבעים." data-en="Feininger fragmented cities and towers into geometric shapes lit with light. An Acre house, a Gothic church, a ship in the harbor – all became a symphony of lines and colors.">פייניגר פיצל ערים ומגדלים לצורות גיאומטריות מוארות אור. בית עכו, כנסייה גותית, ספינה בנמל – הכל הפך לסימפוניה של קווים וצבעים.</span></p>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-header" style="background:linear-gradient(135deg, #5E3E2C, #8B6040);">
+          <img src="https://img.youtube.com/vi/1GLtRj58utQ/mqdefault.jpg"
+               alt="חגית אבידן" loading="lazy" onerror="this.style.display='none'">
+          <div class="artist-header-overlay">
+            <div class="artist-name"><span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span></div>
+            <div class="artist-dates"><span data-he="ישראל | 7 Diamonds" data-en="Israel | 7 Diamonds">ישראל | 7 Diamonds</span></div>
+          </div>
+        </div>
+        <div class="artist-body">
+          <p class="artist-quote"><span data-he='"לרשום מקום זה לעצור, להתבונן, ולשאול – מה אני רואה באמת?"' data-en='"Drawing a place means stopping, observing, and asking – what do I really see?"'>"לרשום מקום זה לעצור, להתבונן, ולשאול – מה אני רואה באמת?"</span></p>
+          <p class="artist-desc"><span data-he="חגית מלמדת כיצד לתרגם כל נוף ומקום לשפה של קו, כתם ואור. הגישה שלה: לפני שאתה מצייר – צפה. לפני שאתה מוסיף – הבן." data-en="Hagit teaches how to translate any landscape and place into the language of line, tone and light. Her approach: before you paint – observe. Before you add – understand.">חגית מלמדת כיצד לתרגם כל נוף ומקום לשפה של קו, כתם ואור. הגישה שלה: לפני שאתה מצייר – צפה. לפני שאתה מוסיף – הבן.</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PLACES GALLERY -->
+<section id="places">
+  <h2 class="section-title"><span data-he="🗺️ מקומות לצייר" data-en="🗺️ Places to Draw">🗺️ מקומות לצייר</span></h2>
+  <div class="divider"></div>
+  <p class="section-subtitle"><span data-he="לחצו על מקום לקבל טיפים ייחודיים לציור שלו" data-en="Click on a place to get unique drawing tips">לחצו על מקום לקבל טיפים ייחודיים לציור שלו</span></p>
+
+  <div class="objects-grid" id="placesGrid">
+    <!-- filled by JS -->
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-emoji" id="mEmoji"></span>
+    <h2 class="modal-title" id="mTitle"></h2>
+    <p class="modal-body" id="mBody"></p>
+    <ul class="modal-tips" id="mTips"></ul>
+  </div>
+</div>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <h2 class="section-title"><span data-he="🎬 סרטוני הדגמה" data-en="🎬 Demo Videos">🎬 סרטוני הדגמה</span></h2>
+  <div class="divider"></div>
+
+  <div class="channel-banner">
+    <div>
+      <div class="channel-banner-text"><span data-he="🎬 הסרטונים מהערוץ של המרצה שלנו – חגית אבידן | 7 Diamonds" data-en="🎬 Videos from our instructor's channel – Hagit Avidan | 7 Diamonds">🎬 הסרטונים מהערוץ של המרצה שלנו – חגית אבידן | 7 Diamonds</span></div>
+      <div class="channel-banner-sub"><span data-he="ציור, רישום ופיתוח עין אמנותית" data-en="Painting, drawing and developing an artistic eye">ציור, רישום ופיתוח עין אמנותית</span></div>
+    </div>
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener" class="btn-secondary" style="color:white; border-color:rgba(255,255,255,0.6); font-size:0.88rem; padding:8px 18px;">
+      <span data-he="לערוץ המלא ←" data-en="Full Channel →">לערוץ המלא ←</span>
+    </a>
+  </div>
+
+  <div class="videos-grid">
+    <div class="video-wrapper">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/Jwe-_JwKTjY"
+          title="Drawing Flowers with Pen – Line &amp; Tone | Hagit Avidan"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-info">
+        <div class="video-title"><span data-he="🖊️ רישום בעט – קו וכתם | חגית אבידן" data-en="🖊️ Pen Drawing – Line & Tone | Hagit Avidan">🖊️ רישום בעט – קו וכתם | חגית אבידן</span></div>
+        <p class="video-desc"><span data-he="הדגמה של רישום פרחים בעט – עקרונות הקו והכתם חלים בדיוק אותו דבר גם על רישום ערים ומקומות." data-en="A demonstration of drawing flowers with a pen – the principles of line and tone apply equally to drawing cities and places.">הדגמה של רישום פרחים בעט – עקרונות הקו והכתם חלים בדיוק אותו דבר גם על רישום ערים ומקומות.</span></p>
+        <div class="video-tips">
+          <p><span data-he="רשמו בדיוק את הקו כפי שהוא מופיע – לא כפי שחושבים שהוא אמור להיראות" data-en="Draw exactly the line as it appears – not how you think it should look">רשמו בדיוק את הקו כפי שהוא מופיע – לא כפי שחושבים שהוא אמור להיראות</span></p>
+          <p><span data-he="התחילו מהצורה הכללית ואז פרטים" data-en="Start with the overall shape, then details">התחילו מהצורה הכללית ואז פרטים</span></p>
+          <p><span data-he="חזרתיות בכתם = עומק ומרקם" data-en="Repetition in tone = depth and texture">חזרתיות בכתם = עומק ומרקם</span></p>
+        </div>
+        <br>
+        <a href="https://www.facebook.com/hagit.avidan/" target="_blank" rel="noopener" style="color:var(--warm-blue); font-size:0.85rem; font-weight:600; text-decoration:none;">
+          <span data-he='📚 לקורס "קסם הרישום" ←' data-en='📚 "Drawing Magic" Course →'>📚 לקורס "קסם הרישום" ←</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="video-wrapper">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/CtGWRKHmoXk"
+          title="Painting Demo – Hagit Avidan | 7 Diamonds"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-info">
+        <div class="video-title"><span data-he="🎨 הדגמת ציור | חגית אבידן | 7 Diamonds" data-en="🎨 Painting Demo | Hagit Avidan | 7 Diamonds">🎨 הדגמת ציור | חגית אבידן | 7 Diamonds</span></div>
+        <p class="video-desc"><span data-he="צפו בתהליך ציור מלא – שימו לב כיצד המרצה מתבוננת, בוחרת ומבצעת." data-en="Watch the full painting process – notice how the instructor observes, chooses and executes.">צפו בתהליך ציור מלא – שימו לב כיצד המרצה מתבוננת, בוחרת ומבצעת.</span></p>
+        <div class="video-tips">
+          <p><span data-he="שימו לב לתנועת היד ולסוגי המכחולים" data-en="Notice the hand movements and types of brushes">שימו לב לתנועת היד ולסוגי המכחולים</span></p>
+          <p><span data-he="הבחינו בבחירות הצבע ובניית הקומפוזיציה" data-en="Notice the color choices and composition building">הבחינו בבחירות הצבע ובניית הקומפוזיציה</span></p>
+          <p><span data-he="שאלו: מה הייתי עושה אחרת?" data-en="Ask yourself: what would I do differently?">שאלו: מה הייתי עושה אחרת?</span></p>
+        </div>
+        <br>
+        <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener" style="color:var(--warm-blue); font-size:0.85rem; font-weight:600; text-decoration:none;">
+          <span data-he="📺 לערוץ יוטיוב ←" data-en="📺 YouTube Channel →">📺 לערוץ יוטיוב ←</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes">
+  <h2 class="section-title"><span data-he="💬 ציטוטים מעוררי השראה" data-en="💬 Inspiring Quotes">💬 ציטוטים מעוררי השראה</span></h2>
+  <div class="divider"></div>
+
+  <div class="quotes-carousel">
+    <div class="quotes-track" id="quotesTrack">
+
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text"><span data-he="העיר היא הנוף הגדול ביותר שהאנושות יצרה – ולא משנה באיזה זווית תעמוד, תמצא ציור חדש" data-en="The city is the greatest landscape humanity has ever created – no matter what angle you stand, you will find a new painting">העיר היא הנוף הגדול ביותר שהאנושות יצרה – ולא משנה באיזה זווית תעמוד, תמצא ציור חדש</span></p>
+        <div class="quote-author"><span data-he="🏙️ השראה מ-Edward Hopper" data-en="🏙️ Inspired by Edward Hopper">🏙️ השראה מ-Edward Hopper</span></div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text"><span data-he="אין מקום רגיל – יש רק עין שלא למדה לראות" data-en="There is no ordinary place – only an eye that hasn't learned to see">אין מקום רגיל – יש רק עין שלא למדה לראות</span></p>
+        <div class="quote-author"><span data-he="🎨 עיקרון ציורי" data-en="🎨 Painting Principle">🎨 עיקרון ציורי</span></div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text"><span data-he="לרשום בדיוק את הקו כפי שהוא מופיע – לא את הקו אותו אנחנו חושבים שאנחנו רואים" data-en="Draw exactly the line as it appears – not the line we think we see">לרשום בדיוק את הקו כפי שהוא מופיע – לא את הקו אותו אנחנו חושבים שאנחנו רואים</span></p>
+        <div class="quote-author"><span data-he="✏️ חגית אבידן" data-en="✏️ Hagit Avidan">✏️ חגית אבידן</span></div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text"><span data-he="לא המקום, אלא האור ברגע הזה – זה מה שאתה מצייר" data-en="Not the place, but the light at this moment – that is what you paint">לא המקום, אלא האור ברגע הזה – זה מה שאתה מצייר</span></p>
+        <div class="quote-author"><span data-he="☀️ השראה מ-Claude Monet" data-en="☀️ Inspired by Claude Monet">☀️ השראה מ-Claude Monet</span></div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text"><span data-he="כשתלמד לראות על ידי ציור מה שמולך – תוכל ליישם את השיעורים האלה על כל נושא" data-en="When you learn to see by painting what's in front of you – you can apply these lessons to any subject">כשתלמד לראות על ידי ציור מה שמולך – תוכל ליישם את השיעורים האלה על כל נושא</span></p>
+        <div class="quote-author"><span data-he="📖 עיקרון ציור מהחיים" data-en="📖 Principle of painting from life">📖 עיקרון ציור מהחיים</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE -->
+<section id="exercise" style="opacity:1!important;transform:none!important;max-width:100%;padding:0 20px 60px;">
+  <div style="max-width:1100px; margin:0 auto; background:linear-gradient(160deg,#EEF2F8,#E8EDF5); border-radius:30px; padding:60px 40px; box-shadow:0 8px 40px var(--shadow);">
+
+    <h2 class="section-title" style="color:var(--warm-blue);"><span data-he="🖌️ תרגיל מעשי – צייר מקום" data-en="🖌️ Hands-on Exercise – Draw a Place">🖌️ תרגיל מעשי – צייר מקום</span></h2>
+    <div class="divider"></div>
+    <p class="section-subtitle"><span data-he="ארבעה שלבים פשוטים לציור מוצלח של ערים ומקומות" data-en="Four simple steps to a successful drawing of cities and places">ארבעה שלבים פשוטים לציור מוצלח של ערים ומקומות</span></p>
+
+    <!-- Steps -->
+    <div class="exercise-steps">
+      <div class="step-card active" onclick="showPanel(0,this)">
+        <span class="step-num">1</span>
+        <div class="step-title"><span data-he="בחר מקום" data-en="Choose a Place">בחר מקום</span></div>
+      </div>
+      <div class="step-card" onclick="showPanel(1,this)">
+        <span class="step-num">2</span>
+        <div class="step-title"><span data-he="בחר טכניקה" data-en="Choose Technique">בחר טכניקה</span></div>
+      </div>
+      <div class="step-card" onclick="showPanel(2,this)">
+        <span class="step-num">3</span>
+        <div class="step-title"><span data-he="הכנה" data-en="Preparation">הכנה</span></div>
+      </div>
+      <div class="step-card" onclick="showPanel(3,this)">
+        <span class="step-num">⏱️</span>
+        <div class="step-title"><span data-he="צייר!" data-en="Paint!">צייר!</span></div>
+      </div>
+    </div>
+
+    <!-- Panel 1 -->
+    <div class="exercise-panel active" id="panel0">
+      <h3 style="font-weight:800;margin-bottom:8px;font-size:1.2rem;"><span data-he="בחר מקום לצייר" data-en="Choose a Place to Draw">בחר מקום לצייר</span></h3>
+      <p style="color:var(--text-mid);margin-bottom:16px;font-size:0.95rem;"><span data-he="בחר מקום שנמצא קרוב אליך – מבחוץ לחלונך, בשכונה שלך, או מתמונה שצילמת." data-en="Choose a place near you – outside your window, in your neighborhood, or from a photo you took.">בחר מקום שנמצא קרוב אליך – מבחוץ לחלונך, בשכונה שלך, או מתמונה שצילמת.</span></p>
+      <div class="place-picker" id="placePicker"><!-- filled by JS --></div>
+      <div class="tip-box" id="placeTipBox">
+        <div class="tip-label"><span data-he="💡 טיפ למקום זה" data-en="💡 Tip for this Place">💡 טיפ למקום זה</span></div>
+        <p id="placeTipText"></p>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="exercise-panel" id="panel1">
+      <h3 style="font-weight:800;margin-bottom:8px;font-size:1.2rem;"><span data-he="בחר את הטכניקה שלך" data-en="Choose Your Technique">בחר את הטכניקה שלך</span></h3>
+      <p style="color:var(--text-mid);margin-bottom:16px;font-size:0.95rem;"><span data-he="בחר לפי הכלים שיש לך ומה שאתה רוצה לתרגל היום." data-en="Choose based on the tools you have and what you want to practice today.">בחר לפי הכלים שיש לך ומה שאתה רוצה לתרגל היום.</span></p>
+      <div class="technique-grid" id="techPickerEx"><!-- filled by JS --></div>
+      <div class="tip-box" id="techTipBox">
+        <div class="tip-label"><span data-he="🖌️ טיפ לטכניקה" data-en="🖌️ Technique Tip">🖌️ טיפ לטכניקה</span></div>
+        <p id="techTipText"></p>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="exercise-panel" id="panel2">
+      <h3 style="font-weight:800;margin-bottom:16px;font-size:1.2rem;"><span data-he="לפני שמתחילים – 5 דקות התבוננות" data-en="Before We Begin – 5 Minutes of Observation">לפני שמתחילים – 5 דקות התבוננות</span></h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+        <div class="tip-box show" style="border-color:var(--warm-blue);">
+          <div class="tip-label" style="color:var(--warm-blue);"><span data-he="👁️ צפה" data-en="👁️ Observe">👁️ צפה</span></div>
+          <p><span data-he="מה נקודת המיקוד? איפה הצל הכהה ביותר? מה יוצר עומק בנוף הזה?" data-en="What is the focal point? Where is the darkest shadow? What creates depth in this landscape?">מה נקודת המיקוד? איפה הצל הכהה ביותר? מה יוצר עומק בנוף הזה?</span></p>
+        </div>
+        <div class="tip-box show" style="border-color:var(--sage);">
+          <div class="tip-label" style="color:var(--sage);"><span data-he="📐 פרספקטיבה" data-en="📐 Perspective">📐 פרספקטיבה</span></div>
+          <p><span data-he="מצא את קווי האופק וקווי הבריחה. כל ציור של מקום מתחיל שם." data-en="Find the horizon line and vanishing lines. Every location drawing starts there.">מצא את קווי האופק וקווי הבריחה. כל ציור של מקום מתחיל שם.</span></p>
+        </div>
+        <div class="tip-box show" style="border-color:var(--warm-gold);">
+          <div class="tip-label" style="color:var(--warm-gold);"><span data-he="✂️ פשט" data-en="✂️ Simplify">✂️ פשט</span></div>
+          <p><span data-he="בחר פינה קטנה, לא נוף שלם. 30% מהנוף = 100% מהציור." data-en="Choose a small corner, not the whole landscape. 30% of the scene = 100% of the painting.">בחר פינה קטנה, לא נוף שלם. 30% מהנוף = 100% מהציור.</span></p>
+        </div>
+        <div class="tip-box show" style="border-color:var(--slate);">
+          <div class="tip-label" style="color:var(--slate);"><span data-he="🎵 אווירה" data-en="🎵 Atmosphere">🎵 אווירה</span></div>
+          <p><span data-he="השמע מוזיקה שקטה ותתחיל לצייר מבלי לשפוט כל קו." data-en="Play quiet music and start drawing without judging every line.">השמע מוזיקה שקטה ותתחיל לצייר מבלי לשפוט כל קו.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4 – Timer -->
+    <div class="exercise-panel" id="panel3">
+      <h3 style="font-weight:800;margin-bottom:8px;font-size:1.2rem;"><span data-he="⏱️ 40 דקות – 4 שלבים" data-en="⏱️ 40 Minutes – 4 Phases">⏱️ 40 דקות – 4 שלבים</span></h3>
+      <p style="color:var(--text-mid);margin-bottom:20px;font-size:0.95rem;"><span data-he="הטיימר ינחה אותך שלב אחר שלב לציור מוצלח." data-en="The timer will guide you step by step to a successful drawing.">הטיימר ינחה אותך שלב אחר שלב לציור מוצלח.</span></p>
+
+      <div class="timer-wrap">
+        <div class="timer-circle-wrap">
+          <svg class="timer-svg" width="200" height="200" viewBox="0 0 180 180">
+            <circle class="timer-bg" cx="90" cy="90" r="80"/>
+            <circle class="timer-arc" cx="90" cy="90" r="80" id="timerArc"/>
+          </svg>
+          <div class="timer-inner">
+            <div class="timer-time" id="timerDisplay">40:00</div>
+            <div class="timer-phase-label" id="timerPhaseLabel"><span data-he="לחץ התחל" data-en="Press Start">לחץ התחל</span></div>
+          </div>
+        </div>
+
+        <div class="timer-btns">
+          <button class="t-btn t-start" onclick="tStart()"><span data-he="▶ התחל" data-en="▶ Start">▶ התחל</span></button>
+          <button class="t-btn t-pause" onclick="tPause()"><span data-he="⏸ השהה" data-en="⏸ Pause">⏸ השהה</span></button>
+          <button class="t-btn t-reset" onclick="tReset()"><span data-he="↺ אפס" data-en="↺ Reset">↺ אפס</span></button>
+        </div>
+
+        <div class="phases-row">
+          <div class="phase-tag" data-i="0"><span data-he="👁️ צפה (5 דק')" data-en="👁️ Observe (5 min)">👁️ צפה (5 דק')</span></div>
+          <div class="phase-tag" data-i="1"><span data-he="✏️ קווי בריחה ומתאר (10 דק')" data-en="✏️ Vanishing lines & outline (10 min)">✏️ קווי בריחה ומתאר (10 דק')</span></div>
+          <div class="phase-tag" data-i="2"><span data-he="🌑 צל, אור ואווירה (15 דק')" data-en="🌑 Shadow, light & atmosphere (15 min)">🌑 צל, אור ואווירה (15 דק')</span></div>
+          <div class="phase-tag" data-i="3"><span data-he="🌟 פרטים ואופי (10 דק')" data-en="🌟 Details & character (10 min)">🌟 פרטים ואופי (10 דק')</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOMEWORK -->
+<section id="homework">
+  <h2 class="section-title"><span data-he="🏠 שיעורי בית" data-en="🏠 Homework">🏠 שיעורי בית</span></h2>
+  <div class="divider"></div>
+
+  <div class="hw-grid">
+    <div class="hw-card">
+      <div class="hw-num">1</div>
+      <h3><span data-he="סדרת חלון" data-en="Window Series">סדרת חלון</span></h3>
+      <p><span data-he="צייר את הנוף מחלונך בשלוש שעות שונות – בוקר, צהריים וערב. שים לב כיצד האור משנה לחלוטין את האווירה. כתוב מה הרגשת בכל ציור." data-en="Draw the view from your window at three different times – morning, noon and evening. Notice how light completely changes the atmosphere. Write down how you felt with each drawing.">צייר את הנוף מחלונך בשלוש שעות שונות – בוקר, צהריים וערב. שים לב כיצד האור משנה לחלוטין את האווירה. כתוב מה הרגשת בכל ציור.</span></p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-num">2</div>
+      <h3><span data-he="פינת שכונה" data-en="Neighborhood Corner">פינת שכונה</span></h3>
+      <p><span data-he="בחר פינת רחוב מוכרת בשכונה שלך וצייר אותה. אחר כך חזור לאותה פינה בעונה אחרת או בגשם – וצייר שוב. מה השתנה?" data-en="Choose a familiar street corner in your neighborhood and draw it. Then return to the same corner in another season or in rain – and draw again. What changed?">בחר פינת רחוב מוכרת בשכונה שלך וצייר אותה. אחר כך חזור לאותה פינה בעונה אחרת או בגשם – וצייר שוב. מה השתנה?</span></p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-num">3</div>
+      <h3><span data-he="מקום מהזיכרון" data-en="A Place from Memory">מקום מהזיכרון</span></h3>
+      <p><span data-he="בחר מקום שאתה אוהב מאוד – עיר שביקרת, כפר, חוף ים – וצייר אותו מהזיכרון בלבד. אל תסתכל בתמונות. שים לב לאיזה פרטים נשארו בזיכרון שלך." data-en="Choose a place you love dearly – a city you visited, a village, a seaside – and draw it from memory alone. Don't look at photos. Notice which details stayed in your memory.">בחר מקום שאתה אוהב מאוד – עיר שביקרת, כפר, חוף ים – וצייר אותו מהזיכרון בלבד. אל תסתכל בתמונות. שים לב לאיזה פרטים נשארו בזיכרון שלך.</span></p>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3><span data-he="💡 3 תובנות לקחת הביתה" data-en="💡 3 Insights to Take Home">💡 3 תובנות לקחת הביתה</span></h3>
+    <div class="takeaways-grid">
+      <div class="takeaway">
+        <span class="takeaway-icon">🗺️</span>
+        <p><strong><span data-he="כל מקום הוא ייחודי –" data-en="Every place is unique –">כל מקום הוא ייחודי –</span></strong> <span data-he="לא המקום עצמו, אלא הרגע, האור, והזווית שבחרת." data-en="not the place itself, but the moment, the light, and the angle you chose.">לא המקום עצמו, אלא הרגע, האור, והזווית שבחרת.</span></p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">✏️</span>
+        <p><strong><span data-he="פשט, אל תשלים –" data-en="Simplify, don't complete –">פשט, אל תשלים –</span></strong> <span data-he="ציור מקום טוב מתחיל בהחלטה מה לא לצייר." data-en="a good place drawing starts with deciding what NOT to draw.">ציור מקום טוב מתחיל בהחלטה מה לא לצייר.</span></p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">👁️</span>
+        <p><strong><span data-he="קודם ראה, אחר כך צייר –" data-en="First see, then draw –">קודם ראה, אחר כך צייר –</span></strong> <span data-he="5 דקות התבוננות שוות 30 דקות ציור." data-en="5 minutes of observation equals 30 minutes of drawing.">5 דקות התבוננות שוות 30 דקות ציור.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span data-he="🏙️ ערים ומקומות | חגית אבידן" data-en="🏙️ Cities & Places | Hagit Avidan">🏙️ ערים ומקומות | חגית אבידן</span></div>
+  <p style="margin-bottom:10px;"><span data-he="שיעור ציור אינטראקטיבי – השראה מהעולם שסביבנו" data-en="Interactive Art Lesson – Inspired by the World Around Us">שיעור ציור אינטראקטיבי – השראה מהעולם שסביבנו</span></p>
+  <p>
+    <a href="index.html"><span data-he="🏠 לדף הבית" data-en="🏠 Home">🏠 לדף הבית</span></a>
+    &nbsp;|&nbsp;
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener"><span data-he="📺 ערוץ יוטיוב" data-en="📺 YouTube Channel">📺 ערוץ יוטיוב</span></a>
+    &nbsp;|&nbsp;
+    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener"><span data-he="📚 קורס קסם הרישום" data-en="📚 Drawing Magic Course">📚 קורס קסם הרישום</span></a>
+    &nbsp;|&nbsp;
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank"><span data-he="📷 אינסטגרם" data-en="📷 Instagram">📷 אינסטגרם</span></a>
+    &nbsp;|&nbsp;
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank"><span data-he="👥 פייסבוק" data-en="👥 Facebook">👥 פייסבוק</span></a>
+  </p>
+</footer>
+
+<script>
+/* ── DATA ── */
+const _lang = () => localStorage.getItem('siteLang') || 'he';
+const placesDataBi = [
+  { emoji:'🏛️', he:'בניין היסטורי', en:'Historic Building', whyHe:'ארכיטקטורה ופרטים', whyEn:'Architecture & Details',
+    tipHe:'התחל מקווי האופק ונקודת הבריחה. הכנסת הפרספקטיבה היא הסוד לאמינות הציור.',
+    tipEn:'Start with the horizon and vanishing point. Perspective is the secret to believable drawing.',
+    tipsHe:['מצא קו אופק אחד ברור','שרטט קווי בריחה לפני הכל','הוסף חלונות ופרטים רק לאחר שהצורה בנויה'],
+    tipsEn:['Find one clear horizon line','Sketch vanishing lines first','Add windows and details only after the shape is built'] },
+  { emoji:'🌉', he:'גשר', en:'Bridge', whyHe:'קווים וסימטריה', whyEn:'Lines & Symmetry',
+    tipHe:'גשרים הם שיעור פרספקטיבה מושלם – קווים מקבילים, השתקפות במים, שינוי גודל לעומק.',
+    tipEn:'Bridges are a perfect perspective lesson – parallel lines, water reflection, size change with depth.',
+    tipsHe:['ציור את ההשתקפות במים','שים לב לכיצד הגשר מצטמצם לעומק','טיפ: התחל מהנקודה הרחוקה ביותר'],
+    tipsEn:['Draw the water reflection','Notice how the bridge narrows into depth','Tip: start from the farthest point'] },
+  { emoji:'🛤️', he:'רחוב עם פרספקטיבה', en:'Street with Perspective', whyHe:'קווי בריחה דרמטיים', whyEn:'Dramatic Vanishing Lines',
+    tipHe:'רחוב ישר הוא התרגיל הקלאסי לפרספקטיבה. מצא את נקודת ההיעלמות ולפיה ציור הכל.',
+    tipEn:'A straight street is the classic perspective exercise. Find the vanishing point and draw everything from it.',
+    tipsHe:['רחוב ישר = נקודת בריחה אחת','עקמומי = פרספקטיבה אווירית','שים לב לשינוי גודל האנשים/הרכבים'],
+    tipsEn:['Straight street = one vanishing point','Curved = aerial perspective','Notice how people/vehicles shrink with distance'] },
+  { emoji:'☕', he:'בית קפה / פיניקה', en:'Café / Corner Spot', whyHe:'אנשים ואווירה', whyEn:'People & Atmosphere',
+    tipHe:'כמו הופר – האנשים, האור הפנימי, החלונות. תמהיל של חוץ ופנים יוצר אווירה חזקה.',
+    tipEn:'Like Hopper – people, interior light, windows. A mix of inside and outside creates strong atmosphere.',
+    tipsHe:['צייר את ההשתקפות בחלון','האור הפנימי מול החוץ הכהה – דרמה!','אנשים כצלליות – לא פרצופים מפורטים'],
+    tipsEn:['Draw the window reflection','Interior light vs. dark exterior – drama!','People as silhouettes – no detailed faces'] },
+  { emoji:'🌆', he:'קו רקיע עירוני', en:'City Skyline', whyHe:'סילואט ועוצמה', whyEn:'Silhouette & Power',
+    tipHe:'ציור קו הרקיע כסילואט כהה מול שמיים בהירים הוא אחד התרגילים החזקים ביותר לקומפוזיציה.',
+    tipEn:'Drawing the skyline as a dark silhouette against bright sky is one of the strongest composition exercises.',
+    tipsHe:['נסה תחילה ב-2 צבעים בלבד','הקו בין השמיים לבניינים – שם נמצאת הדרמה','שחק עם שקיעה/זריחה לאחורי הסילואט'],
+    tipsEn:['Try with just 2 colors first','The line between sky and buildings – that\'s where the drama lives','Play with sunset/sunrise behind the silhouette'] },
+  { emoji:'🏡', he:'בית ישן / שכונה', en:'Old House / Neighborhood', whyHe:'מרקם וסיפור', whyEn:'Texture & Story',
+    tipHe:'בתים ישנים מלאים בסיפור – קירות מתקלפים, חלונות עם פרחים, מדרגות. כל פרט הוא נושא.',
+    tipEn:'Old houses are full of story – peeling walls, flower-filled windows, stairs. Every detail is a subject.',
+    tipsHe:['קירות מתקלפים = מרקם עשיר','צייר את הצל שהמדרגות יוצרות','עץ מול בית = ריכוך אורגני'],
+    tipsEn:['Peeling walls = rich texture','Draw the shadow the stairs cast','Tree in front of house = organic softening'] },
+  { emoji:'🌊', he:'נמל / חוף עם ספינות', en:'Harbor / Shore with Boats', whyHe:'תנועה ומים', whyEn:'Movement & Water',
+    tipHe:'מים ומבנה – השתקפויות! ספינות ותורנים – קווים אנכיים עם קוצר רוח. האלמנטים הם מנוגדים לגמרי.',
+    tipEn:'Water and structure – reflections! Boats and masts – vertical lines with drama. The elements totally contrast.',
+    tipsHe:['ציור מים כאזור מנוחה, לא פרטים','ספינה = קו אנכי חזק מול האופק','שים לב לצל שהספינה זורקת על המים'],
+    tipsEn:['Draw water as a rest area, not details','Boat = strong vertical line against the horizon','Notice the shadow the boat casts on the water'] },
+  { emoji:'🌃', he:'עיר בלילה', en:'City at Night', whyHe:'אור, ניגוד וצל', whyEn:'Light, Contrast & Shadow',
+    tipHe:'כמו הופר – הלילה מפשיט פרטים ומשאיר רק אור וצל. פנסי רחוב, חלונות מוארים – כל נקודת אור היא סיפור.',
+    tipEn:'Like Hopper – night strips away details, leaving only light and shadow. Street lamps, lit windows – every light point is a story.',
+    tipsHe:['רקע כהה מאוד, אורות חדים','אל תצייר מה שלא רואים – החושך הוא חלק מהציור','נסה עם פחם/גואש לבן על נייר שחור'],
+    tipsEn:['Very dark background, sharp lights','Don\'t draw what you can\'t see – darkness is part of the painting','Try with charcoal/white gouache on black paper'] },
+  { emoji:'🌄', he:'נוף פתוח / שדות', en:'Open Landscape / Fields', whyHe:'קו אופק ושמיים', whyEn:'Horizon Line & Sky',
+    tipHe:'בנוף פתוח – קו האופק הוא המפתח. גבוה = שמיים דרמטיים. נמוך = אדמה ופרטים. בחר לפי מה אתה רוצה להדגיש.',
+    tipEn:'In open landscapes – the horizon is key. High = dramatic sky. Low = earth and details. Choose based on what you want to emphasize.',
+    tipsHe:['שני שלישים שמיים = נוף דרמטי','שני שלישים אדמה = פרטים ומרקם','עצים בודדים יוצרים עומק'],
+    tipsEn:['Two-thirds sky = dramatic landscape','Two-thirds earth = details and texture','Lone trees create depth'] },
+];
+const places = placesDataBi.map(p => ({
+  emoji: p.emoji,
+  name: _lang()==='en' ? p.en : p.he,
+  why:  _lang()==='en' ? p.whyEn : p.whyHe,
+  tip:  _lang()==='en' ? p.tipEn : p.tipHe,
+  tips: _lang()==='en' ? p.tipsEn : p.tipsHe
+}));
+
+const techniques = (function(){
+  const td = [
+    { icon:'✏️', he:'עיפרון', en:'Pencil',
+      tipHe:'אידיאלי לפרספקטיבה! התחל ב-HB לקווי מבנה, ועבר ל-3B לצלל עמוק.',
+      tipEn:'Ideal for perspective! Start with HB for structure lines, switch to 3B for deep shading.' },
+    { icon:'🖊️', he:'עט', en:'Pen',
+      tipHe:'ללא מחיקות – מאלץ החלטיות. התחל מנקודת הבריחה ועבד החוצה.',
+      tipEn:'No erasing – forces decisiveness. Start from the vanishing point and work outward.' },
+    { icon:'💧', he:'צבעי מים', en:'Watercolors',
+      tipHe:'שמיים ומים = צבעי מים! התחל עם שמיים רטובים-על-רטוב לעמימות.',
+      tipEn:'Sky and water = watercolors! Start with wet-on-wet sky for softness.' },
+    { icon:'🎨', he:'אקריליק', en:'Acrylic',
+      tipHe:'לרחובות לילה ונוף עירוני – אקריליק מאפשר שכבות כהות ועליהן אורות.',
+      tipEn:'For night streets and city landscapes – acrylic allows dark layers with lights on top.' },
+    { icon:'🖍️', he:'גאש', en:'Gouache',
+      tipHe:'מושלם לסצנות לילה – רקע כהה + לבן/צבעים בהירים מעל.',
+      tipEn:'Perfect for night scenes – dark background + white/bright colors on top.' },
+  ];
+  return td.map(t => ({ icon:t.icon, name:_lang()==='en'?t.en:t.he, tip:_lang()==='en'?t.tipEn:t.tipHe }));
+})();
+
+/* ── PLACES GRID ── */
+const placesGrid = document.getElementById('placesGrid');
+places.forEach((p, i) => {
+  const d = document.createElement('div');
+  d.className = 'object-card';
+  d.innerHTML = `<span class="object-emoji">${p.emoji}</span>
+    <div class="object-name">${p.name}</div>
+    <div class="object-why">${p.why}</div>`;
+  d.onclick = () => openModal(i);
+  placesGrid.appendChild(d);
+});
+
+/* ── PLACE PICKER (exercise) ── */
+const placePicker = document.getElementById('placePicker');
+places.forEach((p, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'place-btn';
+  btn.innerHTML = `<span>${p.emoji}</span>${p.name}`;
+  btn.onclick = () => {
+    document.querySelectorAll('.place-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    document.getElementById('placeTipBox').classList.add('show');
+    document.getElementById('placeTipText').textContent = p.tip;
+  };
+  placePicker.appendChild(btn);
+});
+
+/* ── TECHNIQUE PICKER ── */
+const techPickerEx = document.getElementById('techPickerEx');
+techniques.forEach(t => {
+  const btn = document.createElement('button');
+  btn.className = 'tech-btn';
+  btn.innerHTML = `<span>${t.icon}</span>${t.name}`;
+  btn.onclick = () => {
+    document.querySelectorAll('#techPickerEx .tech-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    document.getElementById('techTipBox').classList.add('show');
+    document.getElementById('techTipText').textContent = t.tip;
+  };
+  techPickerEx.appendChild(btn);
+});
+
+/* ── MODAL ── */
+function openModal(i) {
+  const p = places[i];
+  document.getElementById('mEmoji').textContent = p.emoji;
+  document.getElementById('mTitle').textContent = p.name;
+  document.getElementById('mBody').textContent = p.tip;
+  document.getElementById('mTips').innerHTML = p.tips.map(t => `<li>${t}</li>`).join('');
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+document.getElementById('modal').addEventListener('click', e => { if(e.target.id==='modal') closeModal(); });
+
+/* ── EXERCISE PANELS ── */
+function showPanel(n, el) {
+  document.querySelectorAll('.exercise-panel').forEach((p,i) => p.classList.toggle('active', i===n));
+  document.querySelectorAll('.step-card').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* ── TIMER ── */
+const PHASES = (function(){
+  const pd = [
+    { labelHe:'👁️ התבוננות', labelEn:'👁️ Observation', dur:5*60, color:'#4A6FA5' },
+    { labelHe:'✏️ קווי בריחה', labelEn:'✏️ Vanishing Lines', dur:10*60, color:'#D4956A' },
+    { labelHe:'🌑 צל ואווירה', labelEn:'🌑 Shadow & Mood', dur:15*60, color:'#2C3E6B' },
+    { labelHe:'🌟 פרטים', labelEn:'🌟 Details', dur:10*60, color:'#8FAF6A' },
+  ];
+  return pd.map(p => ({ label:_lang()==='en'?p.labelEn:p.labelHe, dur:p.dur, color:p.color }));
+})();
+const TOTAL = PHASES.reduce((s,p)=>s+p.dur,0);
+let tSec = TOTAL, tRunning = false, tInterval = null;
+const arc = document.getElementById('timerArc');
+const CIRC = 2*Math.PI*80;
+
+function getPhase(elapsed) {
+  let acc=0;
+  for(let i=0;i<PHASES.length;i++){ acc+=PHASES[i].dur; if(elapsed<acc) return i; }
+  return PHASES.length-1;
+}
+
+function renderTimer() {
+  const elapsed = TOTAL - tSec;
+  const frac = elapsed / TOTAL;
+  arc.style.strokeDashoffset = CIRC*(1-frac);
+  const ph = getPhase(elapsed);
+  arc.style.stroke = PHASES[ph].color;
+  const m = String(Math.floor(tSec/60)).padStart(2,'0');
+  const s = String(tSec%60).padStart(2,'0');
+  document.getElementById('timerDisplay').textContent = `${m}:${s}`;
+  document.getElementById('timerPhaseLabel').textContent = tSec>0 ? PHASES[ph].label : '✅ סיימת!';
+  document.querySelectorAll('.phase-tag').forEach(t => {
+    t.classList.toggle('active', parseInt(t.dataset.i)===ph && tSec>0);
+  });
+}
+
+function tStart() {
+  if(tRunning||tSec<=0) return;
+  tRunning=true;
+  tInterval=setInterval(()=>{ if(tSec>0){tSec--;renderTimer();}else{clearInterval(tInterval);tRunning=false;} },1000);
+}
+function tPause() { tRunning=false; clearInterval(tInterval); }
+function tReset() { tPause(); tSec=TOTAL; renderTimer(); }
+renderTimer();
+
+/* ── PROGRESS BAR & SCROLL TOP ── */
+window.addEventListener('scroll',()=>{
+  const el=document.documentElement;
+  document.getElementById('progress-bar').style.width=(el.scrollTop/(el.scrollHeight-el.clientHeight)*100)+'%';
+  document.getElementById('scroll-top').classList.toggle('show', el.scrollTop>400);
+});
+
+/* ── FADE IN ── */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:0.08});
+document.querySelectorAll('section').forEach(s=>obs.observe(s));
+</script>
+<script>
+// ── BILINGUAL TOGGLE ──
+(function() {
+  var currentLang = localStorage.getItem('siteLang') || 'he';
+
+  function rebuildCities() {
+    var isEn = localStorage.getItem('siteLang') === 'en';
+
+    // Rebuild places grid
+    var pg = document.getElementById('placesGrid');
+    if (pg && typeof placesDataBi !== 'undefined') {
+      pg.innerHTML = '';
+      placesDataBi.forEach(function(p, i) {
+        var d = document.createElement('div');
+        d.className = 'object-card';
+        d.innerHTML = '<span class="object-emoji">' + p.emoji + '</span>' +
+          '<div class="object-name">' + (isEn ? p.en : p.he) + '</div>' +
+          '<div class="object-why">' + (isEn ? p.whyEn : p.whyHe) + '</div>';
+        d.onclick = (function(idx){ return function(){ openModal(idx); }; })(i);
+        pg.appendChild(d);
+      });
+    }
+
+    // Rebuild place picker (exercise)
+    var pp = document.getElementById('placePicker');
+    if (pp && typeof placesDataBi !== 'undefined') {
+      pp.innerHTML = '';
+      placesDataBi.forEach(function(p) {
+        var btn = document.createElement('button');
+        btn.className = 'place-btn';
+        btn.innerHTML = '<span>' + p.emoji + '</span>' + (isEn ? p.en : p.he);
+        var tip = isEn ? p.tipEn : p.tipHe;
+        btn.onclick = function() {
+          document.querySelectorAll('.place-btn').forEach(function(b){ b.classList.remove('selected'); });
+          btn.classList.add('selected');
+          document.getElementById('placeTipBox').classList.add('show');
+          document.getElementById('placeTipText').textContent = tip;
+        };
+        pp.appendChild(btn);
+      });
+    }
+
+    // Rebuild technique picker
+    var tp = document.getElementById('techPickerEx');
+    if (tp) {
+      var techData = [
+        { icon:'✏️', he:'עיפרון', en:'Pencil',
+          tipHe:'אידיאלי לפרספקטיבה! התחל ב-HB לקווי מבנה, ועבר ל-3B לצלל עמוק.',
+          tipEn:'Ideal for perspective! Start with HB for structure lines, switch to 3B for deep shading.' },
+        { icon:'🖊️', he:'עט', en:'Pen',
+          tipHe:'ללא מחיקות – מאלץ החלטיות. התחל מנקודת הבריחה ועבד החוצה.',
+          tipEn:'No erasing – forces decisiveness. Start from the vanishing point and work outward.' },
+        { icon:'💧', he:'צבעי מים', en:'Watercolors',
+          tipHe:'שמיים ומים = צבעי מים! התחל עם שמיים רטובים-על-רטוב לעמימות.',
+          tipEn:'Sky and water = watercolors! Start with wet-on-wet sky for softness.' },
+        { icon:'🎨', he:'אקריליק', en:'Acrylic',
+          tipHe:'לרחובות לילה ונוף עירוני – אקריליק מאפשר שכבות כהות ועליהן אורות.',
+          tipEn:'For night streets and city landscapes – acrylic allows dark layers with lights on top.' },
+        { icon:'🖍️', he:'גאש', en:'Gouache',
+          tipHe:'מושלם לסצנות לילה – רקע כהה + לבן/צבעים בהירים מעל.',
+          tipEn:'Perfect for night scenes – dark background + white/bright colors on top.' },
+      ];
+      tp.innerHTML = '';
+      techData.forEach(function(t) {
+        var btn = document.createElement('button');
+        btn.className = 'tech-btn';
+        btn.innerHTML = '<span>' + t.icon + '</span>' + (isEn ? t.en : t.he);
+        var tip = isEn ? t.tipEn : t.tipHe;
+        btn.onclick = function() {
+          document.querySelectorAll('#techPickerEx .tech-btn').forEach(function(b){ b.classList.remove('selected'); });
+          btn.classList.add('selected');
+          document.getElementById('techTipBox').classList.add('show');
+          document.getElementById('techTipText').textContent = tip;
+        };
+        tp.appendChild(btn);
+      });
+    }
+
+    // Rebuild modal tips if open
+    var mTips = document.getElementById('mTips');
+    if (mTips && typeof placesDataBi !== 'undefined') {
+      var mTitle = document.getElementById('mTitle');
+      if (mTitle) {
+        var curName = mTitle.textContent;
+        placesDataBi.forEach(function(p) {
+          var name = isEn ? p.en : p.he;
+          if (name === curName) {
+            mTips.innerHTML = (isEn ? p.tipsEn : p.tipsHe).map(function(t){ return '<li>' + t + '</li>'; }).join('');
+          }
+        });
+      }
+    }
+  }
+
+  function applyLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('siteLang', lang);
+    document.querySelectorAll('[data-he]').forEach(function(el) {
+      el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-he');
+    });
+    document.querySelectorAll('[data-he-html]').forEach(function(el) {
+      el.innerHTML = lang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-he-html');
+    });
+    var btn = document.getElementById('lang-btn');
+    if (btn) btn.textContent = lang === 'en' ? '🇮🇱 עברית' : '🇬🇧 English';
+    document.documentElement.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'he');
+    rebuildCities();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.createElement('button');
+    btn.id = 'lang-btn';
+    btn.textContent = currentLang === 'en' ? '🇮🇱 עברית' : '🇬🇧 English';
+    btn.onclick = function() { applyLang(currentLang === 'he' ? 'en' : 'he'); };
+    document.body.appendChild(btn);
+    applyLang(currentLang);
+  });
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(function(){ applyLang(currentLang); }, 50);
+  }
+})();
+</script>
+</body>
+</html>
