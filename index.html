@@ -7,7 +7,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hagit Avidan | Interactive Art Lessons">
-<meta property="og:description" content="Interactive art lessons by Hagit Avidan – Still Life, Cities &amp; Places">
+<meta property="og:description" content="Art lessons &amp; drawing inspiration by Hagit Avidan – Still Life, Cities, Journal and more">
 <meta property="og:image" content="https://raw.githubusercontent.com/hagitavidan-png/hagitavidan-png.github.io/main/logo.jpg">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
@@ -715,7 +715,7 @@
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stat-item">
-    <span class="stat-num">2</span>
+    <span class="stat-num" id="lessons-count">0</span>
     <span class="stat-label"><span data-he="שיעורים זמינים" data-en="Available Lessons">שיעורים זמינים</span></span>
   </div>
   <div class="stat-item">
@@ -910,5 +910,23 @@ document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
     });
   }, 800);
 </script>
+
+<script>
+  // Auto-count lessons with "זמין ✅" badge
+  function countAvailableLessons() {
+    const badges = document.querySelectorAll('.lesson-badge');
+    let count = 0;
+    badges.forEach(badge => {
+      if (badge.textContent.includes('זמין') || badge.textContent.includes('Available')) {
+        count++;
+      }
+    });
+    const el = document.getElementById('lessons-count');
+    if (el) el.textContent = count;
+  }
+  document.addEventListener('DOMContentLoaded', countAvailableLessons);
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
