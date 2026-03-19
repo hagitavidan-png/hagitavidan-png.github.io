@@ -100,8 +100,6 @@
     padding: 90px 20px 60px;
     max-width: 1100px;
     margin: 0 auto;
-    opacity: 0;
-    transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
@@ -845,16 +843,19 @@
   #scroll-top:hover { transform: translateY(-3px); }
 
   /* FOOTER */
+  
   footer {
     background: var(--text-dark);
     color: rgba(255,255,255,0.75);
     padding: 40px 20px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.9;
   }
 
-  footer .footer-logo { font-size: 1.4rem; font-weight: 900; color: var(--warm-gold); margin-bottom: 6px; }
-  footer a { color: var(--warm-gold); text-decoration: none; }
+    footer .footer-logo { font-size: 1.1rem; font-weight: 600; color: var(--warm-gold); margin-bottom: 6px; }
+    footer a { color: var(--warm-gold); text-decoration: none; }
+  footer a:hover { opacity: 0.8; }
 
   @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -1451,9 +1452,9 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo"><span data-he="🏙️ ערים ומקומות | חגית אבידן" data-en="🏙️ Cities & Places | Hagit Avidan">🏙️ ערים ומקומות | חגית אבידן</span></div>
-  <p style="margin-bottom:10px;"><span data-he="שיעור ציור אינטראקטיבי – השראה מהעולם שסביבנו" data-en="Interactive Art Lesson – Inspired by the World Around Us">שיעור ציור אינטראקטיבי – השראה מהעולם שסביבנו</span></p>
+  <p style="margin-bottom:10px;"><span data-he="שיעור ציור אינטראקטיבי – ערים ומקומות" data-en="Interactive Drawing Lesson – Cities & Places">שיעור ציור אינטראקטיבי – ערים ומקומות</span></p>
   <p>
-    <a href="index.html"><span data-he="🏠 לדף הבית" data-en="🏠 Home">🏠 לדף הבית</span></a>
+        <a href="index.html"><span data-he="🏠 לדף הבית" data-en="🏠 Home">🏠 לדף הבית</span></a>
     &nbsp;|&nbsp;
     <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener"><span data-he="📺 ערוץ יוטיוב" data-en="📺 YouTube Channel">📺 ערוץ יוטיוב</span></a>
     &nbsp;|&nbsp;
@@ -1785,6 +1786,13 @@ document.querySelectorAll('section').forEach(s=>obs.observe(s));
     setTimeout(function(){ applyLang(currentLang); }, 50);
   }
 })();
+
+  // Fallback: make all sections visible after 800ms (for local file / slow browsers)
+  setTimeout(function() {
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 800);
 </script>
 </body>
 </html>

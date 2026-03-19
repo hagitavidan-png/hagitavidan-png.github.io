@@ -404,19 +404,16 @@
   }
 
   /* ── FOOTER ── */
+  
   footer {
     background: var(--text-dark);
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.75);
+    padding: 40px 20px;
     text-align: center;
-    padding: 40px 5%;
-    font-size: 0.9rem;
-    line-height: 2;
+    font-size: 0.85rem;
+    line-height: 1.9;
   }
-  footer a {
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+    footer a { color: var(--warm-gold); text-decoration: none; }
   footer a:hover { color: var(--warm-gold); }
   .footer-logo {
     font-size: 1.2rem;
@@ -455,7 +452,20 @@
   .divider.right { margin: 0 0 16px; }
 
   /* ── ANIMATIONS ── */
-  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: transform 0.5s ease;
+  }
+  
+  /* Fallback: if JS fails, show all sections after animation */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: transform 0.5s ease;
+  }
+  }
   .fade-in.visible { opacity: 1; transform: none; }
 
   /* ── RESPONSIVE ── */
@@ -610,9 +620,7 @@
     footer {
       text-align: center !important;
     }
-    footer .footer-logo {
-      text-align: center !important;
-    }
+      footer .footer-logo { font-size: 1.1rem; font-weight: 600; color: var(--warm-gold); margin-bottom: 6px; }
     footer p {
       text-align: center !important;
     }
@@ -776,8 +784,28 @@
         <span class="lesson-cta"><span data-he="להתחיל שיעור →" data-en="Start Lesson →">להתחיל שיעור →</span></span>
       </div>
     </a>
-
-
+    <!-- LESSON 3: Personal Journal -->
+    <a class="lesson-card fade-in" href="journal-lesson.html">
+      <div class="lesson-badge"><span data-he="✅ זמין" data-en="✅ Available">✅ זמין</span></div>
+      <img class="lesson-thumb"
+           src="https://upload.wikimedia.org/wikipedia/en/1/1e/Frida_Kahlo_%28self_portrait%29.jpg"
+           alt="יומן אישי"
+           loading="lazy"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="lesson-thumb-placeholder" style="display:none; background: linear-gradient(135deg,#EDE8F5,#DDD5EE); font-size:4rem;">📔</div>
+      <div class="lesson-body">
+        <span class="lesson-icon">📔</span>
+        <div class="lesson-title"><span data-he="יומן אישי – ציור מהנשמה" data-en="Personal Journal – Painting from the Soul">יומן אישי – ציור מהנשמה</span></div>
+        <p class="lesson-desc"><span data-he="פרידה קאלו, ואן גוך, שאגל – כולם ציירו מהרגש הפנימי. למד לתרגם רגשות, חלומות וזיכרונות לשפה ויזואלית אישית." data-en="Frida Kahlo, Van Gogh, Chagall – all painted from inner emotion. Learn to translate feelings, dreams and memories into a personal visual language.">פרידה קאלו, ואן גוך, שאגל – כולם ציירו מהרגש הפנימי. למד לתרגם רגשות, חלומות וזיכרונות לשפה ויזואלית אישית.</span></p>
+        <div class="lesson-tags">
+          <span class="lesson-tag"><span data-he="🎭 רגשות" data-en="🎭 Emotions">🎭 רגשות</span></span>
+          <span class="lesson-tag"><span data-he="🌙 חלומות" data-en="🌙 Dreams">🌙 חלומות</span></span>
+          <span class="lesson-tag"><span data-he="⏱️ טיימר" data-en="⏱️ Timer">⏱️ טיימר</span></span>
+          <span class="lesson-tag"><span data-he="🎬 וידאו" data-en="🎬 Video">🎬 וידאו</span></span>
+        </div>
+        <span class="lesson-cta"><span data-he="להתחיל שיעור →" data-en="Start Lesson →">להתחיל שיעור →</span></span>
+      </div>
+    </a>
 
   </div>
 </div>
@@ -815,18 +843,16 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo"><span data-he="🎨 חגית אבידן | שיעורי ציור" data-en="🎨 Hagit Avidan | Art Lessons">🎨 חגית אבידן | שיעורי ציור</span></div>
-  <p><span data-he="שיעורי ציור אינטראקטיביים – לראות את העולם בעיניים חדשות" data-en="Interactive Art Lessons – See the world through new eyes">שיעורי ציור אינטראקטיביים – לראות את העולם בעיניים חדשות</span></p>
-  <p style="margin-top:10px;">
-    <a href="stillife-lesson.html"><span data-he="🏺 טבע דומם" data-en="🏺 Still Life">🏺 טבע דומם</span></a>
+  <p style="margin-bottom:10px;"><span data-he="שיעורי ציור אינטראקטיביים – לראות את העולם בעיניים חדשות" data-en="Interactive Art Lessons – See the world through new eyes">שיעורי ציור אינטראקטיביים – לראות את העולם בעיניים חדשות</span></p>
+  <p>
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener"><span data-he="📺 ערוץ יוטיוב" data-en="📺 YouTube Channel">📺 ערוץ יוטיוב</span></a>
     &nbsp;|&nbsp;
-    <a href="cities-lesson.html"><span data-he="🏙️ ערים ומקומות" data-en="🏙️ Cities & Places">🏙️ ערים ומקומות</span></a>
+    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener"><span data-he="📚 קורס קסם הרישום" data-en="📚 Drawing Magic Course">📚 קורס קסם הרישום</span></a>
     &nbsp;|&nbsp;
-    <a href="https://www.youtube.com/@hagitavidanart" target="_blank">📺 <span data-he="יוטיוב" data-en="YouTube">יוטיוב</span></a>
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank"><span data-he="📷 אינסטגרם" data-en="📷 Instagram">📷 אינסטגרם</span></a>
     &nbsp;|&nbsp;
-    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener">📚 <span data-he="קורס קסם הרישום" data-en="Drawing Magic Course">קורס קסם הרישום</span></a>
-    &nbsp;|&nbsp;
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank"><span data-he="👥 פייסבוק" data-en="👥 Facebook">👥 פייסבוק</span></a>
   </p>
-  <p style="margin-top:16px;font-size:0.8rem;opacity:0.5;">© 2025 <span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span> | 7 Diamonds</p>
 </footer>
 
 <script>
@@ -843,7 +869,7 @@ window.addEventListener('scroll', () => {
 // Fade-in on scroll
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold: 0.1 });
+}, { threshold: 0, rootMargin: '0px 0px 50px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 </script>
 <script>
@@ -876,7 +902,13 @@ document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
     applyLang(currentLang);
   });
 })();
+
+  // Fallback: make all sections visible after 800ms (for local file / slow browsers)
+  setTimeout(function() {
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 800);
 </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>

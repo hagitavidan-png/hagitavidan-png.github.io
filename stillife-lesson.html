@@ -674,19 +674,38 @@
     /* ========================
        FOOTER
     ======================== */
-    footer {
-      background: var(--text-dark); color: rgba(255,255,255,0.8);
-      padding: 3rem 1.5rem; text-align: center;
-    }
-    footer .footer-logo { font-size: 1.5rem; font-weight: 900; color: var(--gold); margin-bottom: 0.5rem; }
+    
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.75);
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.9;
+  }
+      footer .footer-logo { font-size: 1.1rem; font-weight: 600; color: var(--gold); margin-bottom: 6px; }
     footer p { font-size: 0.9rem; }
-    footer a { color: var(--gold); text-decoration: none; }
+      footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { opacity: 0.8; }
 
     /* ========================
        ANIMATIONS
     ======================== */
-    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
+    .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: transform 0.5s ease;
+  }
+    
+  /* Fallback: if JS fails, show all sections after animation */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: transform 0.5s ease;
+  }
+  }
+  .fade-in.visible { opacity: 1; transform: none; }
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -1407,21 +1426,18 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <div class="footer-logo"><span data-he="🎨 Still Life | חגית אבידן" data-en="🎨 Still Life | Hagit Avidan">🎨 Still Life | חגית אבידן</span></div>
-  <p style="margin-bottom:0.8rem;"><span data-he="שיעור אינטראקטיבי – השראה מחפצי הבית" data-en="Interactive Lesson – Inspired by Household Objects">שיעור אינטראקטיבי – השראה מחפצי הבית</span></p>
-  <p style="margin-bottom:0.6rem;">
-    <a href="index.html"><span data-he="🏠 לדף הבית" data-en="🏠 Home">🏠 לדף הבית</span></a>
-    &nbsp;|&nbsp;
-    <a href="cities-lesson.html"><span data-he="🏙️ שיעור ערים ומקומות" data-en="🏙️ Cities & Places Lesson">🏙️ שיעור ערים ומקומות</span></a>
-  </p>
+  <div class="footer-logo"><span data-he="🏺 טבע דומם | חגית אבידן" data-en="🏺 Still Life | Hagit Avidan">🏺 טבע דומם | חגית אבידן</span></div>
+  <p style="margin-bottom:10px;"><span data-he="שיעור אינטראקטיבי – השראה מחפצי הבית" data-en="Interactive Lesson – Inspired by Household Objects">שיעור אינטראקטיבי – השראה מחפצי הבית</span></p>
   <p>
-    <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener"><span data-he="📺 יוטיוב" data-en="📺 YouTube">📺 יוטיוב</span></a>
+        <a href="index.html"><span data-he="🏠 לדף הבית" data-en="🏠 Home">🏠 לדף הבית</span></a>
+    &nbsp;|&nbsp;
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener"><span data-he="📺 ערוץ יוטיוב" data-en="📺 YouTube Channel">📺 ערוץ יוטיוב</span></a>
     &nbsp;|&nbsp;
     <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener"><span data-he="📚 קורס קסם הרישום" data-en="📚 Drawing Magic Course">📚 קורס קסם הרישום</span></a>
     &nbsp;|&nbsp;
-    <a href="https://www.instagram.com/hagit_avidan/" target="_blank" rel="noopener"><span data-he="📷 אינסטגרם" data-en="📷 Instagram">📷 אינסטגרם</span></a>
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank"><span data-he="📷 אינסטגרם" data-en="📷 Instagram">📷 אינסטגרם</span></a>
     &nbsp;|&nbsp;
-    <a href="https://www.facebook.com/hagit.avidan/" target="_blank" rel="noopener"><span data-he="👥 פייסבוק" data-en="👥 Facebook">👥 פייסבוק</span></a>
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank"><span data-he="👥 פייסבוק" data-en="👥 Facebook">👥 פייסבוק</span></a>
   </p>
 </footer>
 
@@ -1665,7 +1681,7 @@
   const fadeEls = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
+  }, { threshold: 0, rootMargin: '0px 0px 50px 0px' });
   fadeEls.forEach(el => observer.observe(el));
 </script>
 <script>
@@ -1760,6 +1776,13 @@
     setTimeout(function(){ applyLang(currentLang); }, 50);
   }
 })();
+
+  // Fallback: make all sections visible after 800ms (for local file / slow browsers)
+  setTimeout(function() {
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 800);
 </script>
 </body>
 </html>
