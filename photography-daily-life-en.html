@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photography and Everyday Life | Hagit Avidan | 7 Diamonds</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Photography and Everyday Life | Hagit Avidan | 7 Diamonds">
+<meta property="og:description" content="Interactive art lesson – how simple moments, natural light, and everyday life can become starting points for drawing, painting, and artistic observation.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/hagitavidan-png/hagitavidan-png.github.io/main/logo.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F4F2EE;
+    --white: #FFFFFF;
+    --warm-blue: #4A6FA5;
+    --warm-blue-light: #7A9FC5;
+    --terracotta: #5C76B8;
+    --warm-gold: #D4956A;
+    --sage: #8BAF8B;
+    --slate: #6B7F9E;
+    --plum: #7B5EA7;
+    --text-dark: #2A2E3A;
+    --text-mid: #52596B;
+    --text-light: #848DA0;
+    --border: #DDE0E8;
+    --shadow: rgba(74, 111, 165, 0.13);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Heebo', Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    direction: ltr;
+    line-height: 1.7;
+  }
+
+  #progress-bar {
+    position: fixed;
+    top: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--plum), var(--warm-gold));
+    z-index: 1000;
+    transition: width 0.2s;
+  }
+
+  nav {
+    position: fixed;
+    top: 4px; right: 0; left: 0;
+    background: rgba(71, 50, 37, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(229,190,124,0.14);
+    padding: 10px 18px;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .nav-brand {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #e5be7c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .nav-brand-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-brand-divider {
+    color: rgba(255,255,255,0.35);
+  }
+
+  .nav-home {
+    color: #f2d7a0;
+    text-decoration: none;
+    font-size: 1.05rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .nav-links a:hover {
+    background: var(--warm-blue);
+    color: white;
+    border-color: var(--warm-blue);
+  }
+
+  section {
+    padding: 5rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    position: relative;
+  }
+
+  .section-tag {
+    display: inline-block;
+    background: var(--terracotta);
+    color: white;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 18px rgba(193,117,74,0.15);
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    font-weight: 800;
+    color: var(--plum);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    color: var(--text-mid);
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+    max-width: 780px;
+  }
+
+  .divider {
+    height: 4px;
+    width: 60px;
+    background: linear-gradient(90deg, var(--warm-blue), var(--warm-gold));
+    border-radius: 2px;
+    margin-bottom: 30px;
+  }
+
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 120px 20px 60px;
+    background: linear-gradient(160deg, #fbf5ef 0%, #f9efe6 48%, #f5efe9 100%);
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .hero-shell {
+    width: min(100%, 1100px);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+  }
+
+  #hero::before {
+    content: "📷 🪟 ☕ 🌆 ✏️ 🎨 👁️ 💭";
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.06;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    letter-spacing: 28px;
+    pointer-events: none;
+  }
+
+  #hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(212,149,106,0.16), transparent 24%),
+      radial-gradient(circle at 85% 18%, rgba(123,94,167,0.16), transparent 22%),
+      radial-gradient(circle at 50% 85%, rgba(74,111,165,0.10), transparent 26%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,0.72);
+    color: var(--terracotta);
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin-bottom: 26px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(193,117,74,0.28);
+    box-shadow: 0 8px 24px rgba(193,117,74,0.08);
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    font-weight: 800;
+    color: var(--terracotta);
+    line-height: 1.05;
+    margin-bottom: 15px;
+  }
+
+  .hero-title span {
+    display: block;
+    color: #314463;
+    font-size: clamp(2.7rem, 7vw, 4.8rem);
+    margin-top: 4px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.28rem;
+    color: #5B6785;
+    margin-bottom: 34px;
+    max-width: 820px;
+    line-height: 1.9;
+  }
+
+  .hero-quote {
+    background: rgba(255,255,255,0.78);
+    border-left: 4px solid var(--terracotta);
+    padding: 18px 25px;
+    border-radius: 18px;
+    max-width: 720px;
+    color: #5F6984;
+    font-size: 1.05rem;
+    box-shadow: 0 10px 28px rgba(193,117,74,0.10);
+    margin-bottom: 34px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 34px;
+  }
+
+  .btn-primary {
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    padding: 18px 34px;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: 'Heebo', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 12px 28px rgba(193,117,74,0.24);
+  }
+
+  .btn-primary:hover {
+    background: #b86b43;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(193,117,74,0.28);
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.85);
+    color: var(--terracotta);
+    border: 2px solid rgba(193,117,74,0.8);
+    padding: 16px 34px;
+    border-radius: 999px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: 'Heebo', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-secondary:hover { background: rgba(193,117,74,0.08); color: var(--terracotta); transform: translateY(-3px); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(90px, 1fr));
+    gap: 36px;
+    width: min(100%, 520px);
+    text-align: center;
+  }
+
+  .hero-stat-number {
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    color: var(--terracotta);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .hero-stat-label {
+    color: #7380A0;
+    font-size: 1rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px var(--shadow);
+  }
+
+  .card-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+  .card-title { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+  .card-text { color: var(--text-mid); font-size: 0.95rem; }
+
+  .spotlight-box {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px var(--shadow);
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
+  }
+
+  .spotlight-side {
+    background: linear-gradient(160deg, var(--warm-blue), var(--plum));
+    color: white;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .spotlight-side div {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-weight: 600;
+  }
+
+  .spotlight-content { padding: 40px; }
+
+  .spotlight-tag {
+    background: var(--plum);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+
+  .spotlight-name {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .spotlight-quote {
+    background: linear-gradient(135deg, rgba(123,94,167,0.08), rgba(212,149,106,0.08));
+    border-right: 4px solid var(--plum);
+    padding: 18px 20px;
+    border-radius: 12px;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .spotlight-desc {
+    color: var(--text-mid);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .source-card {
+    display: block;
+    background: white;
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 2px solid var(--border);
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .source-card:hover {
+    border-color: var(--plum);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(123,94,167,0.2);
+  }
+
+  .source-thumb {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(160deg, #ece7f5, #f6efe7);
+  }
+
+  .source-thumb-placeholder {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, var(--warm-blue), var(--plum));
+    color: white;
+    font-size: 3rem;
+  }
+
+  .source-content {
+    padding: 24px;
+  }
+
+  .source-emoji { font-size: 2rem; display: block; margin-bottom: 10px; }
+  .source-title { font-weight: 700; font-size: 1rem; color: var(--text-dark); margin-bottom: 8px; }
+  .source-desc { color: var(--text-mid); font-size: 0.9rem; line-height: 1.6; }
+  .source-cta { margin-top: 14px; color: var(--warm-blue); font-weight: 700; }
+
+  .sources-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    direction: ltr;
+    scroll-snap-type: inline mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scroll-padding-inline: 8px;
+    padding-bottom: 12px;
+  }
+
+  .sources-slider::-webkit-scrollbar { height: 6px; }
+  .sources-slider::-webkit-scrollbar-track { background: var(--border); border-radius: 3px; }
+  .sources-slider::-webkit-scrollbar-thumb { background: var(--terracotta); border-radius: 3px; }
+
+  .sources-slider .source-card {
+    min-width: 280px;
+    max-width: 320px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  .artists-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    direction: ltr;
+    scroll-snap-type: inline mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scroll-padding-inline: 8px;
+    padding-bottom: 12px;
+  }
+
+  .artists-slider::-webkit-scrollbar { height: 6px; }
+  .artists-slider::-webkit-scrollbar-track { background: var(--border); border-radius: 3px; }
+  .artists-slider::-webkit-scrollbar-thumb { background: var(--terracotta); border-radius: 3px; }
+
+  .artist-card {
+    min-width: 280px;
+    max-width: 320px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 20px;
+    overflow: visible;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(123,94,167,0.18);
+  }
+
+  .artist-header {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    height: 190px;
+    background: linear-gradient(160deg, #ece7f5, #f6efe7);
+  }
+
+  .artist-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .artist-card:hover .artist-card-img { transform: scale(1.05); }
+
+  .artist-header-overlay {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 14px 16px 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+  }
+
+  .artist-name {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 2px;
+  }
+
+  .artist-role {
+    color: rgba(255,255,255,0.88);
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  .artist-body { padding: 20px 22px 24px; text-align: left; }
+
+  .artist-quote {
+    font-style: italic;
+    color: var(--plum);
+    border-left: 3px solid var(--warm-gold);
+    padding-left: 10px;
+    margin-bottom: 12px;
+    font-size: 0.93rem;
+    line-height: 1.6;
+  }
+
+  .artist-text {
+    color: var(--text-mid);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .gallery-note {
+    color: var(--text-light);
+    font-size: 0.88rem;
+    margin-top: -18px;
+    margin-bottom: 20px;
+  }
+
+  .artist-link {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--plum), var(--warm-blue));
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .artist-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(74, 111, 165, 0.22);
+  }
+
+  .quote-strip {
+    max-width: 1100px;
+    margin: 0 auto 10px;
+    background: linear-gradient(135deg, rgba(123,94,167,0.08), rgba(212,149,106,0.12));
+    border: 1px solid rgba(123,94,167,0.10);
+    border-radius: 28px;
+    padding: 30px 28px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(74,111,165,0.08);
+  }
+
+  .quote-strip blockquote {
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    color: var(--text-dark);
+    font-weight: 600;
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  .quote-strip cite {
+    color: var(--text-mid);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .exercise-wrap {
+    background: linear-gradient(160deg, #EDE8F5, #E8EDF5);
+    border-radius: 30px;
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0 8px 40px var(--shadow);
+  }
+
+  .exercise-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .step-card {
+    background: white;
+    border-radius: 18px;
+    padding: 24px;
+    border: 2px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .step-card:hover {
+    border-color: var(--plum);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(123,94,167,0.18);
+  }
+
+  .step-num { font-size: 2rem; font-weight: 900; color: var(--plum); display: block; margin-bottom: 10px; }
+  .step-title { font-weight: 700; color: var(--text-dark); font-size: 1rem; margin-bottom: 8px; }
+  .step-text { color: var(--text-mid); font-size: 0.92rem; line-height: 1.7; }
+
+  .tip-box {
+    background: white;
+    border-left: 4px solid var(--warm-gold);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 22px;
+    color: var(--text-mid);
+  }
+
+
+  #look .source-card {
+    padding: 26px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    min-height: 210px;
+  }
+
+  #look .source-emoji {
+    margin-bottom: 12px;
+    line-height: 1;
+    align-self: flex-start;
+  }
+
+  #look .source-title {
+    font-size: 1.14rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  #look .source-desc {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  #lang-btn {
+    position: fixed;
+    left: 24px;
+    bottom: 112px;
+    z-index: 999;
+    background: linear-gradient(135deg, #4f7fd2, #2e5ea8);
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.98rem;
+    line-height: 1;
+    text-align: center;
+    box-shadow: 0 12px 26px rgba(46,94,168,0.28);
+  }
+
+  #lang-btn:hover {
+    transform: translateY(-2px);
+    color: white;
+  }
+
+  .end-divider {
+    display: none;
+  }
+
+  footer {
+    background: #3d2a1f;
+    color: rgba(255,255,255,0.82);
+    padding: 54px 20px 34px;
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-top: 42px;
+    box-shadow: none;
+  }
+
+  footer .footer-logo {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #d9ab63;
+    margin-bottom: 10px;
+    letter-spacing: 0.1px;
+    line-height: 1.45;
+  }
+
+  .footer-subtitle {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 16px;
+    font-size: 0.96rem;
+    max-width: 340px;
+    margin-inline: auto;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    row-gap: 6px;
+    margin-top: 14px;
+  }
+
+  .footer-links a {
+    color: #e5be7c;
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+
+  .footer-links a:hover {
+    color: #f4d19b;
+  }
+
+  .footer-links span {
+    color: rgba(255,255,255,0.28);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  #scroll-top {
+    position: fixed; bottom: 28px; left: 26px;
+    width: 62px; height: 62px;
+    background: linear-gradient(135deg, #dfa387, #d38a69); color: white;
+    border: none; border-radius: 50%; cursor: pointer;
+    font-size: 1.6rem;
+    box-shadow: 0 10px 24px rgba(211,138,105,0.38);
+    opacity: 0; transition: opacity 0.3s, transform 0.3s;
+    z-index: 900;
+  }
+
+  #scroll-top.show { opacity: 1; }
+  #scroll-top:hover { transform: translateY(-3px); }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    nav { padding: 10px 14px; }
+    .nav-brand { font-size: 0.84rem; gap: 6px; }
+    .nav-home { font-size: 1rem; }
+    section { padding: 3.5rem 1rem; }
+    .hero-shell { align-items: center; text-align: center; }
+    .hero-btns { justify-content: center; }
+    .hero-stats { gap: 18px; width: 100%; }
+    .exercise-wrap { padding: 40px 20px; border-radius: 20px; }
+    .spotlight-box { grid-template-columns: 1fr; }
+    .spotlight-side { min-height: 160px; }
+    #lang-btn { left: 16px; bottom: 104px; padding: 12px 18px; font-size: 0.92rem; }
+    #scroll-top { left: 18px; bottom: 28px; width: 58px; height: 58px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar" style="width:0%"></div>
+
+<nav>
+  <div class="nav-brand"><span class="nav-brand-title">Hagit Avidan – Photography & Everyday Life 📷</span><span class="nav-brand-divider">|</span><a class="nav-home" href="index.html" aria-label="Home">🏠</a></div>
+  <div class="nav-links">
+    <a href="#what">Overview</a>
+    <a href="#sources">Inspiration</a>
+    <a href="#look">How to look</a>
+    <a href="#exercise">Exercise</a>
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank">📷</a>
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank">👥</a>
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank">📺</a>
+    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener">📚 Drawing course</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-shell">
+    <div class="hero-badge">✏️ Interactive art lesson</div>
+    <h1 class="hero-title">Photography and Everyday Life</h1>
+    <p class="hero-subtitle">A window, a table, a cup of coffee, a quiet street, or light entering the house — the world around you is full of subjects waiting to be observed closely and turned into art.</p>
+    <div class="hero-quote">Inspiration does not have to be far away — sometimes it is already resting on the table.</div>
+    <div class="hero-btns">
+      <a href="#exercise" class="btn-primary">🖌️ Go to the exercise</a>
+      <a href="#sources" class="btn-secondary">🔗 Explore inspiration</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-number">3</div>
+        <div class="hero-stat-label">Artists</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">4</div>
+        <div class="hero-stat-label">Practice steps</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">1</div>
+        <div class="hero-stat-label">Everyday theme</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="what" class="fade-in">
+  <span class="section-tag">Lesson opening</span>
+  <div class="section-title">📔 What makes photography a source for art?</div>
+  <div class="divider"></div>
+  <p class="section-subtitle">Photography is not only documentation. It is a way to choose, frame, emphasize, and tell a story. In this lesson, a photograph becomes the starting point for a personal artwork.</p>
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">👁️</span>
+      <div class="card-title">See again</div>
+      <div class="card-text">Discover beauty, meaning, and emotion in moments that may seem completely ordinary at first.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">✂️</span>
+      <div class="card-title">Choose crop and focus</div>
+      <div class="card-text">Notice how angle, distance, light, and shadow change the image and the story it tells.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎨</span>
+      <div class="card-title">Translate photo into drawing</div>
+      <div class="card-text">Use the photograph as a starting point for a quiet, poetic, dramatic, or personal interpretation rather than a direct copy.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">💭</span>
+      <div class="card-title">Find a small story</div>
+      <div class="card-text">A cup on a table, an open window, afternoon light, or an almost empty street can all become the subject of an artwork.</div>
+    </div>
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="quote-strip">
+    <blockquote>"Even a small moment from the day can become a precise, quiet image with presence."</blockquote>
+    <cite>— Photography, observation, and drawing</cite>
+  </div>
+</section>
+
+<section id="sources" class="fade-in">
+  <span class="section-tag">Artists and references</span>
+  <div class="section-title">🔗 Inspiration sources</div>
+  <div class="divider"></div>
+  <div class="artists-slider" id="sourcesSlider">
+    <div class="artist-card">
+      <div class="artist-header">
+        <img class="artist-card-img" src="https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/gasoline_01_1_vRqLxtU.width-420.jpg" alt="Ed Ruscha">
+        <div class="artist-header-overlay">
+          <div class="artist-name">Ed Ruscha</div>
+          <div class="artist-role">Tate · Everyday Life</div>
+        </div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-quote">Everyday imagery in a precise visual language.</div>
+        <div class="artist-text">Ruscha works with gas stations, signs, facades, and urban landscapes. In his art, everyday imagery appears with directness and precision and becomes part of a highly recognizable visual language.</div>
+        <a class="artist-link" href="https://www.tate.org.uk/art/artists/edward-ruscha-1882/ed-ruscha-and-art-everyday" target="_blank" rel="noopener">Read more ↗</a>
+      </div>
+    </div>
+
+    <div class="artist-card">
+      <div class="artist-header">
+        <img class="artist-card-img" src="https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/billy_audrey_wilder_los_angeles_april_1982_198.width-420_2x07rdq.jpg" alt="David Hockney">
+        <div class="artist-header-overlay">
+          <div class="artist-name">David Hockney</div>
+          <div class="artist-role">Tate · Time and Looking</div>
+        </div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-quote">Several angles and moments within a single image.</div>
+        <div class="artist-text">Hockney creates paintings and photographic collages in which one scene is built from multiple viewpoints, angles, and moments. In his joiners, many separate photographs are connected into one lively, fragmented image full of movement.</div>
+        <a class="artist-link" href="https://www.tate.org.uk/art/artists/david-hockney-1293/80-years-8-works" target="_blank" rel="noopener">Read more ↗</a>
+      </div>
+    </div>
+
+    <div class="artist-card">
+      <div class="artist-header">
+        <img class="artist-card-img" src="https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/manrayglasstears1932cmanraytrustadagpparisandd.width-420.jpg" alt="Herbert Bayer">
+        <div class="artist-header-overlay">
+          <div class="artist-name">Herbert Bayer</div>
+          <div class="artist-role">Tate · Experimental Looking</div>
+        </div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-quote">Photography as an experiment in viewpoint, crop, and form.</div>
+        <div class="artist-text">Bayer created photographs and visual experiments that combine unusual angles, sharp crops, and distorted viewpoints. In his work, photography becomes an experimental tool that disrupts conventional ways of seeing body, space, and image.</div>
+        <a class="artist-link" href="https://www.tate.org.uk/art/art-terms/p/photography/a-z" target="_blank" rel="noopener">Read more ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="look" class="fade-in">
+  <span class="section-tag">Observation tools</span>
+  <div class="section-title">🪟 How to approach artistic photography?</div>
+  <div class="divider"></div>
+  <p class="section-subtitle">Before you begin to draw, pause with the photograph and ask what truly attracts you in it.</p>
+  <div class="cards-grid">
+    <div class="source-card">
+      <span class="source-emoji">💡</span>
+      <div class="source-title">Light</div>
+      <div class="source-desc">Is the light soft or sharp? Does it create drama, calm, warmth, or a feeling of memory?</div>
+    </div>
+    <div class="source-card">
+      <span class="source-emoji">🧭</span>
+      <div class="source-title">Focus</div>
+      <div class="source-desc">What does the eye meet first? What matters most for the viewer to feel when looking?</div>
+    </div>
+    <div class="source-card">
+      <span class="source-emoji">🪄</span>
+      <div class="source-title">Omission</div>
+      <div class="source-desc">You do not have to draw everything. Sometimes omission creates a stronger and more precise work.</div>
+    </div>
+    <div class="source-card">
+      <span class="source-emoji">🌈</span>
+      <div class="source-title">Interpretation</div>
+      <div class="source-desc">You can change color, soften the background, heighten contrast, or build a different atmosphere from the original photograph.</div>
+    </div>
+  </div>
+</section>
+
+<section id="exercise" class="fade-in">
+  <div class="exercise-wrap">
+    <span class="section-tag">Practice</span>
+    <div class="section-title">🖌️ Practical exercise</div>
+    <div class="divider"></div>
+    <p class="section-subtitle">Choose one photograph from your life — a table, a window, a plant, a cup, a street, a corner of the house, or a small moment from the day — and turn it into the starting point for an artwork.</p>
+
+    <div class="exercise-steps">
+      <div class="step-card">
+        <span class="step-num">1</span>
+        <div class="step-title">Choose a photo</div>
+        <div class="step-text">Choose a simple image that contains something that draws you in: light, story, stillness, composition, or color.</div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">2</span>
+        <div class="step-title">Observation</div>
+        <div class="step-text">Ask yourself what is truly essential in the photo — and what can be left out.</div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">3</span>
+        <div class="step-title">First sketch</div>
+        <div class="step-text">Make a quick sketch of the overall structure, the composition, and the relationships between the shapes.</div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">4</span>
+        <div class="step-title">Personal interpretation</div>
+        <div class="step-text">Change one small thing — color, crop, background, focus, or mood — so the work truly becomes yours.</div>
+      </div>
+    </div>
+
+    <div class="tip-box">Tip: the goal is not to copy the photograph, but to listen to what it suggests and build a personal visual language from it.</div>
+  </div>
+</section>
+
+<div class="end-divider" aria-hidden="true"></div>
+
+<footer>
+  <div class="footer-logo">📷 Photography & Everyday Life | Hagit Avidan</div>
+  <div class="footer-subtitle">An interactive lesson inspired by light, objects, and the small moments of everyday life</div>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a><span>|</span>
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener">📺 YouTube channel</a><span>|</span>
+    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener">📚 Drawing course</a><span>|</span>
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank" rel="noopener">📷 Instagram</a><span>|</span>
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank" rel="noopener">👥 Facebook</a>
+  </div>
+</footer>
+
+<a id="lang-btn" href="photography-daily-life.html">🇮🇱 עברית</a>
+<button id="scroll-top" aria-label="Back to top">↑</button>
+
+<script>
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) scrollBtn.classList.add('show');
+    else scrollBtn.classList.remove('show');
+  });
+  scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>

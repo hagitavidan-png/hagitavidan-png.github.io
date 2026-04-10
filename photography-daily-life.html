@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>צילום וחיי יומיום | חגית אבידן | 7 Diamonds</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="צילום וחיי יומיום | חגית אבידן | 7 Diamonds">
+<meta property="og:description" content="שיעור ציור אינטראקטיבי – איך רגעים פשוטים, אור טבעי וחיי היומיום הופכים למקור השראה לציור, רישום והתבוננות אמנותית.">
+<meta property="og:locale" content="he_IL">
+<meta property="og:image" content="https://raw.githubusercontent.com/hagitavidan-png/hagitavidan-png.github.io/main/logo.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F4F2EE;
+    --white: #FFFFFF;
+    --warm-blue: #4A6FA5;
+    --warm-blue-light: #7A9FC5;
+    --terracotta: #5C76B8;
+    --warm-gold: #D4956A;
+    --sage: #8BAF8B;
+    --slate: #6B7F9E;
+    --plum: #7B5EA7;
+    --text-dark: #2A2E3A;
+    --text-mid: #52596B;
+    --text-light: #848DA0;
+    --border: #DDE0E8;
+    --shadow: rgba(74, 111, 165, 0.13);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Heebo', Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    direction: rtl;
+    line-height: 1.7;
+  }
+
+  #progress-bar {
+    position: fixed;
+    top: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--plum), var(--warm-gold));
+    z-index: 1000;
+    transition: width 0.2s;
+  }
+
+  nav {
+    position: fixed;
+    top: 4px; right: 0; left: 0;
+    background: rgba(71, 50, 37, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(229,190,124,0.14);
+    padding: 10px 18px;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .nav-brand {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #e5be7c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .nav-brand-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-brand-divider {
+    color: rgba(255,255,255,0.35);
+  }
+
+  .nav-home {
+    color: #f2d7a0;
+    text-decoration: none;
+    font-size: 1.05rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .nav-links a:hover {
+    background: var(--warm-blue);
+    color: white;
+    border-color: var(--warm-blue);
+  }
+
+  section {
+    padding: 5rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    position: relative;
+  }
+
+  .section-tag {
+    display: inline-block;
+    background: var(--terracotta);
+    color: white;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 18px rgba(193,117,74,0.15);
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    font-weight: 800;
+    color: var(--plum);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    color: var(--text-mid);
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+    max-width: 780px;
+  }
+
+  .divider {
+    height: 4px;
+    width: 60px;
+    background: linear-gradient(90deg, var(--warm-blue), var(--warm-gold));
+    border-radius: 2px;
+    margin-bottom: 30px;
+  }
+
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    padding: 120px 20px 60px;
+    background: linear-gradient(160deg, #fbf5ef 0%, #f9efe6 48%, #f5efe9 100%);
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .hero-shell {
+    width: min(100%, 1100px);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+  }
+
+  #hero::before {
+    content: "📷 🪟 ☕ 🌆 ✏️ 🎨 👁️ 💭";
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.06;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    letter-spacing: 28px;
+    pointer-events: none;
+  }
+
+  #hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(212,149,106,0.16), transparent 24%),
+      radial-gradient(circle at 85% 18%, rgba(123,94,167,0.16), transparent 22%),
+      radial-gradient(circle at 50% 85%, rgba(74,111,165,0.10), transparent 26%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,0.72);
+    color: var(--terracotta);
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin-bottom: 26px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(193,117,74,0.28);
+    box-shadow: 0 8px 24px rgba(193,117,74,0.08);
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    font-weight: 800;
+    color: var(--terracotta);
+    line-height: 1.05;
+    margin-bottom: 15px;
+  }
+
+  .hero-title span {
+    display: block;
+    color: #314463;
+    font-size: clamp(2.7rem, 7vw, 4.8rem);
+    margin-top: 4px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.28rem;
+    color: #5B6785;
+    margin-bottom: 34px;
+    max-width: 820px;
+    line-height: 1.9;
+  }
+
+  .hero-quote {
+    background: rgba(255,255,255,0.78);
+    border-right: 4px solid var(--terracotta);
+    padding: 18px 25px;
+    border-radius: 18px;
+    max-width: 720px;
+    color: #5F6984;
+    font-size: 1.05rem;
+    box-shadow: 0 10px 28px rgba(193,117,74,0.10);
+    margin-bottom: 34px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 34px;
+  }
+
+  .btn-primary {
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    padding: 18px 34px;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: 'Heebo', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 12px 28px rgba(193,117,74,0.24);
+  }
+
+  .btn-primary:hover {
+    background: #b86b43;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(193,117,74,0.28);
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.85);
+    color: var(--terracotta);
+    border: 2px solid rgba(193,117,74,0.8);
+    padding: 16px 34px;
+    border-radius: 999px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: 'Heebo', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-secondary:hover { background: rgba(193,117,74,0.08); color: var(--terracotta); transform: translateY(-3px); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(90px, 1fr));
+    gap: 36px;
+    width: min(100%, 520px);
+    text-align: center;
+  }
+
+  .hero-stat-number {
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    color: var(--terracotta);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .hero-stat-label {
+    color: #7380A0;
+    font-size: 1rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px var(--shadow);
+  }
+
+  .card-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+  .card-title { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+  .card-text { color: var(--text-mid); font-size: 0.95rem; }
+
+  .spotlight-box {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px var(--shadow);
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
+  }
+
+  .spotlight-side {
+    background: linear-gradient(160deg, var(--warm-blue), var(--plum));
+    color: white;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .spotlight-side div {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-weight: 600;
+  }
+
+  .spotlight-content { padding: 40px; }
+
+  .spotlight-tag {
+    background: var(--plum);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+
+  .spotlight-name {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .spotlight-quote {
+    background: linear-gradient(135deg, rgba(123,94,167,0.08), rgba(212,149,106,0.08));
+    border-right: 4px solid var(--plum);
+    padding: 18px 20px;
+    border-radius: 12px;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .spotlight-desc {
+    color: var(--text-mid);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .source-card {
+    display: block;
+    background: white;
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 2px solid var(--border);
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .source-card:hover {
+    border-color: var(--plum);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(123,94,167,0.2);
+  }
+
+  .source-thumb {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(160deg, #ece7f5, #f6efe7);
+  }
+
+  .source-thumb-placeholder {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, var(--warm-blue), var(--plum));
+    color: white;
+    font-size: 3rem;
+  }
+
+  .source-content {
+    padding: 24px;
+  }
+
+  .source-emoji { font-size: 2rem; display: block; margin-bottom: 10px; }
+  .source-title { font-weight: 700; font-size: 1rem; color: var(--text-dark); margin-bottom: 8px; }
+  .source-desc { color: var(--text-mid); font-size: 0.9rem; line-height: 1.6; }
+  .source-cta { margin-top: 14px; color: var(--warm-blue); font-weight: 700; }
+
+  .sources-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    direction: rtl;
+    scroll-snap-type: inline mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scroll-padding-inline: 8px;
+    padding-bottom: 12px;
+  }
+
+  .sources-slider::-webkit-scrollbar { height: 6px; }
+  .sources-slider::-webkit-scrollbar-track { background: var(--border); border-radius: 3px; }
+  .sources-slider::-webkit-scrollbar-thumb { background: var(--terracotta); border-radius: 3px; }
+
+  .sources-slider .source-card {
+    min-width: 280px;
+    max-width: 320px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  .artists-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    direction: rtl;
+    scroll-snap-type: inline mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scroll-padding-inline: 8px;
+    padding-bottom: 12px;
+  }
+
+  .artists-slider::-webkit-scrollbar { height: 6px; }
+  .artists-slider::-webkit-scrollbar-track { background: var(--border); border-radius: 3px; }
+  .artists-slider::-webkit-scrollbar-thumb { background: var(--terracotta); border-radius: 3px; }
+
+  .artist-card {
+    min-width: 280px;
+    max-width: 320px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 20px;
+    overflow: visible;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(123,94,167,0.18);
+  }
+
+  .artist-header {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    height: 190px;
+    background: linear-gradient(160deg, #ece7f5, #f6efe7);
+  }
+
+  .artist-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .artist-card:hover .artist-card-img { transform: scale(1.05); }
+
+  .artist-header-overlay {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 14px 16px 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+  }
+
+  .artist-name {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 2px;
+  }
+
+  .artist-role {
+    color: rgba(255,255,255,0.88);
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  .artist-body { padding: 20px 22px 24px; text-align: right; }
+
+  .artist-quote {
+    font-style: italic;
+    color: var(--plum);
+    border-right: 3px solid var(--warm-gold);
+    padding-right: 10px;
+    margin-bottom: 12px;
+    font-size: 0.93rem;
+    line-height: 1.6;
+  }
+
+  .artist-text {
+    color: var(--text-mid);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .gallery-note {
+    color: var(--text-light);
+    font-size: 0.88rem;
+    margin-top: -18px;
+    margin-bottom: 20px;
+  }
+
+  .artist-link {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--plum), var(--warm-blue));
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .artist-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(74, 111, 165, 0.22);
+  }
+
+  .quote-strip {
+    max-width: 1100px;
+    margin: 0 auto 10px;
+    background: linear-gradient(135deg, rgba(123,94,167,0.08), rgba(212,149,106,0.12));
+    border: 1px solid rgba(123,94,167,0.10);
+    border-radius: 28px;
+    padding: 30px 28px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(74,111,165,0.08);
+  }
+
+  .quote-strip blockquote {
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    color: var(--text-dark);
+    font-weight: 600;
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  .quote-strip cite {
+    color: var(--text-mid);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .exercise-wrap {
+    background: linear-gradient(160deg, #EDE8F5, #E8EDF5);
+    border-radius: 30px;
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0 8px 40px var(--shadow);
+  }
+
+  .exercise-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .step-card {
+    background: white;
+    border-radius: 18px;
+    padding: 24px;
+    border: 2px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .step-card:hover {
+    border-color: var(--plum);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(123,94,167,0.18);
+  }
+
+  .step-num { font-size: 2rem; font-weight: 900; color: var(--plum); display: block; margin-bottom: 10px; }
+  .step-title { font-weight: 700; color: var(--text-dark); font-size: 1rem; margin-bottom: 8px; }
+  .step-text { color: var(--text-mid); font-size: 0.92rem; line-height: 1.7; }
+
+  .tip-box {
+    background: white;
+    border-right: 4px solid var(--warm-gold);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 22px;
+    color: var(--text-mid);
+  }
+
+
+  #look .source-card {
+    padding: 26px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: right;
+    min-height: 210px;
+  }
+
+  #look .source-emoji {
+    margin-bottom: 12px;
+    line-height: 1;
+    align-self: flex-start;
+  }
+
+  #look .source-title {
+    font-size: 1.14rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  #look .source-desc {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  #lang-btn {
+    position: fixed;
+    left: 24px;
+    bottom: 112px;
+    z-index: 999;
+    background: linear-gradient(135deg, #4f7fd2, #2e5ea8);
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.98rem;
+    line-height: 1;
+    text-align: center;
+    box-shadow: 0 12px 26px rgba(46,94,168,0.28);
+  }
+
+  #lang-btn:hover {
+    transform: translateY(-2px);
+    color: white;
+  }
+
+  .end-divider {
+    display: none;
+  }
+
+  footer {
+    background: #3d2a1f;
+    color: rgba(255,255,255,0.82);
+    padding: 54px 20px 34px;
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-top: 42px;
+    box-shadow: none;
+  }
+
+  footer .footer-logo {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #d9ab63;
+    margin-bottom: 10px;
+    letter-spacing: 0.1px;
+    line-height: 1.45;
+  }
+
+  .footer-subtitle {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 16px;
+    font-size: 0.96rem;
+    max-width: 340px;
+    margin-inline: auto;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    row-gap: 6px;
+    margin-top: 14px;
+  }
+
+  .footer-links a {
+    color: #e5be7c;
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+
+  .footer-links a:hover {
+    color: #f4d19b;
+  }
+
+  .footer-links span {
+    color: rgba(255,255,255,0.28);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  #scroll-top {
+    position: fixed; bottom: 28px; left: 26px;
+    width: 62px; height: 62px;
+    background: linear-gradient(135deg, #dfa387, #d38a69); color: white;
+    border: none; border-radius: 50%; cursor: pointer;
+    font-size: 1.6rem;
+    box-shadow: 0 10px 24px rgba(211,138,105,0.38);
+    opacity: 0; transition: opacity 0.3s, transform 0.3s;
+    z-index: 900;
+  }
+
+  #scroll-top.show { opacity: 1; }
+  #scroll-top:hover { transform: translateY(-3px); }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    nav { padding: 10px 14px; }
+    .nav-brand { font-size: 0.84rem; gap: 6px; }
+    .nav-home { font-size: 1rem; }
+    section { padding: 3.5rem 1rem; }
+    .hero-shell { align-items: center; text-align: center; }
+    .hero-btns { justify-content: center; }
+    .hero-stats { gap: 18px; width: 100%; }
+    .exercise-wrap { padding: 40px 20px; border-radius: 20px; }
+    .spotlight-box { grid-template-columns: 1fr; }
+    .spotlight-side { min-height: 160px; }
+    #lang-btn { left: 16px; bottom: 104px; padding: 12px 18px; font-size: 0.92rem; }
+    #scroll-top { left: 18px; bottom: 28px; width: 58px; height: 58px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar" style="width:0%"></div>
+
+<nav>
+  <div class="nav-brand"><span class="nav-brand-title">חגית אבידן – צילום וחיי יומיום 📷</span><span class="nav-brand-divider">|</span><a class="nav-home" href="index.html" aria-label="דף הבית">🏠</a></div>
+  <div class="nav-links">
+    <a href="#what">מה זה?</a>
+    <a href="#sources">השראה</a>
+    <a href="#look">איך מסתכלים?</a>
+    <a href="#exercise">תרגיל</a>
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank">📷</a>
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank">👥</a>
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank">📺</a>
+    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener">📚 קורס קסם הרישום</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-shell">
+    <div class="hero-badge">✏️ שיעור ציור אינטראקטיבי</div>
+    <h1 class="hero-title">צילום וחיי יומיום</h1>
+    <p class="hero-subtitle">חלון, שולחן, כוס קפה, רחוב שקט או אור שנכנס הביתה — העולם שסביבך מלא בנושאי ציור שמחכים שתתבונני בהם מקרוב.</p>
+    <div class="hero-quote">השראה לא חייבת להיות רחוקה — לפעמים היא כבר מונחת על השולחן.</div>
+    <div class="hero-btns">
+      <a href="#exercise" class="btn-primary">🖌️ לתרגיל המעשי</a>
+      <a href="#sources" class="btn-secondary">🔗 למקורות השראה</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-number">3</div>
+        <div class="hero-stat-label">אמנים להשראה</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">4</div>
+        <div class="hero-stat-label">שלבי תרגול</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">1</div>
+        <div class="hero-stat-label">נושא יומיומי</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="what" class="fade-in">
+  <span class="section-tag">שיעור פתיחה</span>
+  <div class="section-title">📔 מה זה צילום כחומר להשראה?</div>
+  <div class="divider"></div>
+  <p class="section-subtitle">צילום הוא לא רק תיעוד. הוא דרך לבחור, למסגר, להדגיש ולספר סיפור. בשיעור הזה הצילום הופך לנקודת פתיחה ליצירה אישית.</p>
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">👁️</span>
+      <div class="card-title">לראות מחדש</div>
+      <div class="card-text">לגלות יופי, עניין ורגש גם ברגעים יומיומיים שנראים לכאורה פשוטים לגמרי.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">✂️</span>
+      <div class="card-title">לבחור חיתוך ומוקד</div>
+      <div class="card-text">להבין איך זווית, קרבה, אור וצל משנים את החוויה של הדימוי ואת הסיפור שהוא מספר.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎨</span>
+      <div class="card-title">לתרגם צילום לציור</div>
+      <div class="card-text">לא להעתיק את התמונה, אלא להשתמש בה כדי ליצור פרשנות אישית, שקטה, פיוטית או דרמטית.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">💭</span>
+      <div class="card-title">למצוא סיפור קטן</div>
+      <div class="card-text">כוס על שולחן, חלון פתוח, אור אחר צהריים או רחוב כמעט ריק – כל אלה יכולים להפוך ליצירה.</div>
+    </div>
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="quote-strip">
+    <blockquote>"גם רגע קטן מהיום יכול להפוך לנושא ציורי מדויק, שקט ובעל נוכחות."</blockquote>
+    <cite>— צילום, התבוננות וציור</cite>
+  </div>
+</section>
+
+<section id="sources" class="fade-in">
+  <span class="section-tag">אמנים ומקורות</span>
+  <div class="section-title">🔗 מקורות השראה</div>
+  <div class="divider"></div>
+  <div class="artists-slider" id="sourcesSlider">
+    <div class="artist-card">
+      <div class="artist-header">
+        <img class="artist-card-img" src="https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/gasoline_01_1_vRqLxtU.width-420.jpg" alt="אד רושקה">
+        <div class="artist-header-overlay">
+          <div class="artist-name">אד רושקה</div>
+          <div class="artist-role">Tate · חיי היומיום</div>
+        </div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-quote">דימויים יומיומיים בשפה חזותית מדויקת.</div>
+        <div class="artist-text">רושקה עוסק בתחנות דלק, שלטים, חזיתות ונופים עירוניים. בעבודות שלו הדימויים היומיומיים מופיעים בפשטות ישירה ומדויקת, והופכים לחלק משפה חזותית מזוהה מאוד.</div>
+        <a class="artist-link" href="https://www.tate.org.uk/art/artists/edward-ruscha-1882/ed-ruscha-and-art-everyday" target="_blank" rel="noopener">לקריאה נוספת ↗</a>
+      </div>
+    </div>
+
+    <div class="artist-card">
+      <div class="artist-header">
+        <img class="artist-card-img" src="https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/billy_audrey_wilder_los_angeles_april_1982_198.width-420_2x07rdq.jpg" alt="דיוויד הוקני">
+        <div class="artist-header-overlay">
+          <div class="artist-name">דיוויד הוקני</div>
+          <div class="artist-role">Tate · זמן והתבוננות</div>
+        </div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-quote">כמה זוויות ורגעים בתוך דימוי אחד.</div>
+        <div class="artist-text">הוקני יוצר ציורים וקולאז'ים צילומיים שבהם סצנה אחת נבנית מכמה מבטים, זוויות ורגעים. בעבודות ה־joiners שלו הוא מחבר צילומים רבים לתמונה אחת מפורקת, חיה ורבת־תנועה.</div>
+        <a class="artist-link" href="https://www.tate.org.uk/art/artists/david-hockney-1293/80-years-8-works" target="_blank" rel="noopener">לקריאה נוספת ↗</a>
+      </div>
+    </div>
+
+    <div class="artist-card">
+      <div class="artist-header">
+        <img class="artist-card-img" src="https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/manrayglasstears1932cmanraytrustadagpparisandd.width-420.jpg" alt="הרברט בייר">
+        <div class="artist-header-overlay">
+          <div class="artist-name">הרברט בייר</div>
+          <div class="artist-role">Tate · מבט ניסיוני</div>
+        </div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-quote">צילום כניסוי של מבט, חיתוך וצורה.</div>
+        <div class="artist-text">בייר יצר צילומים וניסויים חזותיים שמשלבים זוויות לא שגרתיות, חיתוכים חדים ועיוותי מבט. בעבודות שלו הצילום מופיע ככלי ניסיוני שמפרק את הדרך הרגילה לראות גוף, חלל ודימוי.</div>
+        <a class="artist-link" href="https://www.tate.org.uk/art/art-terms/p/photography/a-z" target="_blank" rel="noopener">לקריאה נוספת ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="look" class="fade-in">
+  <span class="section-tag">כלי התבוננות</span>
+  <div class="section-title">🪟 איך לגשת לצילום אמנותי?</div>
+  <div class="divider"></div>
+  <p class="section-subtitle">לפני שמתחילים לצייר, עצרי רגע עם הצילום ובדקי מה באמת מושך אותך בו.</p>
+  <div class="cards-grid">
+    <div class="source-card">
+      <span class="source-emoji">💡</span>
+      <div class="source-title">האור</div>
+      <div class="source-desc">האם האור רך או חד? האם הוא יוצר דרמה, שקט, חמימות או תחושת זיכרון?</div>
+    </div>
+    <div class="source-card">
+      <span class="source-emoji">🧭</span>
+      <div class="source-title">המוקד</div>
+      <div class="source-desc">מה הדבר הראשון שהעין פוגשת? ומה חשוב לך שהצופה ירגיש כשהוא יסתכל?</div>
+    </div>
+    <div class="source-card">
+      <span class="source-emoji">🪄</span>
+      <div class="source-title">ההשמטה</div>
+      <div class="source-desc">לא חייבים לצייר הכול. לפעמים דווקא ההשמטה יוצרת יצירה חזקה ומדויקת יותר.</div>
+    </div>
+    <div class="source-card">
+      <span class="source-emoji">🌈</span>
+      <div class="source-title">הפרשנות</div>
+      <div class="source-desc">אפשר לשנות צבע, לרכך רקע, להעצים ניגודיות או ליצור אווירה אחרת מזו שהייתה בצילום המקורי.</div>
+    </div>
+  </div>
+</section>
+
+<section id="exercise" class="fade-in">
+  <div class="exercise-wrap">
+    <span class="section-tag">תרגול</span>
+    <div class="section-title">🖌️ תרגיל מעשי</div>
+    <div class="divider"></div>
+    <p class="section-subtitle">בחרי צילום אחד מהחיים שלך: שולחן, חלון, עציץ, כוס, רחוב, פינה בבית או רגע קטן מהיום – והפכי אותו לנקודת מוצא ליצירה.</p>
+
+    <div class="exercise-steps">
+      <div class="step-card">
+        <span class="step-num">1</span>
+        <div class="step-title">בחירת צילום</div>
+        <div class="step-text">בחרי דימוי פשוט שיש בו משהו שמושך אותך: אור, סיפור, שקט, קומפוזיציה או צבע.</div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">2</span>
+        <div class="step-title">התבוננות</div>
+        <div class="step-text">שאלי את עצמך מה הדבר החשוב באמת בצילום – ומה אפשר להשאיר בחוץ.</div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">3</span>
+        <div class="step-title">סקיצה ראשונה</div>
+        <div class="step-text">צרי סקיצה מהירה של המבנה הכללי, הקומפוזיציה והיחסים בין הצורות.</div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">4</span>
+        <div class="step-title">פרשנות אישית</div>
+        <div class="step-text">שני משהו קטן: צבע, חיתוך, רקע, מוקד או אווירה – כדי שהעבודה תהיה שלך באמת.</div>
+      </div>
+    </div>
+
+    <div class="tip-box">טיפ: המטרה אינה להעתיק צילום, אלא להקשיב למה שהוא מעורר בך – ולבנות ממנו שפה אישית.</div>
+  </div>
+</section>
+
+<div class="end-divider" aria-hidden="true"></div>
+
+<footer>
+  <div class="footer-logo">📷 צילום וחיי יומיום | חגית אבידן</div>
+  <div class="footer-subtitle">שיעור אינטראקטיבי — השראה מהאור, מהחפצים ומהרגעים הקטנים של היומיום</div>
+  <div class="footer-links">
+    <a href="index.html">🏠 דף הבית</a><span>|</span>
+    <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener">📺 ערוץ יוטיוב</a><span>|</span>
+    <a href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener">📚 קורס קסם הרישום</a><span>|</span>
+    <a href="https://www.instagram.com/hagit_avidan/" target="_blank" rel="noopener">📷 אינסטגרם</a><span>|</span>
+    <a href="https://www.facebook.com/hagit.avidan/" target="_blank" rel="noopener">👥 פייסבוק</a>
+  </div>
+</footer>
+
+<a id="lang-btn" href="photography-daily-life-en.html">🇬🇧 English</a>
+<button id="scroll-top" aria-label="חזרה למעלה">↑</button>
+
+<script>
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) scrollBtn.classList.add('show');
+    else scrollBtn.classList.remove('show');
+  });
+  scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>
