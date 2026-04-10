@@ -42,9 +42,10 @@
     line-height: 1.7;
   }
 
-  /* ── PROGRESS BAR ── */
   #progress-bar {
-    position: fixed; top:0; right:0;
+    position: fixed;
+    top: 0;
+    right: 0;
     height: 4px;
     background: linear-gradient(90deg, var(--warm-blue), var(--warm-gold));
     z-index: 1000;
@@ -52,9 +53,12 @@
     width: 0;
   }
 
-  /* ── NAV ── */
   nav {
-    position: fixed; top:0; right:0; left:0; z-index:900;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 900;
     background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -64,22 +68,30 @@
     align-items: center;
     justify-content: space-between;
   }
+
   .nav-brand {
     font-weight: 800;
     font-size: 1.05rem;
     color: var(--text-dark);
   }
+
   .nav-brand span { color: var(--warm-blue); }
-  .nav-links { display: flex; gap: 1.5rem; }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
   .nav-links a {
-    font-size: 0.9rem; font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 600;
     color: var(--text-mid);
     text-decoration: none;
     transition: color 0.2s;
   }
+
   .nav-links a:hover { color: var(--warm-blue); }
 
-  /* ── HERO ── */
   .hero {
     padding: 120px 5% 80px;
     text-align: center;
@@ -87,6 +99,7 @@
     position: relative;
     overflow: hidden;
   }
+
   .hero::before {
     content: '';
     position: absolute;
@@ -110,7 +123,8 @@
 
   .hero-avatar {
     display: block;
-    width: 100px; height: 100px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid white;
@@ -125,6 +139,7 @@
     margin-bottom: 16px;
     line-height: 1.2;
   }
+
   .hero h1 span { color: var(--warm-blue); }
 
   .hero p {
@@ -141,7 +156,9 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  .btn-primary, .btn-secondary {
+
+  .btn-primary,
+  .btn-secondary {
     padding: 14px 32px;
     border-radius: 50px;
     font-size: 1rem;
@@ -151,21 +168,32 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    justify-content: center;
   }
+
   .btn-primary {
     background: linear-gradient(135deg, var(--warm-blue), var(--slate));
     color: white;
     box-shadow: 0 6px 20px rgba(74,111,165,0.35);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(74,111,165,0.45); }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(74,111,165,0.45);
+  }
+
   .btn-secondary {
     background: white;
     color: var(--warm-blue);
     border: 2px solid var(--warm-blue);
   }
-  .btn-secondary:hover { background: var(--warm-blue); color: white; transform: translateY(-2px); }
 
-  /* ── STATS ── */
+  .btn-secondary:hover {
+    background: var(--warm-blue);
+    color: white;
+    transform: translateY(-2px);
+  }
+
   .stats-bar {
     display: flex;
     justify-content: center;
@@ -174,6 +202,7 @@
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
+
   .stat-item {
     flex: 1;
     max-width: 200px;
@@ -181,21 +210,28 @@
     padding: 24px 16px;
     border-left: 1px solid var(--border);
   }
+
   .stat-item:last-child { border-left: none; }
+
   .stat-num {
     font-size: 2rem;
     font-weight: 900;
     color: var(--warm-blue);
     display: block;
   }
-  .stat-label { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
 
-  /* ── SECTION ── */
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
   .section {
     padding: 80px 5%;
     max-width: 1200px;
     margin: 0 auto;
   }
+
   .section-tag {
     display: inline-block;
     background: linear-gradient(135deg, #e8f0fb, #f0eeff);
@@ -207,22 +243,28 @@
     margin-bottom: 12px;
     letter-spacing: 0.5px;
   }
+
   .section-title {
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 900;
     color: var(--text-dark);
     margin-bottom: 10px;
   }
+
   .section-subtitle {
     font-size: 1rem;
     color: var(--text-mid);
     margin-bottom: 50px;
   }
 
-  /* ── LESSON CARDS ── */
+  .all-lessons-head {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
   .lessons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
   }
 
@@ -238,6 +280,7 @@
     display: block;
     position: relative;
   }
+
   .lesson-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 16px 48px rgba(74,111,165,0.2);
@@ -271,6 +314,7 @@
     border-radius: 50px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
+
   .lesson-badge.coming-soon {
     background: #fff3e0;
     color: #e65100;
@@ -279,25 +323,34 @@
   .lesson-body {
     padding: 24px 26px 28px;
   }
-  .lesson-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+
+  .lesson-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+
   .lesson-title {
     font-size: 1.25rem;
     font-weight: 800;
     color: var(--text-dark);
     margin-bottom: 8px;
   }
+
   .lesson-desc {
     font-size: 0.9rem;
     color: var(--text-mid);
     line-height: 1.65;
     margin-bottom: 18px;
   }
+
   .lesson-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
     margin-bottom: 20px;
   }
+
   .lesson-tag {
     background: #f0f4fc;
     color: var(--warm-blue);
@@ -306,6 +359,7 @@
     padding: 3px 12px;
     border-radius: 50px;
   }
+
   .lesson-cta {
     display: inline-flex;
     align-items: center;
@@ -319,23 +373,118 @@
     text-decoration: none;
     transition: all 0.2s;
   }
+
   .lesson-cta:hover { transform: translateX(-3px); }
+
   .lesson-card.disabled .lesson-cta {
     background: var(--border);
     color: var(--text-light);
     cursor: not-allowed;
   }
-  .lesson-card.disabled:hover { transform: none; box-shadow: 0 4px 24px var(--shadow); }
 
-  /* ── ABOUT SECTION ── */
+  .lesson-card.disabled:hover {
+    transform: none;
+    box-shadow: 0 4px 24px var(--shadow);
+  }
+
+  .featured-lesson-wrap {
+    margin: 8px auto 56px;
+  }
+
+  .featured-label {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #fff2da, #ffe7bf);
+    color: #8a5a2b;
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1.08fr 1fr;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 34px rgba(74,111,165,0.14);
+  }
+
+  .featured-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .featured-content {
+    padding: 38px 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .featured-kicker {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--warm-blue);
+    margin-bottom: 10px;
+  }
+
+  .featured-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+  }
+
+  .featured-desc {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+    max-width: 560px;
+  }
+
+  .featured-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .featured-tag {
+    background: #f2f5fb;
+    color: var(--warm-blue);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  .featured-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
   .about-section {
     padding: 80px 5%;
     background: linear-gradient(135deg, var(--warm-blue) 0%, var(--slate) 100%);
     color: white;
     text-align: center;
   }
+
   .about-section .section-title { color: white; }
-  .about-section .section-subtitle { color: rgba(255,255,255,0.8); margin-bottom: 36px; }
+
+  .about-section .section-subtitle {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 36px;
+  }
 
   .about-grid {
     display: flex;
@@ -346,22 +495,35 @@
     max-width: 900px;
     margin: 0 auto;
   }
+
   .about-avatar {
-    width: 140px; height: 140px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid rgba(255,255,255,0.5);
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
     flex-shrink: 0;
   }
-  .about-text { max-width: 500px; text-align: center; }
+
+  .about-text {
+    max-width: 500px;
+    text-align: center;
+  }
+
   .about-text p {
     font-size: 1rem;
     color: rgba(255,255,255,0.9);
     line-height: 1.8;
     margin-bottom: 20px;
   }
-  .about-links { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .about-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
   .about-link {
     padding: 10px 22px;
     border-radius: 50px;
@@ -370,24 +532,34 @@
     text-decoration: none;
     transition: all 0.2s;
   }
+
   .about-link.white {
     background: white;
     color: var(--warm-blue);
   }
-  .about-link.white:hover { background: #f0f4fc; transform: translateY(-2px); }
+
+  .about-link.white:hover {
+    background: #f0f4fc;
+    transform: translateY(-2px);
+  }
+
   .about-link.outline {
     background: transparent;
     color: white;
     border: 2px solid rgba(255,255,255,0.6);
   }
-  .about-link.outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
 
-  /* ── QUOTE STRIP ── */
+  .about-link.outline:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+  }
+
   .quote-strip {
     padding: 60px 5%;
     text-align: center;
     background: white;
   }
+
   .quote-strip blockquote {
     font-size: 1.4rem;
     font-weight: 600;
@@ -397,14 +569,13 @@
     margin: 0 auto 14px;
     line-height: 1.6;
   }
+
   .quote-strip cite {
     font-size: 0.9rem;
     color: var(--text-light);
     font-style: normal;
   }
 
-  /* ── FOOTER ── */
-  
   footer {
     background: var(--text-dark);
     color: rgba(255,255,255,0.75);
@@ -413,8 +584,14 @@
     font-size: 0.85rem;
     line-height: 1.9;
   }
-    footer a { color: var(--warm-gold); text-decoration: none; }
+
+  footer a {
+    color: var(--warm-gold);
+    text-decoration: none;
+  }
+
   footer a:hover { color: var(--warm-gold); }
+
   .footer-logo {
     font-size: 1.2rem;
     font-weight: 800;
@@ -422,12 +599,12 @@
     margin-bottom: 10px;
   }
 
-  /* ── SCROLL TOP ── */
   #scroll-top {
     position: fixed;
     bottom: 24px;
     left: 24px;
-    width: 44px; height: 44px;
+    width: 44px;
+    height: 44px;
     background: var(--warm-blue);
     color: white;
     border: none;
@@ -439,47 +616,40 @@
     opacity: 0;
     z-index: 800;
   }
+
   #scroll-top.visible { opacity: 1; }
+
   #scroll-top:hover { transform: translateY(-3px); }
 
-  /* ── DIVIDER ── */
   .divider {
-    width: 60px; height: 4px;
+    width: 60px;
+    height: 4px;
     background: linear-gradient(90deg, var(--warm-blue), var(--warm-gold));
     border-radius: 2px;
     margin: 0 auto 16px;
   }
+
   .divider.right { margin: 0 0 16px; }
 
-  /* ── ANIMATIONS ── */
   .fade-in {
     opacity: 1;
     transform: none;
     transition: transform 0.5s ease;
   }
-  
-  /* Fallback: if JS fails, show all sections after animation */
+
   @media (prefers-reduced-motion: reduce) {
     .fade-in {
+      opacity: 1;
+      transform: none;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  .fade-in.visible {
     opacity: 1;
     transform: none;
-    transition: transform 0.5s ease;
-  }
-  }
-  .fade-in.visible { opacity: 1; transform: none; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .stats-bar { flex-wrap: wrap; }
-    .stat-item { min-width: 120px; border-left: none; border-bottom: 1px solid var(--border); }
-    .about-grid { flex-direction: column; }
-    .about-text { text-align: center; }
-    .about-links { justify-content: center; }
-    .hero-cta { flex-direction: column; align-items: center; }
   }
 
-  /* ── LANGUAGE TOGGLE ── */
   #lang-btn {
     position: fixed;
     bottom: 80px;
@@ -497,185 +667,166 @@
     transition: background 0.2s, transform 0.15s;
     letter-spacing: 0.5px;
   }
-  #lang-btn:hover { background: #3a5a8a; transform: scale(1.05); }
 
-    /* ── LTR OVERRIDE FOR ENGLISH ── */
-    html[dir="ltr"] body {
-      direction: ltr;
-      text-align: left;
-    }
-    html[dir="ltr"] nav,
-    html[dir="ltr"] .nav-logo,
-    html[dir="ltr"] .nav-links,
-    html[dir="ltr"] .nav-brand {
-      direction: ltr;
-    }
-    html[dir="ltr"] .nav-links {
-      margin-left: auto;
-      margin-right: 0;
-    }
-    html[dir="ltr"] .hero-content,
-    html[dir="ltr"] .hero-stats,
-    html[dir="ltr"] .hero-grid,
-    html[dir="ltr"] .hero-btns {
-      direction: ltr;
-      text-align: center;
-    }
-    html[dir="ltr"] .section-title,
-    html[dir="ltr"] .section-subtitle,
-    html[dir="ltr"] .section-tag {
-      text-align: left;
-    }
-    html[dir="ltr"] .what-grid,
-    html[dir="ltr"] .what-text,
-    html[dir="ltr"] .cards-grid,
-    html[dir="ltr"] .card {
-      direction: ltr;
-      text-align: left;
-    }
-    html[dir="ltr"] .artist-body,
-    html[dir="ltr"] .artist-name,
-    html[dir="ltr"] .artist-dates,
-    html[dir="ltr"] .artist-quote,
-    html[dir="ltr"] .artist-desc {
-      direction: ltr;
-      text-align: left;
-    }
-    html[dir="ltr"] .exercise-container,
-    html[dir="ltr"] .step-content,
-    html[dir="ltr"] .teacher-tip,
-    html[dir="ltr"] .tip-box {
-      direction: ltr;
-      text-align: left;
-    }
-    html[dir="ltr"] .homework-grid,
-    html[dir="ltr"] .hw-card,
-    html[dir="ltr"] .takeaways,
-    html[dir="ltr"] .takeaway {
-      direction: ltr;
-      text-align: left;
-    }
-    html[dir="ltr"] .quote-box,
-    html[dir="ltr"] .quote-card,
-    html[dir="ltr"] .quote-text,
-    html[dir="ltr"] .quote-author,
-    html[dir="ltr"] .video-info,
-    html[dir="ltr"] .video-title,
-    html[dir="ltr"] .video-desc,
-    html[dir="ltr"] .video-tips {
-      direction: ltr;
-      text-align: left;
-    }
-    html[dir="ltr"] .channel-banner,
-    html[dir="ltr"] .channel-info,
-    html[dir="ltr"] .channel-banner-text {
-      direction: ltr;
-      text-align: left;
-    }
-    html[dir="ltr"] footer {
-      direction: ltr;
-      text-align: center;
-    }
-    html[dir="ltr"] .footer-logo {
-      text-align: center;
-    }
-    html[dir="ltr"] p,
-    html[dir="ltr"] li,
-    html[dir="ltr"] h1,
-    html[dir="ltr"] h2,
-    html[dir="ltr"] h3,
-    html[dir="ltr"] span,
-    html[dir="ltr"] div {
-      direction: ltr;
-    }
-    html[dir="ltr"] .modal-box {
-      direction: ltr;
-      text-align: left;
-    }
-    html[dir="ltr"] .exercise-steps {
-      direction: ltr;
-    }
-    html[dir="ltr"] .phase-indicators,
-    html[dir="ltr"] .phases-row {
-      direction: ltr;
-    }
-    html[dir="ltr"] .channel-banner-link,
-    html[dir="ltr"] .video-link {
-      direction: ltr;
-    }
-    /* Cards & grids */
-    html[dir="ltr"] .hw-grid,
-    html[dir="ltr"] .videos-grid,
-    html[dir="ltr"] .gallery-grid {
-      direction: ltr;
-    }
-    /* Intro cards in cities */
-    html[dir="ltr"] .card-title,
-    html[dir="ltr"] .card-text {
-      direction: ltr;
-      text-align: left;
+  #lang-btn:hover {
+    background: #3a5a8a;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 1024px) {
+    .lessons-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* ── FOOTER CENTER ── */
-    footer {
-      text-align: center !important;
-    }
-      footer .footer-logo { font-size: 1.1rem; font-weight: 600; color: var(--warm-gold); margin-bottom: 6px; }
-    footer p {
-      text-align: center !important;
-    }
-    footer a {
-      display: inline;
+    .featured-card {
+      grid-template-columns: 1fr;
     }
 
-    /* ── ABOUT SECTION: keep centered in both languages ── */
-    html[dir="ltr"] .about-section .section-title,
-    html[dir="ltr"] .about-section .section-subtitle,
-    html[dir="ltr"] .about-section .section-tag {
-      text-align: center !important;
+    .featured-media img {
+      min-height: 260px;
+      max-height: 340px;
     }
-    html[dir="ltr"] .about-section h2,
-    html[dir="ltr"] .about-section p,
-    html[dir="ltr"] .about-text,
-    html[dir="ltr"] .about-text p {
-      text-align: center !important;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .stats-bar { flex-wrap: wrap; }
+    .stat-item {
+      min-width: 120px;
+      border-left: none;
+      border-bottom: 1px solid var(--border);
     }
-    html[dir="ltr"] .about-links {
-      justify-content: center !important;
-    }
-    /* Hero section - keep centered */
-    html[dir="ltr"] .hero {
-      text-align: center;
-    }
-    html[dir="ltr"] .hero h1,
-    html[dir="ltr"] .hero p,
-    html[dir="ltr"] .hero span {
-      text-align: center !important;
+    .about-grid { flex-direction: column; }
+    .about-text { text-align: center; }
+    .about-links { justify-content: center; }
+    .hero-cta { flex-direction: column; align-items: center; }
+
+    .lessons-grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
     }
 
-    /* ── HERO: always centered in both languages ── */
-    html[dir="ltr"] .hero {
-      text-align: center !important;
+    .featured-content {
+      padding: 26px 22px 24px;
     }
-    html[dir="ltr"] .hero .hero-badge,
-    html[dir="ltr"] .hero h1,
-    html[dir="ltr"] .hero p,
-    html[dir="ltr"] .hero span {
-      text-align: center !important;
-      display: revert;
+
+    .featured-title {
+      font-size: 1.75rem;
     }
-    html[dir="ltr"] .hero-badge {
-      display: inline-block !important;
-      text-align: center !important;
+
+    .featured-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
     }
-    html[dir="ltr"] .hero-avatar {
-      display: block !important;
-      margin: 0 auto 20px !important;
-      float: none !important;
+
+    .featured-actions {
+      flex-direction: column;
+      align-items: stretch;
     }
-    html[dir="ltr"] .hero-cta {
-      justify-content: center !important;
-    }
+  }
+
+  html[dir="ltr"] body {
+    direction: ltr;
+    text-align: left;
+  }
+
+  html[dir="ltr"] nav,
+  html[dir="ltr"] .nav-logo,
+  html[dir="ltr"] .nav-links,
+  html[dir="ltr"] .nav-brand {
+    direction: ltr;
+  }
+
+  html[dir="ltr"] .nav-links {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  html[dir="ltr"] .section-title,
+  html[dir="ltr"] .section-subtitle,
+  html[dir="ltr"] .section-tag {
+    text-align: left;
+  }
+
+  html[dir="ltr"] footer {
+    direction: ltr;
+    text-align: center;
+  }
+
+  html[dir="ltr"] .footer-logo {
+    text-align: center;
+  }
+
+  html[dir="ltr"] p,
+  html[dir="ltr"] li,
+  html[dir="ltr"] h1,
+  html[dir="ltr"] h2,
+  html[dir="ltr"] h3,
+  html[dir="ltr"] span,
+  html[dir="ltr"] div {
+    direction: ltr;
+  }
+
+  footer {
+    text-align: center !important;
+  }
+
+  footer .footer-logo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--warm-gold);
+    margin-bottom: 6px;
+  }
+
+  footer p {
+    text-align: center !important;
+  }
+
+  footer a {
+    display: inline;
+  }
+
+  html[dir="ltr"] .about-section .section-title,
+  html[dir="ltr"] .about-section .section-subtitle,
+  html[dir="ltr"] .about-section .section-tag {
+    text-align: center !important;
+  }
+
+  html[dir="ltr"] .about-section h2,
+  html[dir="ltr"] .about-section p,
+  html[dir="ltr"] .about-text,
+  html[dir="ltr"] .about-text p {
+    text-align: center !important;
+  }
+
+  html[dir="ltr"] .about-links {
+    justify-content: center !important;
+  }
+
+  html[dir="ltr"] .hero {
+    text-align: center !important;
+  }
+
+  html[dir="ltr"] .hero h1,
+  html[dir="ltr"] .hero p,
+  html[dir="ltr"] .hero span {
+    text-align: center !important;
+  }
+
+  html[dir="ltr"] .hero-badge {
+    display: inline-block !important;
+    text-align: center !important;
+  }
+
+  html[dir="ltr"] .hero-avatar {
+    display: block !important;
+    margin: 0 auto 20px !important;
+    float: none !important;
+  }
+
+  html[dir="ltr"] .hero-cta {
+    justify-content: center !important;
+  }
 </style>
 </head>
 <body>
@@ -683,7 +834,6 @@
 <div id="progress-bar"></div>
 <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<!-- NAV -->
 <nav>
   <div class="nav-brand">🎨 <span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span> | <span data-he="שיעורי ציור" data-en="Art Lessons">שיעורי ציור</span></div>
   <div class="nav-links">
@@ -696,7 +846,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-badge">🎨 <span data-he="שיעורי ציור אינטראקטיביים" data-en="Interactive Art Lessons">שיעורי ציור אינטראקטיביים</span> | Hagit Avidan | 7 Diamonds</div>
   <img class="hero-avatar"
@@ -712,7 +861,6 @@
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stat-item">
     <span class="stat-num" id="lessons-count">0</span>
@@ -734,111 +882,27 @@
 
 <!-- LESSONS -->
 <div id="lessons" class="section">
-  <div style="text-align:center;">
-    <span class="section-tag">📚 <span data-he="שיעורים" data-en="Lessons">שיעורים</span></span>
-    <h2 class="section-title"><span data-he="בחרו שיעור" data-en="Choose a Lesson">בחרו שיעור</span></h2>
+  <div id="featured-lesson"></div>
+
+  <div class="all-lessons-head">
+    <span class="section-tag">📚 <span data-he="כל השיעורים" data-en="All Lessons">כל השיעורים</span></span>
+    <h2 class="section-title"><span data-he="מבחר השיעורים" data-en="Lessons Collection">מבחר השיעורים</span></h2>
     <div class="divider"></div>
-    <p class="section-subtitle"><span data-he="כל שיעור כולל גלריה, תרגיל מעשי עם טיימר, ציטוטים ועוד" data-en="Each lesson includes a gallery, hands-on exercise with timer, quotes and more">כל שיעור כולל גלריה, תרגיל מעשי עם טיימר, ציטוטים ועוד</span></p>
+    <p class="section-subtitle">
+      <span data-he="בחרו שיעור לפי נושא, מקור השראה או דרך עבודה" data-en="Choose a lesson by theme, source of inspiration, or way of working">
+        בחרו שיעור לפי נושא, מקור השראה או דרך עבודה
+      </span>
+    </p>
   </div>
 
-  <div class="lessons-grid">
-
-    <!-- LESSON 1: Still Life -->
-    <a class="lesson-card fade-in" href="stillife-lesson.html">
-      <div class="lesson-badge"><span data-he="✅ זמין" data-en="✅ Available">✅ זמין</span></div>
-      <img class="lesson-thumb"
-           src="https://images.metmuseum.org/CRDImages/ep/web-large/DT47.jpg"
-           alt="Still Life"
-           loading="lazy">
-      <div class="lesson-body">
-        <span class="lesson-icon">🏺</span>
-        <div class="lesson-title"><span data-he="טבע דומם – Still Life" data-en="Still Life">טבע דומם – Still Life</span></div>
-        <p class="lesson-desc"><span data-he="לגלות יקום שלם בתוך חפצי הבית הפשוטים. סזאן, מורנדי, ואן גוך ועוד – כולם מצאו שפה אמנותית דרך חפצים יומיומיים." data-en="Discover a whole universe inside simple household objects. Cézanne, Morandi, Van Gogh – all found their artistic voice through everyday objects.">לגלות יקום שלם בתוך חפצי הבית הפשוטים. סזאן, מורנדי, ואן גוך ועוד – כולם מצאו שפה אמנותית דרך חפצים יומיומיים.</span></p>
-        <div class="lesson-tags">
-          <span class="lesson-tag"><span data-he="🍎 חפצי בית" data-en="🍎 Home Objects">🍎 חפצי בית</span></span>
-          <span class="lesson-tag"><span data-he="💡 אור וצל" data-en="💡 Light & Shadow">💡 אור וצל</span></span>
-          <span class="lesson-tag"><span data-he="⏱️ טיימר" data-en="⏱️ Timer">⏱️ טיימר</span></span>
-          <span class="lesson-tag"><span data-he="🎬 וידאו" data-en="🎬 Video">🎬 וידאו</span></span>
-        </div>
-        <span class="lesson-cta"><span data-he="להתחיל שיעור →" data-en="Start Lesson →">להתחיל שיעור →</span></span>
-      </div>
-    </a>
-
-    <!-- LESSON 2: Cities -->
-    <a class="lesson-card fade-in" href="cities-lesson.html">
-      <div class="lesson-badge"><span data-he="✅ זמין" data-en="✅ Available">✅ זמין</span></div>
-      <img class="lesson-thumb"
-           src="https://images.metmuseum.org/CRDImages/ep/web-large/DP-21959-001.jpg"
-           alt="ערים ומקומות"
-           loading="lazy">
-      <div class="lesson-body">
-        <span class="lesson-icon">🏙️</span>
-        <div class="lesson-title"><span data-he="ערים ומקומות כמקורות השראה" data-en="Cities & Places as Inspiration">ערים ומקומות כמקורות השראה</span></div>
-        <p class="lesson-desc"><span data-he="כל פינת רחוב, כל חלון מואר, כל גשר ישן – עולם שלם מחכה למכחול שלך. הופר, פיסארו, מונה ועוד." data-en="Every street corner, every lit window, every old bridge – a whole world waits for your brush. Hopper, Pissarro, Monet and more.">כל פינת רחוב, כל חלון מואר, כל גשר ישן – עולם שלם מחכה למכחול שלך. הופר, פיסארו, מונה ועוד.</span></p>
-        <div class="lesson-tags">
-          <span class="lesson-tag"><span data-he="🏛️ פרספקטיבה" data-en="🏛️ Perspective">🏛️ פרספקטיבה</span></span>
-          <span class="lesson-tag"><span data-he="🌆 נוף עירוני" data-en="🌆 Urban Landscape">🌆 נוף עירוני</span></span>
-          <span class="lesson-tag"><span data-he="⏱️ טיימר" data-en="⏱️ Timer">⏱️ טיימר</span></span>
-          <span class="lesson-tag"><span data-he="🗺️ מקומות" data-en="🗺️ Places">🗺️ מקומות</span></span>
-        </div>
-        <span class="lesson-cta"><span data-he="להתחיל שיעור →" data-en="Start Lesson →">להתחיל שיעור →</span></span>
-      </div>
-    </a>
-    <!-- LESSON 3: Personal Journal -->
-    <a class="lesson-card fade-in" href="journal-lesson.html">
-      <div class="lesson-badge"><span data-he="✅ זמין" data-en="✅ Available">✅ זמין</span></div>
-      <img class="lesson-thumb"
-           src="https://upload.wikimedia.org/wikipedia/en/1/1e/Frida_Kahlo_%28self_portrait%29.jpg"
-           alt="יומן אישי"
-           loading="lazy"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="lesson-thumb-placeholder" style="display:none; background: linear-gradient(135deg,#EDE8F5,#DDD5EE); font-size:4rem;">📔</div>
-      <div class="lesson-body">
-        <span class="lesson-icon">📔</span>
-        <div class="lesson-title"><span data-he="יומן אישי – ציור מהנשמה" data-en="Personal Journal – Painting from the Soul">יומן אישי – ציור מהנשמה</span></div>
-        <p class="lesson-desc"><span data-he="פרידה קאלו, ואן גוך, שאגל – כולם ציירו מהרגש הפנימי. למד לתרגם רגשות, חלומות וזיכרונות לשפה ויזואלית אישית." data-en="Frida Kahlo, Van Gogh, Chagall – all painted from inner emotion. Learn to translate feelings, dreams and memories into a personal visual language.">פרידה קאלו, ואן גוך, שאגל – כולם ציירו מהרגש הפנימי. למד לתרגם רגשות, חלומות וזיכרונות לשפה ויזואלית אישית.</span></p>
-        <div class="lesson-tags">
-          <span class="lesson-tag"><span data-he="🎭 רגשות" data-en="🎭 Emotions">🎭 רגשות</span></span>
-          <span class="lesson-tag"><span data-he="🌙 חלומות" data-en="🌙 Dreams">🌙 חלומות</span></span>
-          <span class="lesson-tag"><span data-he="⏱️ טיימר" data-en="⏱️ Timer">⏱️ טיימר</span></span>
-          <span class="lesson-tag"><span data-he="🎬 וידאו" data-en="🎬 Video">🎬 וידאו</span></span>
-        </div>
-        <span class="lesson-cta"><span data-he="להתחיל שיעור →" data-en="Start Lesson →">להתחיל שיעור →</span></span>
-      </div>
-    </a>
-    <!-- LESSON 4: Photography -->
-    <a class="lesson-card fade-in" href="photography-daily-life.html">
-      <div class="lesson-badge"><span data-he="✅ זמין" data-en="✅ Available">✅ זמין</span></div>
-      <img class="lesson-thumb"
-           src="https://media.tate.org.uk/aztate-prd-ew-dg-wgtail-st1-ctr-data/images/gasoline_01_1_vRqLxtU.width-420.jpg"
-           alt="צילום וחיי יומיום"
-           loading="lazy"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="lesson-thumb-placeholder" style="display:none; background: linear-gradient(135deg,#E8EEF8,#DDE7F5); font-size:4rem;">📷</div>
-      <div class="lesson-body">
-        <span class="lesson-icon">📷</span>
-        <div class="lesson-title"><span data-he="צילום וחיי יומיום" data-en="Photography & Everyday Life">צילום וחיי יומיום</span></div>
-        <p class="lesson-desc"><span data-he="איך רגעים פשוטים, אור טבעי, חפצים יומיומיים וזוויות מבט הופכים למקור השראה לציור, רישום והתבוננות אמנותית." data-en="How simple moments, natural light, everyday objects, and points of view become a source of inspiration for drawing, painting, and artistic observation.">איך רגעים פשוטים, אור טבעי, חפצים יומיומיים וזוויות מבט הופכים למקור השראה לציור, רישום והתבוננות אמנותית.</span></p>
-        <div class="lesson-tags">
-          <span class="lesson-tag"><span data-he="📷 צילום" data-en="📷 Photography">📷 צילום</span></span>
-          <span class="lesson-tag"><span data-he="✨ השראה" data-en="✨ Inspiration">✨ השראה</span></span>
-          <span class="lesson-tag"><span data-he="👁️ התבוננות" data-en="👁️ Observation">👁️ התבוננות</span></span>
-          <span class="lesson-tag"><span data-he="🖼️ קומפוזיציה" data-en="🖼️ Composition">🖼️ קומפוזיציה</span></span>
-        </div>
-        <span class="lesson-cta"><span data-he="להתחיל שיעור →" data-en="Start Lesson →">להתחיל שיעור →</span></span>
-      </div>
-    </a>
-
-  </div>
+  <div id="lessons-grid" class="lessons-grid"></div>
 </div>
 
-<!-- QUOTE STRIP -->
 <div class="quote-strip">
   <blockquote>"<span data-he="לצייר הוא להתאהב מחדש בעולם – כל פעם מחדש" data-en="To paint is to fall in love with the world again – every single time">לצייר הוא להתאהב מחדש בעולם – כל פעם מחדש</span>"</blockquote>
   <cite>— <span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span></cite>
 </div>
 
-<!-- ABOUT -->
 <section id="about" class="about-section">
   <span class="section-tag" style="background:rgba(255,255,255,0.15);color:white;"><span data-he="👩‍🎨 אודות" data-en="👩‍🎨 About">👩‍🎨 אודות</span></span>
   <h2 class="section-title" style="margin-top:10px;"><span data-he="חגית אבידן | 7 Diamonds" data-en="Hagit Avidan | 7 Diamonds">חגית אבידן | 7 Diamonds</span></h2>
@@ -862,7 +926,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo"><span data-he="🎨 חגית אבידן | שיעורי ציור" data-en="🎨 Hagit Avidan | Art Lessons">🎨 חגית אבידן | שיעורי ציור</span></div>
   <p style="margin-bottom:10px;"><span data-he="שיעורי ציור אינטראקטיביים – לראות את העולם בעיניים חדשות" data-en="Interactive Art Lessons – See the world through new eyes">שיעורי ציור אינטראקטיביים – לראות את העולם בעיניים חדשות</span></p>
@@ -877,10 +940,13 @@
   </p>
 </footer>
 
+<script src="lessons-data.js"></script>
+<script src="lessons-render.js"></script>
+
 <script>
-// Progress bar
 const pb = document.getElementById('progress-bar');
 const st = document.getElementById('scroll-top');
+
 window.addEventListener('scroll', () => {
   const h = document.documentElement;
   const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
@@ -888,29 +954,37 @@ window.addEventListener('scroll', () => {
   st.classList.toggle('visible', h.scrollTop > 300);
 });
 
-// Fade-in on scroll
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
 }, { threshold: 0, rootMargin: '0px 0px 50px 0px' });
+
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 </script>
+
 <script>
-// ── BILINGUAL TOGGLE ──
 (function() {
   var currentLang = localStorage.getItem('siteLang') || 'he';
 
   function applyLang(lang) {
     currentLang = lang;
     localStorage.setItem('siteLang', lang);
+
     document.querySelectorAll('[data-he]').forEach(function(el) {
       el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-he');
     });
+
     document.querySelectorAll('[data-he-html]').forEach(function(el) {
       el.innerHTML = lang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-he-html');
     });
+
     var btn = document.getElementById('lang-btn');
     if (btn) btn.textContent = lang === 'en' ? '🇮🇱 עברית' : '🇬🇧 English';
-    // Switch page direction
+
     document.documentElement.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
     document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'he');
   }
@@ -925,28 +999,29 @@ document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
   });
 })();
 
-  // Fallback: make all sections visible after 800ms (for local file / slow browsers)
-  setTimeout(function() {
-    document.querySelectorAll('.fade-in').forEach(function(el) {
-      el.classList.add('visible');
-    });
-  }, 800);
+setTimeout(function() {
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+    el.classList.add('visible');
+  });
+}, 800);
 </script>
 
 <script>
-  // Auto-count lessons with "זמין ✅" badge
-  function countAvailableLessons() {
-    const badges = document.querySelectorAll('.lesson-badge');
-    let count = 0;
-    badges.forEach(badge => {
-      if (badge.textContent.includes('זמין') || badge.textContent.includes('Available')) {
-        count++;
-      }
-    });
-    const el = document.getElementById('lessons-count');
-    if (el) el.textContent = count;
-  }
-  document.addEventListener('DOMContentLoaded', countAvailableLessons);
+function countAvailableLessons() {
+  const badges = document.querySelectorAll('.lesson-badge');
+  let count = 0;
+
+  badges.forEach(badge => {
+    if (badge.textContent.includes('זמין') || badge.textContent.includes('Available')) {
+      count++;
+    }
+  });
+
+  const el = document.getElementById('lessons-count');
+  if (el) el.textContent = count;
+}
+
+document.addEventListener('DOMContentLoaded', countAvailableLessons);
 </script>
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
