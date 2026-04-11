@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>יצירת קשר | חגית אבידן</title>
+  <meta name="description" content="יצירת קשר עם חגית אבידן דרך יוטיוב, אינסטגרם, פייסבוק וקורס קסם הרישום.">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FAF4EA;
+      --white: #FFFFFF;
+      --warm-blue: #23617E;
+      --warm-blue-light: #94BEBB;
+      --terracotta: #E89C73;
+      --warm-gold: #F4D892;
+      --sage: #657652;
+      --slate: #C0B05B;
+      --text-dark: #2E3A34;
+      --text-mid: #5F6A67;
+      --text-light: #7E8885;
+      --border: #E5E9EB;
+      --shadow: rgba(35,97,126,0.14);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Heebo', Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      direction: rtl;
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 900;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    .nav-brand span { color: var(--warm-blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--warm-blue); }
+
+    .hero {
+      padding: 122px 5% 58px;
+      text-align: center;
+      background: linear-gradient(160deg, #fffdfa 0%, #f8eecf 35%, #f7f1e7 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2394BEBB' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--warm-blue), var(--slate));
+      color: white;
+      padding: 7px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 0.4px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--text-mid);
+      max-width: 700px;
+      margin: 0 auto 34px;
+      line-height: 1.9;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--warm-blue), var(--slate));
+      color: white;
+      box-shadow: 0 8px 22px rgba(35,97,126,0.22);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text-dark);
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 22px rgba(74,111,165,0.08);
+    }
+
+    .section {
+      padding: 70px 5%;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 7px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f9efc4, #f6d0c3);
+      color: #7f5f2b;
+      font-size: 0.82rem;
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(232,156,115,0.18);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 34px rgba(35,97,126,0.12);
+      padding: 28px 24px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: right;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 38px rgba(35,97,126,0.18);
+    }
+
+    .contact-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.55rem;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(148,190,187,0.18), rgba(244,216,146,0.28));
+    }
+
+    .contact-card h3 {
+      font-size: 1.26rem;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    .contact-card p {
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .contact-link {
+      font-weight: 800;
+      color: var(--warm-blue);
+    }
+
+    .note-box {
+      margin-top: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      text-align: center;
+      color: var(--text-mid);
+      line-height: 1.9;
+      box-shadow: 0 10px 26px rgba(35,97,126,0.08);
+    }
+
+    footer {
+      text-align: center;
+      padding: 34px 5% 60px;
+      color: var(--text-mid);
+    }
+
+    .footer-logo {
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      margin-bottom: 12px;
+    }
+
+    footer a {
+      color: var(--warm-blue);
+      font-weight: 700;
+    }
+
+    #lang-btn {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 999;
+      border: 1px solid #cfd9db;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #eef3f3, #dbe5e6);
+      color: #3d5965;
+      padding: 12px 18px;
+      font-family: 'Heebo', Arial, sans-serif;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(35,97,126,0.14);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    #lang-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #e6efef, #cfdcde);
+      box-shadow: 0 14px 28px rgba(35,97,126,0.18);
+    }
+
+    html[dir="ltr"] body,
+    html[dir="ltr"] .contact-card { text-align: left; }
+
+    html[dir="ltr"] .contact-card { align-items: flex-start; }
+
+    @media (max-width: 860px) {
+      nav {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        height: auto;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero {
+        padding-top: 150px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 160px;
+      }
+
+      .hero p,
+      .section-subtitle,
+      .contact-card p,
+      .note-box {
+        font-size: 0.97rem;
+      }
+
+      .hero-cta {
+        display: flex;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+      }
+
+      #lang-btn {
+        left: 12px;
+        bottom: 12px;
+        padding: 11px 15px;
+        font-size: 0.92rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">🎨 <span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span> | <span data-he="יצירת קשר" data-en="Contact">יצירת קשר</span></div>
+    <div class="nav-links">
+      <a href="index.html"><span data-he="דף הבית" data-en="Home">דף הבית</span></a>
+      <a href="#contact-options"><span data-he="דרכי קשר" data-en="Contact Options">דרכי קשר</span></a>
+      <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener">📺 <span data-he="יוטיוב" data-en="YouTube">יוטיוב</span></a>
+      <a href="https://www.instagram.com/hagit_avidan/" target="_blank" rel="noopener">📷 <span data-he="אינסטגרם" data-en="Instagram">אינסטגרם</span></a>
+      <a href="https://www.facebook.com/hagit.avidan/" target="_blank" rel="noopener">👥 <span data-he="פייסבוק" data-en="Facebook">פייסבוק</span></a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">✉️ <span data-he="יצירת קשר" data-en="Contact">יצירת קשר</span></div>
+    <h1><span data-he="נשמח להישאר בקשר" data-en="We would love to stay in touch">נשמח להישאר בקשר</span></h1>
+    <p>
+      <span data-he="כאן אפשר להגיע אל חגית אבידן דרך הערוצים הפעילים, להתעדכן בתכנים חדשים, לצפות בשיעורים ולהמשיך במסע של השראה, יצירה ולמידה." data-en="Here you can reach Hagit Avidan through her active channels, keep up with new content, watch lessons, and continue a journey of inspiration, creativity, and learning.">כאן אפשר להגיע אל חגית אבידן דרך הערוצים הפעילים, להתעדכן בתכנים חדשים, לצפות בשיעורים ולהמשיך במסע של השראה, יצירה ולמידה.</span>
+    </p>
+    <div class="hero-cta">
+      <a href="#contact-options" class="btn-primary">✉️ <span data-he="לדרכי הקשר" data-en="Contact Options">לדרכי הקשר</span></a>
+      <a href="index.html" class="btn-secondary">🏠 <span data-he="חזרה לדף הבית" data-en="Back to Home">חזרה לדף הבית</span></a>
+    </div>
+  </section>
+
+  <section id="contact-options" class="section">
+    <div class="section-head">
+      <span class="section-tag"><span data-he="ערוצים פעילים" data-en="Active Channels">ערוצים פעילים</span></span>
+      <h2 class="section-title"><span data-he="בחרו את הדרך שנוחה לכם" data-en="Choose the way that suits you">בחרו את הדרך שנוחה לכם</span></h2>
+      <p class="section-subtitle"><span data-he="לשאלות, השראה, צפייה בשיעורים ועדכונים שוטפים, אפשר להמשיך מכאן לכל אחד מהערוצים של חגית." data-en="For questions, inspiration, lessons, and updates, you can continue from here to any of Hagit’s channels.">לשאלות, השראה, צפייה בשיעורים ועדכונים שוטפים, אפשר להמשיך מכאן לכל אחד מהערוצים של חגית.</span></p>
+    </div>
+
+    <div class="contact-grid">
+      <a class="contact-card" href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener">
+        <div class="contact-icon">📺</div>
+        <h3><span data-he="ערוץ היוטיוב" data-en="YouTube Channel">ערוץ היוטיוב</span></h3>
+        <p><span data-he="לשיעורים, סרטונים ותוכן חזותי שמעמיק את תהליך הלמידה והיצירה." data-en="For lessons, videos, and visual content that deepens the learning and creative process.">לשיעורים, סרטונים ותוכן חזותי שמעמיק את תהליך הלמידה והיצירה.</span></p>
+        <span class="contact-link"><span data-he="למעבר לערוץ" data-en="Visit the channel">למעבר לערוץ</span></span>
+      </a>
+
+      <a class="contact-card" href="https://www.instagram.com/hagit_avidan/" target="_blank" rel="noopener">
+        <div class="contact-icon">📷</div>
+        <h3><span data-he="אינסטגרם" data-en="Instagram">אינסטגרם</span></h3>
+        <p><span data-he="לעדכונים שוטפים, השראה חזותית ורגעים מתוך הסטודיו והעשייה האמנותית." data-en="For ongoing updates, visual inspiration, and moments from the studio and artistic work.">לעדכונים שוטפים, השראה חזותית ורגעים מתוך הסטודיו והעשייה האמנותית.</span></p>
+        <span class="contact-link"><span data-he="למעבר לאינסטגרם" data-en="Visit Instagram">למעבר לאינסטגרם</span></span>
+      </a>
+
+      <a class="contact-card" href="https://www.facebook.com/hagit.avidan/" target="_blank" rel="noopener">
+        <div class="contact-icon">👥</div>
+        <h3><span data-he="פייסבוק" data-en="Facebook">פייסבוק</span></h3>
+        <p><span data-he="מרחב נוסף לעקוב, להתעדכן ולהישאר מחוברים לתכנים ולפרסומים." data-en="Another place to follow, stay updated, and remain connected to new content and posts.">מרחב נוסף לעקוב, להתעדכן ולהישאר מחוברים לתכנים ולפרסומים.</span></p>
+        <span class="contact-link"><span data-he="למעבר לפייסבוק" data-en="Visit Facebook">למעבר לפייסבוק</span></span>
+      </a>
+
+      <a class="contact-card" href="https://hagitavidan.minisite.ms/9" target="_blank" rel="noopener">
+        <div class="contact-icon">📚</div>
+        <h3><span data-he="קורס קסם הרישום" data-en="Drawing Magic Course">קורס קסם הרישום</span></h3>
+        <p><span data-he="להעמקה מסודרת בתהליך הלמידה, עם תרגול, חומרים והנחיה בדרך הייחודית של חגית." data-en="For a structured deepening of the learning process, with practice, materials, and guidance in Hagit’s unique method.">להעמקה מסודרת בתהליך הלמידה, עם תרגול, חומרים והנחיה בדרך הייחודית של חגית.</span></p>
+        <span class="contact-link"><span data-he="למעבר לקורס" data-en="Visit the course">למעבר לקורס</span></span>
+      </a>
+    </div>
+
+    <div class="note-box">
+      <span data-he="אם תרצו להתחיל מהיכרות עם התכנים, מומלץ לבקר קודם בדף הבית ובמאגר השיעורים, ומשם להמשיך לערוץ או לקורס לפי מה שמתאים לכם." data-en="If you would like to begin by getting to know the content, it is recommended to visit the home page and lesson collection first, and from there continue to the channel or course that suits you best.">אם תרצו להתחיל מהיכרות עם התכנים, מומלץ לבקר קודם בדף הבית ובמאגר השיעורים, ומשם להמשיך לערוץ או לקורס לפי מה שמתאים לכם.</span>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><span data-he="🎨 חגית אבידן | סטודיו לציור" data-en="🎨 Hagit Avidan | Painting Studio">🎨 חגית אבידן | סטודיו לציור</span></div>
+    <p><span data-he="יצירת קשר, השראה, תרגול ולמידה" data-en="Contact, inspiration, practice and learning">יצירת קשר, השראה, תרגול ולמידה</span></p>
+    <p>
+      <a href="index.html"><span data-he="דף הבית" data-en="Home">דף הבית</span></a>
+      &nbsp;|&nbsp;
+      <a href="https://www.youtube.com/@hagitavidanart" target="_blank" rel="noopener"><span data-he="יוטיוב" data-en="YouTube">יוטיוב</span></a>
+      &nbsp;|&nbsp;
+      <a href="https://www.instagram.com/hagit_avidan/" target="_blank" rel="noopener"><span data-he="אינסטגרם" data-en="Instagram">אינסטגרם</span></a>
+      &nbsp;|&nbsp;
+      <a href="https://www.facebook.com/hagit.avidan/" target="_blank" rel="noopener"><span data-he="פייסבוק" data-en="Facebook">פייסבוק</span></a>
+    </p>
+  </footer>
+
+  <script>
+    (function() {
+      var currentLang = localStorage.getItem('siteLang') || 'he';
+
+      function applyLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('siteLang', lang);
+        document.querySelectorAll('[data-he]').forEach(function(el) {
+          el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-he');
+        });
+        var btn = document.getElementById('lang-btn');
+        if (btn) btn.textContent = lang === 'en' ? '🇮🇱 עברית' : '🇬🇧 English';
+        document.documentElement.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
+        document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'he');
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.createElement('button');
+        btn.id = 'lang-btn';
+        btn.textContent = currentLang === 'en' ? '🇮🇱 עברית' : '🇬🇧 English';
+        btn.onclick = function() { applyLang(currentLang === 'he' ? 'en' : 'he'); };
+        document.body.appendChild(btn);
+        applyLang(currentLang);
+      });
+    })();
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
