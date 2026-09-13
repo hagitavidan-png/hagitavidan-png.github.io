@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hagit Avidan | Interactive Art Lessons</title>
+<title>Hagit Avidan Art Lab | שיעורים וסדנאות באמנות</title>
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hagit Avidan | Interactive Art Lessons">
-<meta property="og:description" content="Art lessons & drawing inspiration by Hagit Avidan, Still Life, Cities, Journal and more">
+<meta property="og:title" content="Hagit Avidan Art Lab | שיעורים וסדנאות באמנות">
+<meta property="og:description" content="שיעורים וסדנאות באמנות עם חגית אבידן — התבוננות, רגש, חומר ושפה אישית">
 <meta property="og:image" content="https://raw.githubusercontent.com/hagitavidan-png/hagitavidan-png.github.io/main/logo.jpg">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
-<meta property="og:image:alt" content="7 Diamonds - Hagit Avidan Art Lessons">
+<meta property="og:image:alt" content="Hagit Avidan Art Lab">
 <meta property="og:locale" content="he_IL">
 
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -479,6 +479,52 @@
     .about-links { justify-content: center; }
     .hero-cta { flex-direction: column; align-items: center; }
   }
+
+  /* ── WORKSHOP PATHS ── */
+  .workshops-section {
+    padding: 80px 5%;
+    background: #fff;
+  }
+  .workshops-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .workshops-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 36px;
+  }
+  .workshop-card {
+    display: flex;
+    min-height: 250px;
+    padding: 26px;
+    border-radius: 24px;
+    text-decoration: none;
+    color: var(--text-dark);
+    text-align: right;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border);
+    background: linear-gradient(160deg, #fffdf9, #f6f2e9);
+    box-shadow: 0 8px 28px var(--shadow);
+    transition: transform .25s, box-shadow .25s;
+  }
+  .workshop-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 38px rgba(35,97,126,.18);
+  }
+  .workshop-card:nth-child(2) { background: linear-gradient(160deg, #f4fafb, #e7f0f1); }
+  .workshop-card:nth-child(3) { background: linear-gradient(160deg, #fff8f2, #f7e4d8); }
+  .workshop-card:nth-child(4) { background: linear-gradient(160deg, #f6f4f9, #e9e2f0); }
+  .workshop-icon { font-size: 2.1rem; }
+  .workshop-card h3 { font-size: 1.25rem; margin: 16px 0 8px; line-height: 1.35; }
+  .workshop-card p { color: var(--text-mid); font-size: .92rem; line-height: 1.65; }
+  .workshop-link { color: var(--warm-blue); font-weight: 800; margin-top: 22px; }
+  html[dir="ltr"] .workshop-card { text-align: left; }
+  @media (max-width: 980px) { .workshops-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .workshops-grid { grid-template-columns: 1fr; } }
 
   /* ── LANGUAGE TOGGLE ── */
   #lang-btn {
@@ -1071,8 +1117,9 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-brand">🎨 <span data-he="חגית אבידן" data-en="Hagit Avidan">חגית אבידן</span> | <span data-he="שיעורי ציור" data-en="Art Lessons">שיעורי ציור</span></div>
+  <div class="nav-brand">🎨 Hagit Avidan <span>Art Lab</span></div>
   <div class="nav-links">
+    <a href="#workshops"><span data-he="סדנאות" data-en="Workshops">סדנאות</span></a>
     <a href="#lessons"><span data-he="שיעורים" data-en="Lessons">שיעורים</span></a>
     <a href="#about"><span data-he="אודות" data-en="About">אודות</span></a>
     <a href="contact.html"><span data-he="יצירת קשר" data-en="Contact">יצירת קשר</span></a>
@@ -1085,13 +1132,12 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">🎨 <span data-he="חגית אבידן | 7 היהלומים" data-en="Hagit Avidan | 7 Diamonds">חגית אבידן | 7 היהלומים</span></div>
-  <h1><span data-he="לומדים לצייר מתוך" data-en="Learn to paint through">לומדים לצייר מתוך</span><br><span data-he="התבוננות, רגש והשראה" data-en="observation, emotion and inspiration">התבוננות, רגש והשראה</span></h1>
-  <p><span data-he="שיעורי ציור אינטראקטיביים, גלריות, תרגילים מעשיים ורעיונות לעבודה אישית." data-en="Interactive art lessons, galleries, hands-on exercises and ideas for personal work.">שיעורי ציור אינטראקטיביים, גלריות, תרגילים מעשיים ורעיונות לעבודה אישית.</span><br>
-  <span data-he="כאן לומדים לראות את העולם מחדש." data-en="Here you learn to see the world anew.">כאן לומדים לראות את העולם מחדש.</span></p>
+  <div class="hero-badge">Hagit Avidan Art Lab</div>
+  <h1><span data-he="שיעורים וסדנאות" data-en="Art Lessons &">שיעורים וסדנאות</span><br><span data-he="באמנות" data-en="Workshops">באמנות</span></h1>
+  <p><span data-he="מרחב דיגיטלי להתבוננות, ניסוי ויצירה — לשימוש בסדנה ולהמשך עבודה בבית." data-en="A digital space for observation, experimentation and creation — in the studio and at home.">מרחב דיגיטלי להתבוננות, ניסוי ויצירה — לשימוש בסדנה ולהמשך עבודה בבית.</span></p>
   <div class="hero-cta">
-    <a href="#lessons" id="open-lessons-top" class="btn-primary" onclick="return window.openLessonsSectionFromHero ? window.openLessonsSectionFromHero(event) : true;">🖌️ <span data-he="לשיעורים" data-en="To Lessons">לשיעורים</span></a>
-    <a href="https://www.youtube.com/@hagitavidanart" target="_blank" class="btn-secondary">📺 <span data-he="ערוץ יוטיוב" data-en="YouTube Channel">ערוץ יוטיוב</span></a>
+    <a href="#workshops" class="btn-primary">🖌️ <span data-he="לסדנאות" data-en="Explore Workshops">לסדנאות</span></a>
+    <a href="#lessons" id="open-lessons-top" class="btn-secondary" onclick="return window.openLessonsSectionFromHero ? window.openLessonsSectionFromHero(event) : true;">📚 <span data-he="לספריית השיעורים" data-en="Lesson Library">לספריית השיעורים</span></a>
   </div>
 </section>
 
@@ -1114,8 +1160,8 @@
     <span class="stat-label"><span data-he="השראה" data-en="Inspiration">השראה</span></span>
   </div>
   <div class="stat-item">
-    <span class="stat-num">🆓</span>
-    <span class="stat-label"><span data-he="גישה חינמית" data-en="Free Access">גישה חינמית</span></span>
+    <span class="stat-num">4</span>
+    <span class="stat-label"><span data-he="מסלולי סדנה" data-en="Workshop Paths">מסלולי סדנה</span></span>
   </div>
 </div>
 <div id="lessons-mobile-panel" class="lessons-mobile-panel">
@@ -1124,6 +1170,34 @@
     <ul id="lessons-mobile-list"></ul>
   </div>
 </div>
+
+<!-- WORKSHOPS -->
+<section id="workshops" class="workshops-section">
+  <div class="workshops-inner">
+    <span class="section-tag">Hagit Avidan Art Lab</span>
+    <h2 class="section-title"><span data-he="ארבעה מסלולים ליצירה" data-en="Four Creative Workshop Paths">ארבעה מסלולים ליצירה</span></h2>
+    <div class="divider"></div>
+    <p class="section-subtitle"><span data-he="כל מסלול משלב השראה מאמנים, התנסות חומרית, תהליך אישי והמשך עבודה בבית." data-en="Each path combines artist inspiration, material exploration, a personal process and optional practice at home.">כל מסלול משלב השראה מאמנים, התנסות חומרית, תהליך אישי והמשך עבודה בבית.</span></p>
+    <div class="workshops-grid">
+      <a class="workshop-card" href="workshops.html#time-layers">
+        <div><span class="workshop-icon">📔</span><h3 data-he="שכבות של זמן — יומן חזותי" data-en="Layers of Time — Visual Journal">שכבות של זמן — יומן חזותי</h3><p data-he="זיכרון, דימוי, טקסט ושכבות נפגשים בעבודה אישית מתפתחת." data-en="Memory, image, text and layers meet in an evolving personal practice.">זיכרון, דימוי, טקסט ושכבות נפגשים בעבודה אישית מתפתחת.</p></div>
+        <span class="workshop-link" data-he="למסלול ←" data-en="View path →">למסלול ←</span>
+      </a>
+      <a class="workshop-card" href="workshops.html#observation">
+        <div><span class="workshop-icon">👁️</span><h3 data-he="מהתבוננות למופשט" data-en="From Observation to Abstraction">מהתבוננות למופשט</h3><p data-he="מתחילים במה שנראה לעין ומגלים כיצד קו, צורה וצבע הופכים לשפה חדשה." data-en="Begin with what the eye sees, then let line, form and colour become a new language.">מתחילים במה שנראה לעין ומגלים כיצד קו, צורה וצבע הופכים לשפה חדשה.</p></div>
+        <span class="workshop-link" data-he="למפגש הראשון ←" data-en="Open first session →">למפגש הראשון ←</span>
+      </a>
+      <a class="workshop-card" href="workshops.html#collage">
+        <div><span class="workshop-icon">✂️</span><h3 data-he="אמנות הקולאז׳" data-en="The Art of Collage">אמנות הקולאז׳</h3><p data-he="גזירה, קריעה, בחירה וחיבור מחדש ליצירת קומפוזיציה אישית." data-en="Cut, tear, select and reconnect to create a personal composition.">גזירה, קריעה, בחירה וחיבור מחדש ליצירת קומפוזיציה אישית.</p></div>
+        <span class="workshop-link" data-he="למסלול ←" data-en="View path →">למסלול ←</span>
+      </a>
+      <a class="workshop-card" href="workshops.html#material">
+        <div><span class="workshop-icon">🧱</span><h3 data-he="ציור חומרי בתבליט" data-en="Material Painting & Relief">ציור חומרי בתבליט</h3><p data-he="מרקם, שכבות וחומר בונים ציור שאפשר כמעט לגעת בו." data-en="Texture, layers and material build a painting that can almost be touched.">מרקם, שכבות וחומר בונים ציור שאפשר כמעט לגעת בו.</p></div>
+        <span class="workshop-link" data-he="למסלול ←" data-en="View path →">למסלול ←</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- LESSONS -->
 <div id="lessons" class="section">
@@ -1164,7 +1238,7 @@
   <span class="section-tag" style="background:rgba(255,255,255,0.15);color:white;"><span data-he="👩‍🎨 אודות" data-en="👩‍🎨 About">👩‍🎨 אודות</span></span>
   <h2 class="section-title" style="margin-top:10px;"><span data-he="אודות חגית אבידן" data-en="About Hagit Avidan">אודות חגית אבידן</span></h2>
   <div class="divider"></div>
-  <p class="section-subtitle"><span data-he="אמנית, מורה לציור ויוצרת שיטת 7 היהלומים" data-en="Artist, painting teacher, and creator of the 7 Diamonds Method">אמנית, מורה לציור ויוצרת שיטת 7 היהלומים</span></p>
+  <p class="section-subtitle"><span data-he="אמנית, מורה לציור ומייסדת Hagit Avidan Art Lab" data-en="Artist, painting teacher and founder of Hagit Avidan Art Lab">אמנית, מורה לציור ומייסדת Hagit Avidan Art Lab</span></p>
 
   <div class="about-grid">
     <img class="about-avatar"
@@ -1172,7 +1246,7 @@
          alt="חגית אבידן"
          onerror="this.style.display='none'">
     <div class="about-text">
-      <p><span data-he="חגית אבידן היא אמנית ומורה לציור, המובילה דרך אמנותית ייחודית המבוססת על שיטת 7 היהלומים. דרך עבודתה מזמינה את הלומדים להפוך את הציור ממיומנות טכנית למסע של גילוי, שבו התבוננות, דמיון ורגש מתגבשים לשפה אישית, עמוקה ובעלת נוכחות." data-en="Hagit Avidan is an artist and painting teacher who leads a unique artistic path based on the 7 Diamonds Method. Her approach invites learners to transform painting from a technical skill into a journey of discovery, where observation, imagination, and emotion take shape as a personal, profound language full of presence.">חגית אבידן היא אמנית ומורה לציור, המובילה דרך אמנותית ייחודית המבוססת על שיטת 7 היהלומים. דרך עבודתה מזמינה את הלומדים להפוך את הציור ממיומנות טכנית למסע של גילוי, שבו התבוננות, דמיון ורגש מתגבשים לשפה אישית, עמוקה ובעלת נוכחות.</span></p>
+      <p><span data-he="חגית אבידן היא אמנית ומורה לציור. ב־Art Lab היא מחברת בין התבוננות, דמיון, רגש וחומר ומזמינה כל משתתפת ומשתתף לפתח שפה אישית — בסדנה ובבית." data-en="Hagit Avidan is an artist and painting teacher. In the Art Lab she brings together observation, imagination, emotion and material, inviting every participant to develop a personal language — in the workshop and at home.">חגית אבידן היא אמנית ומורה לציור. ב־Art Lab היא מחברת בין התבוננות, דמיון, רגש וחומר ומזמינה כל משתתפת ומשתתף לפתח שפה אישית — בסדנה ובבית.</span></p>
       <div class="about-links">
         <a href="https://www.youtube.com/@hagitavidanart" target="_blank" class="about-link white">📺 <span data-he="ערוץ יוטיוב" data-en="YouTube Channel">ערוץ יוטיוב</span></a>
         <a href="https://www.instagram.com/hagit_avidan/" target="_blank" class="about-link outline">📷 <span data-he="אינסטגרם" data-en="Instagram">אינסטגרם</span></a>
@@ -1184,8 +1258,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><span data-he="🎨 חגית אבידן | שיעורי ציור" data-en="🎨 Hagit Avidan | Art Lessons">🎨 חגית אבידן | שיעורי ציור</span></div>
-  <p style="margin-bottom:10px;"><span data-he="שיעורי ציור אינטראקטיביים, השראה, תרגול ויצירה" data-en="Interactive art lessons, inspiration, practice and creation">שיעורי ציור אינטראקטיביים, השראה, תרגול ויצירה</span></p>
+  <div class="footer-logo">🎨 Hagit Avidan Art Lab</div>
+  <p style="margin-bottom:10px;"><span data-he="שיעורים וסדנאות באמנות" data-en="Art Lessons & Workshops">שיעורים וסדנאות באמנות</span></p>
   <p>
     <a href="contact.html"><span data-he="✉️ יצירת קשר" data-en="✉️ Contact">✉️ יצירת קשר</span></a>
     &nbsp;|&nbsp;
